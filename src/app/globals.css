@@ -119,6 +119,10 @@ body {
 /* Form */
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 
+/* Clickable service card */
+.service-card-link       { display: block; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
+.service-card-link:hover { opacity: 0.92; transform: translateY(-2px); }
+
 /* Service block inner grid (3-col: investering | inbegrepen | praktisch) */
 .service-inner   { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
 .price-tiers     { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }

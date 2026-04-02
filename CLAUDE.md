@@ -43,6 +43,29 @@ Each service block is full-width and uses the `.service-inner` CSS class for its
 
 Coaching pricing uses `.price-tiers` (3 equal columns, stacks to 1 on mobile).
 
+Each service block on the homepage is a clickable `Link` (`.service-card-link`) that navigates to its individual page.
+
+## Individual Service Pages
+
+| Route | File |
+|-------|------|
+| `/teambuilding` | `src/app/teambuilding/page.tsx` |
+| `/individuele-coaching` | `src/app/individuele-coaching/page.tsx` |
+| `/vrouwen-op-de-werkvloer` | `src/app/vrouwen-op-de-werkvloer/page.tsx` |
+
+All three use the shared `src/components/ServicePageLayout.tsx` template:
+- Back button → `/`
+- Hero (dark panel)
+- "Wat is het" + photo placeholder (2-col)
+- Process steps grid
+- Inclusions + Practical info (2-col)
+- Pricing blocks
+- CTA band → `/?service=ServiceName#contact` (auto-fills contact form select)
+
+**Contact form auto-fill:** Homepage reads `searchParams.service` (Next.js async, must be awaited) and passes it as `prefilledService` prop to `ContactForm`.
+
+**Dutch strings with apostrophes** (e.g. `thema's`, `jouw's`) must use double-quoted strings to avoid parse errors.
+
 ## Design Tokens (quick reference)
 
 ```css

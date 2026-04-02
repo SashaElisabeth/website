@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 
 function BotanicalOrnament({ size = 48, color = "var(--accent-1)", opacity = 0.35 }: {
@@ -20,7 +21,8 @@ function BotanicalOrnament({ size = 48, color = "var(--accent-1)", opacity = 0.3
 }
 
 
-export default function Home() {
+export default async function Home({ searchParams }: { searchParams: Promise<{ service?: string }> }) {
+  const { service } = await searchParams;
   return (
     <div style={{ background: "var(--bg)", color: "var(--ink)" }}>
 
@@ -157,6 +159,7 @@ export default function Home() {
         </div>
 
         {/* ── Teambuilding ── */}
+        <Link href="/teambuilding" className="service-card-link">
         <div style={{
           background: "var(--accent-1)", borderRadius: "10px",
           padding: "2.5rem", marginBottom: "1.25rem",
@@ -260,8 +263,10 @@ export default function Home() {
             </div>
           </div>
         </div>
+        </Link>
 
         {/* ── Individuele Coaching ── */}
+        <Link href="/individuele-coaching" className="service-card-link">
         <div style={{
           background: "var(--accent-3)", borderRadius: "10px",
           padding: "2.5rem", marginBottom: "1.25rem",
@@ -364,8 +369,10 @@ export default function Home() {
             </span>
           </div>
         </div>
+        </Link>
 
         {/* ── Vrouwenprogramma ── */}
+        <Link href="/vrouwen-op-de-werkvloer" className="service-card-link">
         <div style={{
           borderRadius: "10px", padding: "2.5rem",
           background: "rgba(172,179,198,0.18)",
@@ -434,6 +441,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        </Link>
 
       </section>
 
@@ -568,7 +576,7 @@ export default function Home() {
           </div>
         </div>
 
-        <ContactForm />
+        <ContactForm prefilledService={service} />
       </section>
 
       {/* ─────────────── FOOTER ─────────────── */}

@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-export default function ContactForm() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+export default function ContactForm({ prefilledService = '' }: { prefilledService?: string }) {
+  const [form, setForm] = useState({ name: '', email: '', service: prefilledService, message: '' });
   const [sent, setSent] = useState(false);
 
   const field = (key: keyof typeof form) => ({
@@ -68,6 +68,23 @@ export default function ContactForm() {
           <input type="email" required placeholder="jij@voorbeeld.nl" style={inputStyle} {...field('email')} />
         </div>
       </div>
+      <div>
+        <label className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
+          Waarvoor wil je contact opnemen?
+        </label>
+        <select
+          required
+          value={form.service}
+          onChange={e => setForm(prev => ({ ...prev, service: e.target.value }))}
+          style={{ ...inputStyle, appearance: 'none', backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2379301f' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', paddingRight: '2.5rem', color: form.service ? 'var(--ink)' : 'rgba(82,69,27,0.4)' }}
+        >
+          <option value="" disabled hidden>Maak een keuze…</option>
+          <option value="Teambuilding">Teambuilding</option>
+          <option value="Individuele Coaching">Individuele Coaching</option>
+          <option value="Vrouwen op de Werkvloer">Vrouwen op de Werkvloer</option>
+        </select>
+      </div>
+
       <div>
         <label className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
           Bericht

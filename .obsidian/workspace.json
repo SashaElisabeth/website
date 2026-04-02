@@ -1,0 +1,200 @@
+{
+  "main": {
+    "id": "5d82e99382456d70",
+    "type": "split",
+    "children": [
+      {
+        "id": "9cb64817ad6a1ed2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fbd87e76eba0b556",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "design.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "design"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3ac1d015b4a43493",
+    "type": "split",
+    "children": [
+      {
+        "id": "476f2a4c6cae57d5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "26d1c5246b5a8d4c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "ebf8ad999462feca",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "69a41c2f1bd7b8bf",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6ddbc5ffe9b19217",
+    "type": "split",
+    "children": [
+      {
+        "id": "bd34d2814d82a002",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "390207d1e0f1de6d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "design.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for design"
+            }
+          },
+          {
+            "id": "bfa8e095f8b94f7e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "design.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from design"
+            }
+          },
+          {
+            "id": "f02d79ccd941e3f3",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "9f0b6848d31573f0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "18e752a8f18691f1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "design.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of design"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "fbd87e76eba0b556",
+  "lastOpenFiles": [
+    "src/app/vrouwen-op-de-werkvloer/page.tsx",
+    "src/app/individuele-coaching/page.tsx",
+    "src/app/teambuilding/page.tsx",
+    "src/components/ServicePageLayout.tsx",
+    "src/app/vrouwen-op-de-werkvloer",
+    "src/app/individuele-coaching",
+    "src/app/teambuilding",
+    "src/app/contact/page.tsx",
+    "src/app/over-mij/page.tsx",
+    "src/app/aanbod/page.tsx",
+    "src/app/contact"
+  ]
+}

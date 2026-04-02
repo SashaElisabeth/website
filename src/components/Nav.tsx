@@ -13,6 +13,12 @@ export default function Nav() {
   const [scrolled,       setScrolled]       = useState(false);
   const [menuOpen,       setMenuOpen]       = useState(false);
   const [activeSection,  setActiveSection]  = useState('home');
+  const [bgColor,        setBgColor]        = useState('#f7efd2');
+
+  const handleColorChange = (color: string) => {
+    setBgColor(color);
+    document.documentElement.style.setProperty('--bg', color);
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -86,6 +92,35 @@ export default function Nav() {
             );
           })}
         </div>
+
+        {/* Colour picker */}
+        <label
+          title="Achtergrondkleur aanpassen"
+          style={{
+            position: 'relative', cursor: 'pointer',
+            display: 'flex', alignItems: 'center', gap: '0.5rem',
+          }}
+        >
+          <span style={{
+            display: 'block', width: 20, height: 20,
+            borderRadius: '50%',
+            background: bgColor,
+            border: '2px solid rgba(82,69,27,0.25)',
+            boxShadow: '0 0 0 1px rgba(82,69,27,0.1)',
+            transition: 'background 0.2s',
+            flexShrink: 0,
+          }} />
+          <input
+            type="color"
+            value={bgColor}
+            onChange={e => handleColorChange(e.target.value)}
+            style={{
+              position: 'absolute', inset: 0,
+              opacity: 0, width: '100%', height: '100%',
+              cursor: 'pointer', border: 'none', padding: 0,
+            }}
+          />
+        </label>
 
         {/* Mobile hamburger */}
         <button
