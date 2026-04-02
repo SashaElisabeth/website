@@ -67,14 +67,12 @@ export default function Home() {
     <div style={{ background: "var(--bg)", color: "var(--ink)" }}>
 
       {/* ─────────────── HERO ─────────────── */}
-      <section id="home" style={{
-        display: "grid", gridTemplateColumns: "1fr 1fr",
-        minHeight: "100vh",
-      }}>
-        <div style={{
+      <section id="home" className="hero">
+
+        {/* Left — dark panel */}
+        <div className="hero-panel" style={{
           background: "var(--accent-1)",
           display: "flex", flexDirection: "column", justifyContent: "flex-end",
-          padding: "7rem 3.5rem 4.5rem",
           position: "relative", overflow: "hidden",
         }}>
           <div style={{
@@ -133,8 +131,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right — warm gradient */}
-        <div style={{
+        {/* Right — warm gradient (hidden on mobile/iPad) */}
+        <div className="hero-photo" style={{
           position: "relative", overflow: "hidden",
           background: `
             radial-gradient(ellipse at 80% 15%, rgba(232,180,100,0.6) 0%, transparent 45%),
@@ -171,11 +169,8 @@ export default function Home() {
       </section>
 
       {/* ─────────────── AANBOD ─────────────── */}
-      <section id="aanbod" style={{ padding: "6rem 4rem" }}>
-        <div style={{
-          display: "flex", justifyContent: "space-between", alignItems: "baseline",
-          marginBottom: "3rem",
-        }}>
+      <section id="aanbod" className="section-pad">
+        <div className="aanbod-header">
           <div>
             <p className="eyebrow" style={{ marginBottom: "0.75rem" }}>Wat ik aanbied</p>
             <h2 style={{
@@ -201,7 +196,7 @@ export default function Home() {
           </a>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.25rem" }}>
+        <div className="offerings-grid">
           {offerings.map(o => (
             <div key={o.id} style={{
               background: o.bg, borderRadius: "10px", padding: "2.25rem 2rem",
@@ -231,7 +226,6 @@ export default function Home() {
                 }}>
                   {o.body}
                 </p>
-                {/* Price */}
                 <div style={{ display: "flex", alignItems: "baseline", gap: "0.5rem" }}>
                   <span style={{
                     fontFamily: "var(--font-display)", fontSize: "1.375rem",
@@ -249,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* divider */}
-      <div style={{ padding: "0 4rem" }}>
+      <div className="divider">
         <div style={{
           height: "1px",
           background: "linear-gradient(to right, transparent, var(--accent-2), var(--accent-4), var(--accent-5), transparent)",
@@ -258,13 +252,10 @@ export default function Home() {
       </div>
 
       {/* ─────────────── OVER MIJ ─────────────── */}
-      <section id="over-mij" style={{
-        display: "grid", gridTemplateColumns: "1fr 1fr",
-        gap: "5rem", padding: "6rem 4rem",
-        alignItems: "center",
-      }}>
-        {/* Photo placeholder */}
-        <div style={{
+      <section id="over-mij" className="about-grid section-pad">
+
+        {/* Photo placeholder — hidden on mobile */}
+        <div className="about-photo" style={{
           borderRadius: "10px", overflow: "hidden",
           aspectRatio: "4/5",
           background: `
@@ -332,7 +323,7 @@ export default function Home() {
       </section>
 
       {/* divider */}
-      <div style={{ padding: "0 4rem" }}>
+      <div className="divider">
         <div style={{
           height: "1px",
           background: "linear-gradient(to right, transparent, var(--accent-2), var(--accent-4), var(--accent-5), transparent)",
@@ -341,11 +332,7 @@ export default function Home() {
       </div>
 
       {/* ─────────────── CONTACT ─────────────── */}
-      <section id="contact" style={{
-        display: "grid", gridTemplateColumns: "1fr 1.5fr",
-        gap: "5rem", padding: "6rem 4rem 7rem",
-        alignItems: "start",
-      }}>
+      <section id="contact" className="contact-grid section-pb">
         <div>
           <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>Laten we kennismaken</p>
           <h2 style={{
@@ -386,17 +373,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div>
-          <ContactForm />
-        </div>
+        <ContactForm />
       </section>
 
       {/* ─────────────── FOOTER ─────────────── */}
-      <footer style={{
-        borderTop: "1px solid rgba(82,69,27,0.12)",
-        padding: "2rem 4rem",
-        display: "flex", justifyContent: "space-between", alignItems: "center",
-      }}>
+      <footer className="footer-bar" style={{ borderTop: "1px solid rgba(82,69,27,0.12)" }}>
         <div>
           <div style={{
             fontFamily: "var(--font-logo)", fontSize: "0.8rem", fontWeight: 900,

@@ -43,9 +43,22 @@ Website for a Dutch art therapy and coaching practice.
 --accent-5: #acb3c6  /* steel blue */
 ```
 
+## Responsive Breakpoints
+
+Layout is driven by CSS classes in `globals.css` — inline styles handle colours/typography only, never layout.
+
+| Breakpoint | Width | Key behaviour |
+|------------|-------|---------------|
+| Desktop | ≥ 1024px | 3-col offerings, 2-col about/contact, full hero split |
+| iPad | 641–1023px | 2-col offerings, hero stacks (photo below, min-height: 400px) |
+| Mobile | ≤ 640px | Single column everywhere, hero stacks (photo below, min-height: 280px) |
+
+**Hero photo panel:** currently a warm gradient placeholder. `min-height` is set per breakpoint so it remains visible when the split collapses. Replace the gradient background with a real `<Image>` when photos are available — the `hero-photo` class and min-heights are already in place.
+
 ## Conventions
 
 - **Server components by default** — extract interactive elements (hover handlers, form state, scroll events) into `"use client"` components
+- **Responsive layout via CSS classes** — add/modify breakpoints in `globals.css`, not in inline styles
 - **Anchor links** for nav, not `next/link` — the site is single-page
 - **Dutch language** throughout — content is for a Dutch-speaking audience
 - **Placeholder content** — all copy, prices, and the photo placeholder are ready to be replaced with real content

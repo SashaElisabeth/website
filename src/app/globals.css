@@ -73,6 +73,90 @@ body {
   border-color: rgba(247, 239, 210, 0.8) !important;
 }
 
+/* ─── Responsive layout classes ───────────────────────────── */
+
+/* Hero */
+.hero         { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
+.hero-panel   { padding: 7rem 3.5rem 4.5rem; }
+
+/* Sections */
+.section-pad  { padding: 6rem 4rem; }
+.section-pb   { padding: 6rem 4rem 7rem; }
+.divider      { padding: 0 4rem; }
+
+/* Aanbod */
+.aanbod-header {
+  display: flex; justify-content: space-between;
+  align-items: baseline; margin-bottom: 3rem;
+}
+.offerings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+/* About */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+}
+
+/* Contact */
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.5fr;
+  gap: 5rem; align-items: start;
+}
+
+/* CTA band */
+.cta-band {
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 3rem;
+  padding: 5rem 4rem;
+}
+
+/* Footer */
+.footer-bar {
+  display: flex; justify-content: space-between;
+  align-items: center; padding: 2rem 4rem;
+}
+
+/* Form */
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+/* ── iPad (641 – 1023px) ── */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .hero              { grid-template-columns: 1fr; }
+  .hero-photo        { min-height: 400px; } /* placeholder until real photo added */
+  .hero-panel        { padding: 7rem 3rem 4rem; }
+  .offerings-grid    { grid-template-columns: 1fr 1fr; }
+  .about-grid        { gap: 3rem; }
+  .contact-grid      { gap: 3rem; }
+  .section-pad       { padding: 5rem 3rem; }
+  .section-pb        { padding: 5rem 3rem 6rem; }
+  .divider           { padding: 0 3rem; }
+  .aanbod-header     { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+  .cta-band          { padding: 4rem 3rem; }
+  .footer-bar        { padding: 2rem 3rem; }
+  .page-hero         { padding: 4rem 3rem 3rem; }
+}
+
+/* ── Mobile (≤ 640px) ── */
+@media (max-width: 640px) {
+  .nav-links         { display: none; }
+  .nav-hamburger     { display: flex; }
+  .hero              { grid-template-columns: 1fr; }
+  .hero-photo        { min-height: 280px; } /* placeholder until real photo added */
+  .hero-panel        { padding: 5rem 1.75rem 3.5rem; }
+  .offerings-grid    { grid-template-columns: 1fr; }
+  .about-grid        { grid-template-columns: 1fr; gap: 2rem; }
+  .about-photo       { display: none; }
+  .contact-grid      { grid-template-columns: 1fr; gap: 2rem; }
+  .section-pad       { padding: 4rem 1.5rem; }
+  .section-pb        { padding: 4rem 1.5rem 5rem; }
+  .divider           { padding: 0 1.5rem; }
+  .aanbod-header     { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+  .cta-band          { flex-direction: column; align-items: flex-start; padding: 3.5rem 1.5rem; }
+  .footer-bar        { flex-direction: column; gap: 1rem; align-items: flex-start; padding: 2rem 1.5rem; }
+  .form-row          { grid-template-columns: 1fr; }
+  .page-hero         { padding: 3.5rem 1.5rem 2.5rem; }
+}
+
 /* Fade-up entrance animation */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(22px); }
