@@ -60,5 +60,13 @@ Layout is driven by CSS classes in `globals.css` — inline styles handle colour
 - **Server components by default** — extract interactive elements (hover handlers, form state, scroll events) into `"use client"` components
 - **Responsive layout via CSS classes** — add/modify breakpoints in `globals.css`, not in inline styles
 - **Anchor links** for nav, not `next/link` — the site is single-page
+- **Nav is always opaque** — parchment background at all times, no transparent/scroll transition
 - **Dutch language** throughout — content is for a Dutch-speaking audience
 - **Placeholder content** — all copy, prices, and the photo placeholder are ready to be replaced with real content
+
+## Shortcuts
+
+| Command | Action |
+|---------|--------|
+| `save` | Update CLAUDE.md + commit + push to main |
+| `quick save` | Update CLAUDE.md + commit (no push) |

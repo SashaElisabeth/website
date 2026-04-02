@@ -33,10 +33,8 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const opaque = scrolled || menuOpen;
-  const navBg  = opaque
-    ? 'var(--bg)'
-    : 'linear-gradient(to bottom, rgba(20,10,5,0.45) 0%, transparent 100%)';
+  const opaque = true;
+  const navBg  = 'var(--bg)';
 
   return (
     <>
