@@ -27,9 +27,21 @@ Website for a Dutch art therapy and coaching practice.
 ## Sections (in scroll order)
 
 1. `#home` — Hero split (dark olive panel + warm gradient)
-2. `#aanbod` — Three offering cards: Teambuilding, Individuele Coaching, Vrouwenprogramma
-3. `#over-mij` — Photo + personal intro + qualification tags
+2. `#aanbod` — Three full-width service blocks, each with a 3-col inner grid (Investering | Inbegrepen | Praktisch) + Op maat footer:
+   - **Teambuilding** — €850,- base / €30 per extra person (>13), olive dark background
+   - **Individuele Coaching** — 3 trajectory tiers (5/7/10 sessies), blush peach background
+   - **Vrouwenprogramma** — €595 per deelneemster, steel blue striped background
+3. `#over-mij` — Photo placeholder + personal intro + qualification tags
 4. `#contact` — Contact info + form
+
+## Aanbod Layout
+
+Each service block is full-width and uses the `.service-inner` CSS class for its 3-column internal grid:
+- Desktop: 3 columns
+- iPad: 2 columns
+- Mobile: 1 column
+
+Coaching pricing uses `.price-tiers` (3 equal columns, stacks to 1 on mobile).
 
 ## Design Tokens (quick reference)
 

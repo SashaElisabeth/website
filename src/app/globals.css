@@ -119,6 +119,19 @@ body {
 /* Form */
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 
+/* Service block inner grid (3-col: investering | inbegrepen | praktisch) */
+.service-inner   { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+.price-tiers     { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .service-inner { grid-template-columns: 1fr 1fr; }
+  .price-tiers   { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .service-inner { grid-template-columns: 1fr; }
+  .price-tiers   { grid-template-columns: 1fr; }
+}
+
 /* ── iPad (641 – 1023px) ── */
 @media (min-width: 641px) and (max-width: 1023px) {
   .hero              { grid-template-columns: 1fr; }

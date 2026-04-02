@@ -19,48 +19,6 @@ function BotanicalOrnament({ size = 48, color = "var(--accent-1)", opacity = 0.3
   );
 }
 
-const offerings = [
-  {
-    id: "teambuilding",
-    label: "Teambuilding",
-    title: "Samen sterker door creatief werken",
-    body: "Ervaringsgerichte trainingen waarbij teams via beeldende werkvormen ontdekken hoe ze samenwerken en communiceren.",
-    price: "v.a. € 950",
-    priceNote: "per groep",
-    bg: "var(--accent-1)",
-    labelColor: "var(--accent-3)",
-    titleColor: "var(--bg)",
-    bodyColor: "rgba(246,216,204,0.75)",
-    priceColor: "var(--bg)",
-  },
-  {
-    id: "coaching",
-    label: "Individuele Coaching",
-    title: "Ruimte voor jouw verhaal",
-    body: "Een persoonlijk traject van 6–10 sessies om patronen te ontdekken en te bewegen naar wat echt bij jou past.",
-    price: "€ 95",
-    priceNote: "per sessie",
-    bg: "var(--accent-3)",
-    labelColor: "var(--accent-2)",
-    titleColor: "var(--accent-1)",
-    bodyColor: "var(--accent-2)",
-    priceColor: "var(--accent-1)",
-  },
-  {
-    id: "vrouwen",
-    label: "Vrouwen op de werkvloer",
-    title: "Jouw kracht zichtbaar maken",
-    body: "Groepsprogramma van 6 bijeenkomsten voor vrouwen die professioneel en persoonlijk willen groeien.",
-    price: "€ 595",
-    priceNote: "per deelneemster",
-    bg: "rgba(172,179,198,0.18)",
-    labelColor: "var(--accent-2)",
-    titleColor: "var(--accent-1)",
-    bodyColor: "var(--accent-2)",
-    priceColor: "var(--accent-1)",
-    striped: true,
-  },
-];
 
 export default function Home() {
   return (
@@ -170,6 +128,8 @@ export default function Home() {
 
       {/* ─────────────── AANBOD ─────────────── */}
       <section id="aanbod" className="section-pad">
+
+        {/* Section header */}
         <div className="aanbod-header">
           <div>
             <p className="eyebrow" style={{ marginBottom: "0.75rem" }}>Wat ik aanbied</p>
@@ -196,50 +156,285 @@ export default function Home() {
           </a>
         </div>
 
-        <div className="offerings-grid">
-          {offerings.map(o => (
-            <div key={o.id} style={{
-              background: o.bg, borderRadius: "10px", padding: "2.25rem 2rem",
-              border: o.striped ? "1px solid rgba(172,179,198,0.4)" : "1px solid transparent",
-              position: "relative", overflow: "hidden",
-              display: "flex", flexDirection: "column",
+        {/* ── Teambuilding ── */}
+        <div style={{
+          background: "var(--accent-1)", borderRadius: "10px",
+          padding: "2.5rem", marginBottom: "1.25rem",
+          position: "relative", overflow: "hidden",
+        }}>
+          <div style={{
+            position: "absolute", inset: 0, opacity: 0.035,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          }} />
+          <div style={{ position: "relative" }}>
+            <p className="eyebrow" style={{ color: "var(--accent-3)", marginBottom: "0.5rem" }}>Teambuilding</p>
+            <h3 style={{
+              fontFamily: "var(--font-display)", fontSize: "clamp(1.375rem, 2vw, 1.875rem)",
+              fontWeight: 400, color: "var(--bg)", margin: "0 0 2rem", lineHeight: 1.2,
             }}>
-              {o.striped && (
-                <div style={{
-                  position: "absolute", inset: 0, opacity: 0.2,
-                  backgroundImage: "repeating-linear-gradient(90deg, var(--accent-5) 0px, var(--accent-5) 1px, transparent 1px, transparent 18px)",
-                }} />
-              )}
-              <div style={{ position: "relative", flex: 1, display: "flex", flexDirection: "column" }}>
-                <p className="eyebrow" style={{ marginBottom: "0.75rem", color: o.labelColor }}>{o.label}</p>
-                <h3 style={{
-                  fontFamily: "var(--font-display)", fontSize: "1.375rem",
-                  fontWeight: 400, lineHeight: 1.25,
-                  margin: "0 0 0.75rem", color: o.titleColor,
-                }}>
-                  {o.title}
-                </h3>
+              Samen sterker door creatief werken
+            </h3>
+
+            <div className="service-inner">
+              {/* Investering */}
+              <div>
+                <p className="eyebrow" style={{ color: "var(--accent-3)", marginBottom: "1rem" }}>Investering</p>
                 <p style={{
-                  fontFamily: "var(--font-sans)", fontSize: "0.85rem",
-                  fontWeight: 300, lineHeight: 1.75,
-                  color: o.bodyColor, margin: "0 0 1.75rem", flex: 1,
+                  fontFamily: "var(--font-display)", fontSize: "1.75rem", fontWeight: 500,
+                  color: "var(--bg)", margin: "0 0 0.25rem", lineHeight: 1,
+                }}>€ 850,-</p>
+                <p style={{
+                  fontFamily: "var(--font-sans)", fontSize: "0.75rem", fontWeight: 300,
+                  color: "rgba(246,216,204,0.7)", margin: "0 0 1.25rem",
+                }}>excl. btw · groepen t/m 13 personen</p>
+                <div style={{
+                  background: "rgba(246,216,204,0.1)", borderRadius: "6px",
+                  padding: "0.85rem 1rem",
                 }}>
-                  {o.body}
-                </p>
-                <div style={{ display: "flex", alignItems: "baseline", gap: "0.5rem" }}>
-                  <span style={{
-                    fontFamily: "var(--font-display)", fontSize: "1.375rem",
-                    fontWeight: 500, color: o.priceColor,
-                  }}>{o.price}</span>
-                  <span style={{
-                    fontFamily: "var(--font-sans)", fontSize: "0.7rem",
-                    fontWeight: 300, color: o.bodyColor, letterSpacing: "0.04em",
-                  }}>{o.priceNote}</span>
+                  <p style={{
+                    fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 400,
+                    color: "rgba(246,216,204,0.9)", margin: "0 0 0.2rem",
+                  }}>€ 30,- per extra deelnemer</p>
+                  <p style={{
+                    fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300,
+                    color: "rgba(246,216,204,0.6)", margin: 0,
+                  }}>excl. btw · voor grotere groepen</p>
                 </div>
               </div>
+
+              {/* Wat is inbegrepen */}
+              <div>
+                <p className="eyebrow" style={{ color: "var(--accent-3)", marginBottom: "1rem" }}>Wat is inbegrepen</p>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                  {[
+                    "Kennismakingsgesprek (1 uur)",
+                    "Begeleiding van de training",
+                    "Gebruik van beeldende werkvormen en materialen",
+                    "Korte terugkoppeling indien gewenst",
+                  ].map(item => (
+                    <li key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start" }}>
+                      <span style={{ color: "var(--accent-3)", flexShrink: 0, marginTop: "1px" }}>—</span>
+                      <span style={{
+                        fontFamily: "var(--font-sans)", fontSize: "0.85rem",
+                        fontWeight: 300, color: "rgba(246,216,204,0.85)", lineHeight: 1.5,
+                      }}>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Praktisch */}
+              <div>
+                <p className="eyebrow" style={{ color: "var(--accent-3)", marginBottom: "1rem" }}>Praktisch</p>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                  {[
+                    "Duur: 1 dagdeel (uitbreiding naar hele dag mogelijk)",
+                    "Locatie: op locatie / eigen locatie",
+                    "Reiskosten: nader te bepalen",
+                  ].map(item => (
+                    <li key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start" }}>
+                      <span style={{ color: "var(--accent-3)", flexShrink: 0, marginTop: "1px" }}>—</span>
+                      <span style={{
+                        fontFamily: "var(--font-sans)", fontSize: "0.85rem",
+                        fontWeight: 300, color: "rgba(246,216,204,0.85)", lineHeight: 1.5,
+                      }}>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          ))}
+
+            {/* Op maat */}
+            <div style={{
+              marginTop: "2rem", paddingTop: "1.5rem",
+              borderTop: "1px solid rgba(246,216,204,0.15)",
+              display: "flex", alignItems: "baseline", gap: "0.75rem", flexWrap: "wrap",
+            }}>
+              <span className="eyebrow" style={{ color: "var(--accent-3)" }}>Op maat</span>
+              <span style={{
+                fontFamily: "var(--font-sans)", fontSize: "0.85rem", fontWeight: 300,
+                color: "rgba(246,216,204,0.7)",
+              }}>
+                Voor trajecten, grotere groepen of specifieke vragen maak ik graag een voorstel op maat.
+              </span>
+            </div>
+          </div>
         </div>
+
+        {/* ── Individuele Coaching ── */}
+        <div style={{
+          background: "var(--accent-3)", borderRadius: "10px",
+          padding: "2.5rem", marginBottom: "1.25rem",
+        }}>
+          <p className="eyebrow" style={{ marginBottom: "0.5rem" }}>Individuele Coaching</p>
+          <h3 style={{
+            fontFamily: "var(--font-display)", fontSize: "clamp(1.375rem, 2vw, 1.875rem)",
+            fontWeight: 400, color: "var(--accent-1)", margin: "0 0 2rem", lineHeight: 1.2,
+          }}>
+            Ruimte voor echte verdieping en duurzame verandering
+          </h3>
+
+          <div className="service-inner">
+            {/* Investering */}
+            <div>
+              <p className="eyebrow" style={{ marginBottom: "1rem" }}>Investering</p>
+              <p style={{
+                fontFamily: "var(--font-sans)", fontSize: "0.85rem", fontWeight: 300,
+                color: "var(--accent-2)", lineHeight: 1.7, margin: "0 0 1.25rem",
+              }}>
+                Ik werk met trajecten zodat er ruimte is voor echte verdieping en duurzame verandering.
+              </p>
+              <div className="price-tiers">
+                {[
+                  { sessions: "5 sessies", price: "€ 450,-" },
+                  { sessions: "7 sessies", price: "€ 630,-" },
+                  { sessions: "10 sessies", price: "€ 900,-" },
+                ].map(t => (
+                  <div key={t.sessions} style={{
+                    background: "rgba(121,48,31,0.08)", borderRadius: "6px",
+                    padding: "0.85rem 1rem", border: "1px solid rgba(121,48,31,0.15)",
+                  }}>
+                    <p style={{
+                      fontFamily: "var(--font-display)", fontSize: "1.25rem",
+                      fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1,
+                    }}>{t.price}</p>
+                    <p style={{
+                      fontFamily: "var(--font-sans)", fontSize: "0.7rem",
+                      fontWeight: 300, color: "var(--accent-2)", margin: 0,
+                    }}>{t.sessions} · excl. btw</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Wat is inbegrepen */}
+            <div>
+              <p className="eyebrow" style={{ marginBottom: "1rem" }}>Wat is inbegrepen</p>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                {[
+                  "Begeleiding tijdens de sessies",
+                  "Persoonlijke afstemming op jouw hulpvraag en proces",
+                  "Werken met beeldende werkvormen en reflectie",
+                  "Tussentijdse evaluatie en bijsturing van het traject indien gewenst",
+                ].map(item => (
+                  <li key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start" }}>
+                    <span style={{ color: "var(--accent-2)", flexShrink: 0, marginTop: "1px" }}>—</span>
+                    <span style={{
+                      fontFamily: "var(--font-sans)", fontSize: "0.85rem",
+                      fontWeight: 300, color: "var(--accent-1)", lineHeight: 1.5,
+                    }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Praktisch */}
+            <div>
+              <p className="eyebrow" style={{ marginBottom: "1rem" }}>Praktisch</p>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                {[
+                  "Duur per sessie: ± 45 minuten",
+                  "Locatie: op eigen locatie",
+                  "Frequentie: wekelijks of tweewekelijks in overleg",
+                ].map(item => (
+                  <li key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start" }}>
+                    <span style={{ color: "var(--accent-2)", flexShrink: 0, marginTop: "1px" }}>—</span>
+                    <span style={{
+                      fontFamily: "var(--font-sans)", fontSize: "0.85rem",
+                      fontWeight: 300, color: "var(--accent-1)", lineHeight: 1.5,
+                    }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Op maat */}
+          <div style={{
+            marginTop: "2rem", paddingTop: "1.5rem",
+            borderTop: "1px solid rgba(121,48,31,0.15)",
+            display: "flex", alignItems: "baseline", gap: "0.75rem", flexWrap: "wrap",
+          }}>
+            <span className="eyebrow">Op maat</span>
+            <span style={{
+              fontFamily: "var(--font-sans)", fontSize: "0.85rem",
+              fontWeight: 300, color: "var(--accent-2)",
+            }}>
+              Soms past een standaardtraject niet precies bij jouw vraag. Daarom maak ik ook trajecten op maat, afgestemd op jouw situatie of de vraag vanuit een werkgever.
+            </span>
+          </div>
+        </div>
+
+        {/* ── Vrouwenprogramma ── */}
+        <div style={{
+          borderRadius: "10px", padding: "2.5rem",
+          background: "rgba(172,179,198,0.18)",
+          border: "1px solid rgba(172,179,198,0.4)",
+          position: "relative", overflow: "hidden",
+        }}>
+          <div style={{
+            position: "absolute", inset: 0, opacity: 0.15,
+            backgroundImage: "repeating-linear-gradient(90deg, var(--accent-5) 0px, var(--accent-5) 1px, transparent 1px, transparent 18px)",
+          }} />
+          <div style={{ position: "relative" }}>
+            <p className="eyebrow" style={{ marginBottom: "0.5rem" }}>Vrouwen op de werkvloer</p>
+            <h3 style={{
+              fontFamily: "var(--font-display)", fontSize: "clamp(1.375rem, 2vw, 1.875rem)",
+              fontWeight: 400, color: "var(--accent-1)", margin: "0 0 2rem", lineHeight: 1.2,
+            }}>
+              Jouw kracht zichtbaar maken
+            </h3>
+            <div className="service-inner">
+              <div>
+                <p className="eyebrow" style={{ marginBottom: "1rem" }}>Investering</p>
+                <p style={{
+                  fontFamily: "var(--font-display)", fontSize: "1.75rem", fontWeight: 500,
+                  color: "var(--accent-1)", margin: "0 0 0.25rem", lineHeight: 1,
+                }}>€ 595,-</p>
+                <p style={{
+                  fontFamily: "var(--font-sans)", fontSize: "0.75rem", fontWeight: 300,
+                  color: "var(--accent-2)",
+                }}>excl. btw · per deelneemster</p>
+              </div>
+              <div>
+                <p className="eyebrow" style={{ marginBottom: "1rem" }}>Vorm</p>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                  {[
+                    "Groepsprogramma van 6 bijeenkomsten",
+                    "2 uur per sessie",
+                    "Combinatie van coaching en beeldende werkvormen",
+                    "Max. 8 deelneemsters",
+                  ].map(item => (
+                    <li key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start" }}>
+                      <span style={{ color: "var(--accent-2)", flexShrink: 0, marginTop: "1px" }}>—</span>
+                      <span style={{
+                        fontFamily: "var(--font-sans)", fontSize: "0.85rem",
+                        fontWeight: 300, color: "var(--accent-1)", lineHeight: 1.5,
+                      }}>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="eyebrow" style={{ marginBottom: "1rem" }}>Voor wie</p>
+                <p style={{
+                  fontFamily: "var(--font-sans)", fontSize: "0.85rem", fontWeight: 300,
+                  color: "var(--accent-1)", lineHeight: 1.7,
+                }}>
+                  Vrouwen die professioneel willen groeien, hun stem willen laten horen, of worstelen
+                  met grenzen en verwachtingen op het werk.
+                </p>
+                <p style={{
+                  fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 300,
+                  color: "var(--accent-2)", marginTop: "1rem", fontStyle: "italic",
+                }}>
+                  Nieuwe groepen starten op aanvraag.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </section>
 
       {/* divider */}
