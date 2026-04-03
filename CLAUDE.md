@@ -62,6 +62,8 @@ All three use the shared `src/components/ServicePageLayout.tsx` template:
 - Pricing blocks
 - CTA band → `/?service=ServiceName#contact` (auto-fills contact form select)
 
+Layout is driven by CSS classes (`.service-back`, `.service-hero`, `.about-grid`, `.section-pad`, `.service-inner`) — do **not** add inline `padding`, `display`, `gridTemplateColumns`, or `gap` to sections that already carry these classes, as inline styles override the responsive breakpoints.
+
 **Contact form auto-fill:** Homepage reads `searchParams.service` (Next.js async, must be awaited) and passes it as `prefilledService` prop to `ContactForm`.
 
 **Dutch strings with apostrophes** (e.g. `thema's`, `jouw's`) must use double-quoted strings to avoid parse errors.
@@ -98,6 +100,7 @@ Layout is driven by CSS classes in `globals.css` — inline styles handle colour
 - **Nav is always opaque** — parchment background at all times, no transparent/scroll transition
 - **Dutch language** throughout — content is for a Dutch-speaking audience
 - **Placeholder content** — all copy, prices, and the photo placeholder are ready to be replaced with real content
+- **Responsive by default** — any feature or layout change made for desktop must also be applied to iPad (641–1023px) and mobile (≤640px) breakpoints in `globals.css`
 
 ## Shortcuts
 

@@ -31,7 +31,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
     <div style={{ background: 'var(--bg)', color: 'var(--ink)', minHeight: '100vh', paddingTop: '72px' }}>
 
       {/* ── Back button ── */}
-      <div style={{ padding: '1.5rem 4rem' }}>
+      <div className="service-back">
         <Link href="/" style={{
           display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
           fontFamily: 'var(--font-sans)', fontSize: '0.65rem',
@@ -46,9 +46,8 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
       </div>
 
       {/* ── Hero ── */}
-      <div style={{
+      <div className="service-hero" style={{
         background: data.heroBg,
-        padding: '4rem',
         position: 'relative', overflow: 'hidden',
       }}>
         <div style={{
@@ -78,9 +77,6 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
 
       {/* ── Wat is het ── */}
       <section style={{
-        padding: '5rem 4rem',
-        display: 'grid', gridTemplateColumns: '1fr 1fr',
-        gap: '5rem', alignItems: 'center',
         borderBottom: '1px solid rgba(82,69,27,0.1)',
       }} className="about-grid section-pad">
         <div>
@@ -129,7 +125,6 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
 
       {/* ── Proces ── */}
       <section style={{
-        padding: '5rem 4rem',
         borderBottom: '1px solid rgba(82,69,27,0.1)',
       }} className="section-pad">
         <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Het proces</p>
@@ -141,11 +136,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         }}>
           {data.processTitle}
         </h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: `repeat(${data.steps.length}, 1fr)`,
-          gap: '1.5rem',
-        }} className="service-inner">
+        <div className="service-inner">
           {data.steps.map((step, i) => (
             <div key={step.number} style={{
               padding: '1.75rem',
@@ -181,9 +172,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
 
       {/* ── Inbegrepen + Praktisch ── */}
       <section style={{
-        padding: '5rem 4rem',
         borderBottom: '1px solid rgba(82,69,27,0.1)',
-        display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem',
       }} className="about-grid section-pad">
         <div>
           <p className='eyebrow' style={{ marginBottom: '1rem' }}>Wat is inbegrepen</p>
@@ -221,7 +210,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
       </section>
 
       {/* ── Investering ── */}
-      <section style={{ padding: '5rem 4rem', borderBottom: '1px solid rgba(82,69,27,0.1)' }} className="section-pad">
+      <section style={{ borderBottom: '1px solid rgba(82,69,27,0.1)' }} className="section-pad">
         <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Investering</p>
         <h2 style={{
           fontFamily: 'var(--font-display)',
