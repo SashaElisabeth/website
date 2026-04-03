@@ -5,9 +5,8 @@ const data: ServicePageData = {
   title: 'Ruimte voor jouw verhaal.',
   heroSubtitle: 'Een persoonlijk traject voor mensen die willen groeien, vastlopen of gewoon beter willen begrijpen wat hen drijft.',
   heroBg: 'var(--accent-2)',
-  processTitle: 'Coaching die niet alleen via het hoofd gaat.',
-  intro: `Individuele coaching bij mij combineert gesprek met beeldende werkvormen. Soms is het makkelijker om iets te tekenen, te vormen of te schilderen dan om het onder woorden te brengen. Dat beeldende werken is geen doel op zich — het is een middel om dingen zichtbaar te maken die anders verborgen blijven. We werken op jouw tempo, aan jouw thema, naar wat jij nodig hebt.`,
   processTitle: 'Een traject dat bij jou past.',
+  intro: `Individuele coaching bij mij combineert gesprek met beeldende werkvormen. Soms is het makkelijker om iets te tekenen, te vormen of te schilderen dan om het onder woorden te brengen. Dat beeldende werken is geen doel op zich — het is een middel om dingen zichtbaar te maken die anders verborgen blijven. We werken op jouw tempo, aan jouw thema, naar wat jij nodig hebt.`,
   steps: [
     {
       number: '01',
