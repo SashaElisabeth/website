@@ -18,6 +18,7 @@ export interface ServicePageData {
   heroSubtitle: string;
   heroBg: string;
   intro: string;
+  processTitle: string;
   steps: ProcessStep[];
   included: string[];
   practical: { label: string; value: string }[];
