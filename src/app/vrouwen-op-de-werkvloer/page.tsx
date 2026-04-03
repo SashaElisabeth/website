@@ -5,9 +5,8 @@ const data: ServicePageData = {
   title: 'Jouw kracht zichtbaar maken.',
   heroSubtitle: 'Een groepsprogramma voor vrouwen die professioneel en persoonlijk willen groeien — in een veilige, creatieve omgeving.',
   heroBg: 'var(--accent-1)',
-  processTitle: 'Sterker staan, zonder jezelf te verliezen.',
-  intro: `Dit programma is voor vrouwen die merken dat ze zichzelf klein houden op het werk, moeite hebben met grenzen stellen, of gewoon meer uit zichzelf willen halen. In een kleine groep werken we via coaching en beeldende werkvormen aan zelfvertrouwen, zichtbaarheid en veerkracht. Samen, maar ook heel persoonlijk.`,
   processTitle: 'Zes bijeenkomsten, één groep.',
+  intro: `Dit programma is voor vrouwen die merken dat ze zichzelf klein houden op het werk, moeite hebben met grenzen stellen, of gewoon meer uit zichzelf willen halen. In een kleine groep werken we via coaching en beeldende werkvormen aan zelfvertrouwen, zichtbaarheid en veerkracht. Samen, maar ook heel persoonlijk.`,
   steps: [
     {
       number: '01',
