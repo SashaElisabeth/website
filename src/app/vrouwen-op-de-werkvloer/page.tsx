@@ -44,7 +44,7 @@ const data: ServicePageData = {
     { label: 'Start',     value: 'Nieuwe groepen starten op aanvraag' },
   ],
   pricing: [
-    { label: 'Per deelneemster', price: '€ 595,-', note: 'excl. btw · volledig programma' },
+    { label: 'Per deelneemster', price: '€ 595,-', note: 'incl. btw · volledig programma' },
   ],
   pricingNote: 'Interesse in een incompany programma voor jouw organisatie? Neem contact op voor een voorstel op maat.',
   ctaService: 'Vrouwen op de Werkvloer',

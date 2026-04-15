@@ -30,8 +30,12 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Sasha Elisabeth — Vaktherapie en Coaching",
+  title: "Sasha Elisabeth — Teambuilding & Coaching",
   description: "Vaktherapie en coaching voor mensen die zichzelf willen ontdekken en groeien.",
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
 };
 
 export default function RootLayout({

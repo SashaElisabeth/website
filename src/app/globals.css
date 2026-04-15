@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --bg:        #f7efd2;
+  --bg:        #fbf9f4;
   --ink:       #52451b;
 
   /* Accent palette — frequency order */
@@ -47,8 +47,10 @@ body {
 }
 
 /* Nav */
-.nav-links   { display: flex; gap: 2.5rem; align-items: center; }
+.nav-links     { display: flex; gap: 2.5rem; align-items: center; }
 .nav-hamburger { display: none; }
+.nav-bar       { padding: 1.1rem 2.5rem; }
+.nav-dropdown  { padding: 1.5rem 2.5rem 2rem; }
 
 @media (max-width: 640px) {
   .nav-links     { display: none; }
@@ -120,7 +122,7 @@ body {
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 
 /* Clickable service card */
-.service-card-link       { display: block; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
+.service-card-link       { display: block; text-decoration: none; transition: opacity 0.2s, transform 0.2s; height: 100%; }
 .service-card-link:hover { opacity: 0.92; transform: translateY(-2px); }
 
 /* Service page back button + hero */
@@ -152,6 +154,8 @@ body {
   .section-pb        { padding: 5rem 3rem 6rem; }
   .divider           { padding: 0 3rem; }
   .aanbod-header     { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+  .nav-bar           { padding: 1rem 2rem; }
+  .nav-dropdown      { padding: 1.25rem 2rem 1.75rem; }
   .cta-band          { padding: 4rem 3rem; }
   .footer-bar        { padding: 2rem 3rem; }
   .page-hero         { padding: 4rem 3rem 3rem; }
@@ -174,6 +178,8 @@ body {
   .section-pb        { padding: 4rem 1.5rem 5rem; }
   .divider           { padding: 0 1.5rem; }
   .aanbod-header     { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+  .nav-bar           { padding: 0.9rem 1.25rem; }
+  .nav-dropdown      { padding: 1.25rem 1.25rem 1.75rem; }
   .cta-band          { flex-direction: column; align-items: flex-start; padding: 3.5rem 1.5rem; }
   .footer-bar        { flex-direction: column; gap: 1rem; align-items: flex-start; padding: 2rem 1.5rem; }
   .form-row          { grid-template-columns: 1fr; }

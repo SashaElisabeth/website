@@ -20,7 +20,8 @@ Website for a Dutch art therapy and coaching practice.
 | `src/app/page.tsx` | Single-page layout (all sections) |
 | `src/app/layout.tsx` | Root layout — fonts + Nav |
 | `src/app/globals.css` | Design tokens, CSS variables, utility classes |
-| `src/components/Nav.tsx` | Fixed nav with scrollspy, anchor links, mobile hamburger |
+| `src/components/Nav.tsx` | Fixed nav with scrollspy, anchor links, mobile hamburger, image logo |
+| `public/logo.png` | Brand logo image — used in nav and as favicon |
 | `src/components/ContactForm.tsx` | Client component — contact form with success state |
 | `design.md` | Full design system reference |
 
@@ -43,7 +44,7 @@ Each service block is full-width and uses the `.service-inner` CSS class for its
 
 Coaching pricing uses `.price-tiers` (3 equal columns, stacks to 1 on mobile).
 
-Each service block on the homepage is a clickable `Link` (`.service-card-link`) that navigates to its individual page.
+The three service blocks on the homepage are laid out as a 3-column grid using `.offerings-grid` — each is a compact vertical card (header + photo placeholder + features + price + CTA button). On iPad they collapse to 2 columns, on mobile to 1 column.
 
 ## Individual Service Pages
 
@@ -71,7 +72,7 @@ Layout is driven by CSS classes (`.service-back`, `.service-hero`, `.about-grid`
 ## Design Tokens (quick reference)
 
 ```css
---bg:       #f7efd2  /* parchment background */
+--bg:       #fbf9f4  /* parchment background */
 --ink:      #52451b  /* olive brown — primary text */
 --accent-1: #52451b  /* olive brown */
 --accent-2: #79301f  /* burnt sienna */
@@ -79,6 +80,12 @@ Layout is driven by CSS classes (`.service-back`, `.service-hero`, `.about-grid`
 --accent-4: #790013  /* crimson */
 --accent-5: #acb3c6  /* steel blue */
 ```
+
+## Responsive Rule
+
+> **Every feature added for desktop must also work on iPad (641–1023px) and mobile (≤640px).**
+> Add all breakpoint overrides in `globals.css` — never via inline styles.
+> This is non-negotiable: a feature is not done until all three breakpoints are covered.
 
 ## Responsive Breakpoints
 
@@ -98,9 +105,10 @@ Layout is driven by CSS classes in `globals.css` — inline styles handle colour
 - **Responsive layout via CSS classes** — add/modify breakpoints in `globals.css`, not in inline styles
 - **Anchor links** for nav, not `next/link` — the site is single-page
 - **Nav is always opaque** — parchment background at all times, no transparent/scroll transition
+- **Nav logo** — uses `<img src="/logo.png">` with `mix-blend-mode: multiply` so the white logo background blends into the parchment. No color picker.
 - **Dutch language** throughout — content is for a Dutch-speaking audience
 - **Placeholder content** — all copy, prices, and the photo placeholder are ready to be replaced with real content
-- **Responsive by default** — any feature or layout change made for desktop must also be applied to iPad (641–1023px) and mobile (≤640px) breakpoints in `globals.css`
+- **Responsive by default** — see the Responsive Rule section above
 
 ## Shortcuts
 

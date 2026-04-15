@@ -44,9 +44,9 @@ const data: ServicePageData = {
     { label: 'Start',      value: 'Na een vrijblijvend kennismakingsgesprek' },
   ],
   pricing: [
-    { label: '5 sessies',  price: '€ 450,-', note: 'excl. btw' },
-    { label: '7 sessies',  price: '€ 630,-', note: 'excl. btw' },
-    { label: '10 sessies', price: '€ 900,-', note: 'excl. btw' },
+    { label: '5 sessies',  price: '€ 450,-', note: 'incl. btw' },
+    { label: '7 sessies',  price: '€ 630,-', note: 'incl. btw' },
+    { label: '10 sessies', price: '€ 900,-', note: 'incl. btw' },
   ],
   pricingNote: 'Soms past een standaardtraject niet precies bij jouw vraag. Ik maak ook trajecten op maat, afgestemd op jouw situatie of de vraag vanuit een werkgever.',
   ctaService: 'Individuele Coaching',

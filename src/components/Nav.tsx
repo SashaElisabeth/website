@@ -13,12 +13,6 @@ export default function Nav() {
   const [scrolled,       setScrolled]       = useState(false);
   const [menuOpen,       setMenuOpen]       = useState(false);
   const [activeSection,  setActiveSection]  = useState('home');
-  const [bgColor,        setBgColor]        = useState('#f7efd2');
-
-  const handleColorChange = (color: string) => {
-    setBgColor(color);
-    document.documentElement.style.setProperty('--bg', color);
-  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -44,33 +38,20 @@ export default function Nav() {
 
   return (
     <>
-      <nav style={{
+      <nav className="nav-bar" style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
         background: navBg,
         borderBottom: opaque ? '1px solid rgba(82,69,27,0.1)' : 'none',
         transition: 'background 0.3s, border-color 0.3s',
-        padding: '1.1rem 2.5rem',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
         {/* Logo */}
-        <a href="#home" style={{ textDecoration: 'none', lineHeight: 1 }}>
-          <div style={{
-            fontFamily: 'var(--font-logo)',
-            fontSize: '0.95rem', fontWeight: 900,
-            letterSpacing: '0.08em', textTransform: 'uppercase',
-            color: opaque ? 'var(--accent-2)' : 'var(--bg)',
-            transition: 'color 0.3s',
-          }}>
-            S. Elisabeth
-          </div>
-          <div style={{
-            fontFamily: 'var(--font-script)',
-            fontSize: '0.65rem',
-            color: opaque ? 'var(--accent-5)' : 'var(--accent-3)',
-            marginTop: '1px', transition: 'color 0.3s',
-          }}>
-            vaktherapie &amp; coaching
-          </div>
+        <a href="#home" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+          <img
+            src="/logo.png"
+            alt="Sasha Elisabeth — Teambuilding & Coaching"
+            style={{ height: '44px', width: 'auto', mixBlendMode: 'multiply' }}
+          />
         </a>
 
         {/* Desktop links */}
@@ -93,35 +74,6 @@ export default function Nav() {
           })}
         </div>
 
-        {/* Colour picker */}
-        <label
-          title="Achtergrondkleur aanpassen"
-          style={{
-            position: 'relative', cursor: 'pointer',
-            display: 'flex', alignItems: 'center', gap: '0.5rem',
-          }}
-        >
-          <span style={{
-            display: 'block', width: 20, height: 20,
-            borderRadius: '50%',
-            background: bgColor,
-            border: '2px solid rgba(82,69,27,0.25)',
-            boxShadow: '0 0 0 1px rgba(82,69,27,0.1)',
-            transition: 'background 0.2s',
-            flexShrink: 0,
-          }} />
-          <input
-            type="color"
-            value={bgColor}
-            onChange={e => handleColorChange(e.target.value)}
-            style={{
-              position: 'absolute', inset: 0,
-              opacity: 0, width: '100%', height: '100%',
-              cursor: 'pointer', border: 'none', padding: 0,
-            }}
-          />
-        </label>
-
         {/* Mobile hamburger */}
         <button
           className="nav-hamburger"
@@ -141,11 +93,10 @@ export default function Nav() {
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div style={{
+        <div className="nav-dropdown" style={{
           position: 'fixed', top: '56px', left: 0, right: 0, zIndex: 49,
           background: 'var(--bg)',
           borderBottom: '1px solid rgba(82,69,27,0.1)',
-          padding: '1.5rem 2.5rem 2rem',
           display: 'flex', flexDirection: 'column', gap: '1.25rem',
         }}>
           {links.map(l => (

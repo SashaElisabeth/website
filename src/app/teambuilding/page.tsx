@@ -38,8 +38,8 @@ const data: ServicePageData = {
     { label: 'Reiskosten', value: 'Nader te bepalen' },
   ],
   pricing: [
-    { label: 'Basis', price: '€ 850,-', note: 'excl. btw · t/m 13 personen' },
-    { label: 'Extra deelnemer', price: '€ 30,-', note: 'excl. btw · per extra persoon' },
+    { label: 'Basis', price: '€ 850,-', note: 'incl. btw · t/m 13 personen' },
+    { label: 'Extra deelnemer', price: '€ 30,-', note: 'incl. btw · per extra persoon' },
   ],
   pricingNote: 'Voor grotere groepen, meerdere dagdelen of specifieke wensen maak ik graag een voorstel op maat.',
   ctaService: 'Teambuilding',

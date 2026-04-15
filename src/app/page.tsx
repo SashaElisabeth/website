@@ -158,290 +158,176 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
           </a>
         </div>
 
-        {/* ── Teambuilding ── */}
-        <Link href="/teambuilding" className="service-card-link">
-        <div style={{
-          background: "var(--accent-1)", borderRadius: "10px",
-          padding: "2.5rem", marginBottom: "1.25rem",
-          position: "relative", overflow: "hidden",
-        }}>
+        {/* ── Service cards grid ── */}
+        <div className="offerings-grid">
+
+          {/* ── Teambuilding ── */}
+          <Link href="/teambuilding" className="service-card-link">
           <div style={{
-            position: "absolute", inset: 0, opacity: 0.035,
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          }} />
-          <div style={{ position: "relative" }}>
-            <p className="eyebrow" style={{ color: "var(--accent-3)", marginBottom: "0.5rem" }}>Teambuilding</p>
-            <h3 style={{
-              fontFamily: "var(--font-display)", fontSize: "clamp(1.375rem, 2vw, 1.875rem)",
-              fontWeight: 400, color: "var(--bg)", margin: "0 0 2rem", lineHeight: 1.2,
-            }}>
-              Samen sterker door creatief werken
-            </h3>
-
-            <div className="service-inner">
-              {/* Investering */}
-              <div>
-                <p className="eyebrow" style={{ color: "var(--accent-3)", marginBottom: "1rem" }}>Investering</p>
-                <p style={{
-                  fontFamily: "var(--font-display)", fontSize: "1.75rem", fontWeight: 500,
-                  color: "var(--bg)", margin: "0 0 0.25rem", lineHeight: 1,
-                }}>€ 850,-</p>
-                <p style={{
-                  fontFamily: "var(--font-sans)", fontSize: "0.75rem", fontWeight: 300,
-                  color: "rgba(246,216,204,0.7)", margin: "0 0 1.25rem",
-                }}>excl. btw · groepen t/m 13 personen</p>
-                <div style={{
-                  background: "rgba(246,216,204,0.1)", borderRadius: "6px",
-                  padding: "0.85rem 1rem",
+            background: "var(--accent-1)", borderRadius: "12px",
+            overflow: "hidden", display: "flex", flexDirection: "column", height: "100%",
+            position: "relative",
+          }}>
+            <div style={{
+              position: "absolute", inset: 0, opacity: 0.035, pointerEvents: "none",
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+            }} />
+            <div style={{ position: "relative", display: "flex", flexDirection: "column", height: "100%" }}>
+              <div style={{ padding: "1.75rem 1.75rem 1.5rem" }}>
+                <p className="eyebrow" style={{ color: "var(--accent-3)", marginBottom: "0.5rem" }}>Teambuilding</p>
+                <h3 style={{
+                  fontFamily: "var(--font-display)", fontSize: "clamp(1.2rem, 1.5vw, 1.5rem)",
+                  fontWeight: 400, color: "var(--bg)", margin: 0, lineHeight: 1.25,
                 }}>
-                  <p style={{
-                    fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 400,
-                    color: "rgba(246,216,204,0.9)", margin: "0 0 0.2rem",
-                  }}>€ 30,- per extra deelnemer</p>
-                  <p style={{
-                    fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300,
-                    color: "rgba(246,216,204,0.6)", margin: 0,
-                  }}>excl. btw · voor grotere groepen</p>
-                </div>
+                  Samen sterker door creatief werken
+                </h3>
               </div>
-
-              {/* Wat is inbegrepen */}
-              <div>
-                <p className="eyebrow" style={{ color: "var(--accent-3)", marginBottom: "1rem" }}>Wat is inbegrepen</p>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+              <div style={{
+                height: "180px", flexShrink: 0,
+                background: "linear-gradient(135deg, #2a1f0a 0%, #3d2f10 40%, #1a1005 100%)",
+                position: "relative", overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: "35%", left: "10%", right: "10%", height: 3, background: "rgba(246,216,204,0.3)", borderRadius: 4, transform: "rotate(-2deg)" }} />
+                <div style={{ position: "absolute", top: "48%", left: "20%", right: "20%", height: 2, background: "rgba(172,179,198,0.35)", borderRadius: 4, transform: "rotate(1deg)" }} />
+                <div style={{ position: "absolute", top: "62%", left: "5%", right: "30%", height: 3, background: "rgba(121,0,19,0.4)", borderRadius: 4, transform: "rotate(-1deg)" }} />
+              </div>
+              <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
+                <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
                   {[
                     "Kennismakingsgesprek (1 uur)",
                     "Begeleiding van de training",
-                    "Gebruik van beeldende werkvormen en materialen",
+                    "Beeldende werkvormen en materialen",
                     "Korte terugkoppeling indien gewenst",
                   ].map(item => (
-                    <li key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start" }}>
-                      <span style={{ color: "var(--accent-3)", flexShrink: 0, marginTop: "1px" }}>—</span>
-                      <span style={{
-                        fontFamily: "var(--font-sans)", fontSize: "0.85rem",
-                        fontWeight: 300, color: "rgba(246,216,204,0.85)", lineHeight: 1.5,
-                      }}>{item}</span>
+                    <li key={item} style={{ display: "flex", gap: "0.55rem", alignItems: "flex-start" }}>
+                      <span style={{ color: "var(--accent-3)", flexShrink: 0, marginTop: "2px", fontSize: "0.7rem" }}>✓</span>
+                      <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 300, color: "rgba(246,216,204,0.85)", lineHeight: 1.5 }}>{item}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
-
-              {/* Praktisch */}
-              <div>
-                <p className="eyebrow" style={{ color: "var(--accent-3)", marginBottom: "1rem" }}>Praktisch</p>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.6rem" }}>
-                  {[
-                    "Duur: 1 dagdeel (uitbreiding naar hele dag mogelijk)",
-                    "Locatie: op locatie / eigen locatie",
-                    "Reiskosten: nader te bepalen",
-                  ].map(item => (
-                    <li key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start" }}>
-                      <span style={{ color: "var(--accent-3)", flexShrink: 0, marginTop: "1px" }}>—</span>
-                      <span style={{
-                        fontFamily: "var(--font-sans)", fontSize: "0.85rem",
-                        fontWeight: 300, color: "rgba(246,216,204,0.85)", lineHeight: 1.5,
-                      }}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div style={{ borderTop: "1px solid rgba(246,216,204,0.15)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
+                  <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--bg)", margin: "0 0 0.15rem", lineHeight: 1 }}>€ 850,-</p>
+                  <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "rgba(246,216,204,0.6)", margin: 0 }}>incl. btw · groepen t/m 13 personen</p>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-3)" }}>
+                  Meer info
+                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </div>
               </div>
             </div>
+          </div>
+          </Link>
 
-            {/* Op maat */}
+          {/* ── Individuele Coaching ── */}
+          <Link href="/individuele-coaching" className="service-card-link">
+          <div style={{
+            background: "var(--accent-3)", borderRadius: "12px",
+            overflow: "hidden", display: "flex", flexDirection: "column", height: "100%",
+          }}>
+            <div style={{ padding: "1.75rem 1.75rem 1.5rem" }}>
+              <p className="eyebrow" style={{ marginBottom: "0.5rem" }}>Individuele Coaching</p>
+              <h3 style={{
+                fontFamily: "var(--font-display)", fontSize: "clamp(1.2rem, 1.5vw, 1.5rem)",
+                fontWeight: 400, color: "var(--accent-1)", margin: 0, lineHeight: 1.25,
+              }}>
+                Ruimte voor echte verdieping en duurzame verandering
+              </h3>
+            </div>
             <div style={{
-              marginTop: "2rem", paddingTop: "1.5rem",
-              borderTop: "1px solid rgba(246,216,204,0.15)",
-              display: "flex", alignItems: "baseline", gap: "0.75rem", flexWrap: "wrap",
+              height: "180px", flexShrink: 0,
+              background: "linear-gradient(135deg, #e8b89a 0%, #c98a6a 40%, #a06040 100%)",
+              position: "relative", overflow: "hidden",
             }}>
-              <span className="eyebrow" style={{ color: "var(--accent-3)" }}>Op maat</span>
-              <span style={{
-                fontFamily: "var(--font-sans)", fontSize: "0.85rem", fontWeight: 300,
-                color: "rgba(246,216,204,0.7)",
-              }}>
-                Voor trajecten, grotere groepen of specifieke vragen maak ik graag een voorstel op maat.
-              </span>
+              <div style={{ position: "absolute", top: "35%", left: "10%", right: "15%", height: 3, background: "rgba(121,48,31,0.3)", borderRadius: 4, transform: "rotate(-1.5deg)" }} />
+              <div style={{ position: "absolute", top: "50%", left: "25%", right: "10%", height: 2, background: "rgba(82,69,27,0.25)", borderRadius: 4, transform: "rotate(1deg)" }} />
+              <div style={{ position: "absolute", top: "63%", left: "5%", right: "25%", height: 3, background: "rgba(121,0,19,0.3)", borderRadius: 4, transform: "rotate(-1deg)" }} />
             </div>
-          </div>
-        </div>
-        </Link>
-
-        {/* ── Individuele Coaching ── */}
-        <Link href="/individuele-coaching" className="service-card-link">
-        <div style={{
-          background: "var(--accent-3)", borderRadius: "10px",
-          padding: "2.5rem", marginBottom: "1.25rem",
-        }}>
-          <p className="eyebrow" style={{ marginBottom: "0.5rem" }}>Individuele Coaching</p>
-          <h3 style={{
-            fontFamily: "var(--font-display)", fontSize: "clamp(1.375rem, 2vw, 1.875rem)",
-            fontWeight: 400, color: "var(--accent-1)", margin: "0 0 2rem", lineHeight: 1.2,
-          }}>
-            Ruimte voor echte verdieping en duurzame verandering
-          </h3>
-
-          <div className="service-inner">
-            {/* Investering */}
-            <div>
-              <p className="eyebrow" style={{ marginBottom: "1rem" }}>Investering</p>
-              <p style={{
-                fontFamily: "var(--font-sans)", fontSize: "0.85rem", fontWeight: 300,
-                color: "var(--accent-2)", lineHeight: 1.7, margin: "0 0 1.25rem",
-              }}>
-                Ik werk met trajecten zodat er ruimte is voor echte verdieping en duurzame verandering.
-              </p>
-              <div className="price-tiers">
+            <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
+              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
                 {[
-                  { sessions: "5 sessies", price: "€ 450,-" },
-                  { sessions: "7 sessies", price: "€ 630,-" },
-                  { sessions: "10 sessies", price: "€ 900,-" },
-                ].map(t => (
-                  <div key={t.sessions} style={{
-                    background: "rgba(121,48,31,0.08)", borderRadius: "6px",
-                    padding: "0.85rem 1rem", border: "1px solid rgba(121,48,31,0.15)",
-                  }}>
-                    <p style={{
-                      fontFamily: "var(--font-display)", fontSize: "1.25rem",
-                      fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1,
-                    }}>{t.price}</p>
-                    <p style={{
-                      fontFamily: "var(--font-sans)", fontSize: "0.7rem",
-                      fontWeight: 300, color: "var(--accent-2)", margin: 0,
-                    }}>{t.sessions} · excl. btw</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Wat is inbegrepen */}
-            <div>
-              <p className="eyebrow" style={{ marginBottom: "1rem" }}>Wat is inbegrepen</p>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.6rem" }}>
-                {[
-                  "Begeleiding tijdens de sessies",
-                  "Persoonlijke afstemming op jouw hulpvraag en proces",
-                  "Werken met beeldende werkvormen en reflectie",
-                  "Tussentijdse evaluatie en bijsturing van het traject indien gewenst",
+                  "Persoonlijke afstemming op jouw hulpvraag",
+                  "Beeldende werkvormen en reflectie",
+                  "Tussentijdse evaluatie en bijsturing",
+                  "Trajecten van 5, 7 of 10 sessies",
                 ].map(item => (
-                  <li key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start" }}>
-                    <span style={{ color: "var(--accent-2)", flexShrink: 0, marginTop: "1px" }}>—</span>
-                    <span style={{
-                      fontFamily: "var(--font-sans)", fontSize: "0.85rem",
-                      fontWeight: 300, color: "var(--accent-1)", lineHeight: 1.5,
-                    }}>{item}</span>
+                  <li key={item} style={{ display: "flex", gap: "0.55rem", alignItems: "flex-start" }}>
+                    <span style={{ color: "var(--accent-2)", flexShrink: 0, marginTop: "2px", fontSize: "0.7rem" }}>✓</span>
+                    <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 300, color: "var(--accent-1)", lineHeight: 1.5 }}>{item}</span>
                   </li>
                 ))}
               </ul>
-            </div>
-
-            {/* Praktisch */}
-            <div>
-              <p className="eyebrow" style={{ marginBottom: "1rem" }}>Praktisch</p>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.6rem" }}>
-                {[
-                  "Duur per sessie: ± 45 minuten",
-                  "Locatie: op eigen locatie",
-                  "Frequentie: wekelijks of tweewekelijks in overleg",
-                ].map(item => (
-                  <li key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start" }}>
-                    <span style={{ color: "var(--accent-2)", flexShrink: 0, marginTop: "1px" }}>—</span>
-                    <span style={{
-                      fontFamily: "var(--font-sans)", fontSize: "0.85rem",
-                      fontWeight: 300, color: "var(--accent-1)", lineHeight: 1.5,
-                    }}>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Op maat */}
-          <div style={{
-            marginTop: "2rem", paddingTop: "1.5rem",
-            borderTop: "1px solid rgba(121,48,31,0.15)",
-            display: "flex", alignItems: "baseline", gap: "0.75rem", flexWrap: "wrap",
-          }}>
-            <span className="eyebrow">Op maat</span>
-            <span style={{
-              fontFamily: "var(--font-sans)", fontSize: "0.85rem",
-              fontWeight: 300, color: "var(--accent-2)",
-            }}>
-              Soms past een standaardtraject niet precies bij jouw vraag. Daarom maak ik ook trajecten op maat, afgestemd op jouw situatie of de vraag vanuit een werkgever.
-            </span>
-          </div>
-        </div>
-        </Link>
-
-        {/* ── Vrouwenprogramma ── */}
-        <Link href="/vrouwen-op-de-werkvloer" className="service-card-link">
-        <div style={{
-          borderRadius: "10px", padding: "2.5rem",
-          background: "rgba(172,179,198,0.18)",
-          border: "1px solid rgba(172,179,198,0.4)",
-          position: "relative", overflow: "hidden",
-        }}>
-          <div style={{
-            position: "absolute", inset: 0, opacity: 0.15,
-            backgroundImage: "repeating-linear-gradient(90deg, var(--accent-5) 0px, var(--accent-5) 1px, transparent 1px, transparent 18px)",
-          }} />
-          <div style={{ position: "relative" }}>
-            <p className="eyebrow" style={{ marginBottom: "0.5rem" }}>Vrouwen op de werkvloer</p>
-            <h3 style={{
-              fontFamily: "var(--font-display)", fontSize: "clamp(1.375rem, 2vw, 1.875rem)",
-              fontWeight: 400, color: "var(--accent-1)", margin: "0 0 2rem", lineHeight: 1.2,
-            }}>
-              Jouw kracht zichtbaar maken
-            </h3>
-            <div className="service-inner">
-              <div>
-                <p className="eyebrow" style={{ marginBottom: "1rem" }}>Investering</p>
-                <p style={{
-                  fontFamily: "var(--font-display)", fontSize: "1.75rem", fontWeight: 500,
-                  color: "var(--accent-1)", margin: "0 0 0.25rem", lineHeight: 1,
-                }}>€ 595,-</p>
-                <p style={{
-                  fontFamily: "var(--font-sans)", fontSize: "0.75rem", fontWeight: 300,
-                  color: "var(--accent-2)",
-                }}>excl. btw · per deelneemster</p>
+              <div style={{ borderTop: "1px solid rgba(121,48,31,0.15)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
+                <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1 }}>v.a. € 450,-</p>
+                <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>incl. btw · per traject</p>
               </div>
-              <div>
-                <p className="eyebrow" style={{ marginBottom: "1rem" }}>Vorm</p>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-2)" }}>
+                Meer info
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </div>
+            </div>
+          </div>
+          </Link>
+
+          {/* ── Vrouwenprogramma ── */}
+          <Link href="/vrouwen-op-de-werkvloer" className="service-card-link">
+          <div style={{
+            borderRadius: "12px", overflow: "hidden",
+            background: "rgba(172,179,198,0.18)",
+            border: "1px solid rgba(172,179,198,0.4)",
+            display: "flex", flexDirection: "column", height: "100%",
+            position: "relative",
+          }}>
+            <div style={{
+              position: "absolute", inset: 0, opacity: 0.15, pointerEvents: "none",
+              backgroundImage: "repeating-linear-gradient(90deg, var(--accent-5) 0px, var(--accent-5) 1px, transparent 1px, transparent 18px)",
+            }} />
+            <div style={{ position: "relative", display: "flex", flexDirection: "column", height: "100%" }}>
+              <div style={{ padding: "1.75rem 1.75rem 1.5rem" }}>
+                <p className="eyebrow" style={{ marginBottom: "0.5rem" }}>Vrouwen op de werkvloer</p>
+                <h3 style={{
+                  fontFamily: "var(--font-display)", fontSize: "clamp(1.2rem, 1.5vw, 1.5rem)",
+                  fontWeight: 400, color: "var(--accent-1)", margin: 0, lineHeight: 1.25,
+                }}>
+                  Jouw kracht zichtbaar maken
+                </h3>
+              </div>
+              <div style={{
+                height: "180px", flexShrink: 0,
+                background: "linear-gradient(135deg, #8a9ab8 0%, #6a7a98 40%, #4a5a78 100%)",
+                position: "relative", overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: "35%", left: "10%", right: "10%", height: 3, background: "rgba(246,216,204,0.35)", borderRadius: 4, transform: "rotate(-1.5deg)" }} />
+                <div style={{ position: "absolute", top: "50%", left: "15%", right: "20%", height: 2, background: "rgba(247,239,210,0.3)", borderRadius: 4, transform: "rotate(1deg)" }} />
+                <div style={{ position: "absolute", top: "63%", left: "5%", right: "30%", height: 3, background: "rgba(121,0,19,0.35)", borderRadius: 4, transform: "rotate(-1deg)" }} />
+              </div>
+              <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
+                <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
                   {[
                     "Groepsprogramma van 6 bijeenkomsten",
-                    "2 uur per sessie",
-                    "Combinatie van coaching en beeldende werkvormen",
-                    "Max. 8 deelneemsters",
+                    "2 uur per sessie, max. 8 deelneemsters",
+                    "Coaching en beeldende werkvormen",
+                    "Nieuwe groepen starten op aanvraag",
                   ].map(item => (
-                    <li key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start" }}>
-                      <span style={{ color: "var(--accent-2)", flexShrink: 0, marginTop: "1px" }}>—</span>
-                      <span style={{
-                        fontFamily: "var(--font-sans)", fontSize: "0.85rem",
-                        fontWeight: 300, color: "var(--accent-1)", lineHeight: 1.5,
-                      }}>{item}</span>
+                    <li key={item} style={{ display: "flex", gap: "0.55rem", alignItems: "flex-start" }}>
+                      <span style={{ color: "var(--accent-5)", flexShrink: 0, marginTop: "2px", fontSize: "0.7rem" }}>✓</span>
+                      <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 300, color: "var(--accent-1)", lineHeight: 1.5 }}>{item}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
-              <div>
-                <p className="eyebrow" style={{ marginBottom: "1rem" }}>Voor wie</p>
-                <p style={{
-                  fontFamily: "var(--font-sans)", fontSize: "0.85rem", fontWeight: 300,
-                  color: "var(--accent-1)", lineHeight: 1.7,
-                }}>
-                  Vrouwen die professioneel willen groeien, hun stem willen laten horen, of worstelen
-                  met grenzen en verwachtingen op het werk.
-                </p>
-                <p style={{
-                  fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 300,
-                  color: "var(--accent-2)", marginTop: "1rem", fontStyle: "italic",
-                }}>
-                  Nieuwe groepen starten op aanvraag.
-                </p>
+                <div style={{ borderTop: "1px solid rgba(172,179,198,0.3)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
+                  <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1 }}>€ 595,-</p>
+                  <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>incl. btw · per deelneemster</p>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-1)" }}>
+                  Meer info
+                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </div>
               </div>
             </div>
           </div>
+          </Link>
+
         </div>
-        </Link>
 
       </section>
 
