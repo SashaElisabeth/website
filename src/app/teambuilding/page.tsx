@@ -43,6 +43,7 @@ const data: ServicePageData = {
   ],
   pricingNote: 'Voor grotere groepen, meerdere dagdelen of specifieke wensen maak ik graag een voorstel op maat.',
   ctaService: 'Teambuilding',
+  image: '/paint 1.jpeg',
 };
 
 export default function TeambuildingPage() {

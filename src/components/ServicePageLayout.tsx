@@ -25,6 +25,7 @@ export interface ServicePageData {
   pricing: PricingTier[];
   pricingNote?: string;
   ctaService: string;
+  image: string;
 }
 
 export default function ServicePageLayout({ data }: { data: ServicePageData }) {
@@ -99,28 +100,13 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
           </p>
         </div>
 
-        {/* Decorative placeholder */}
-        <div style={{
-          borderRadius: '10px', overflow: 'hidden',
-          aspectRatio: '4/3',
-          background: `
-            radial-gradient(ellipse at 70% 30%, rgba(232,180,100,0.5) 0%, transparent 50%),
-            radial-gradient(ellipse at 25% 75%, rgba(172,85,58,0.4) 0%, transparent 55%),
-            linear-gradient(155deg, #c4985a 0%, #8a5c38 50%, #3d2410 100%)
-          `,
-          position: 'relative',
-        }}>
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: 'radial-gradient(ellipse at center, transparent 40%, rgba(20,10,5,0.4) 100%)',
-          }} />
-          <div style={{
-            position: 'absolute', bottom: '1.5rem', left: '1.5rem',
-            fontFamily: 'var(--font-script)', fontSize: '1rem',
-            color: 'rgba(247,239,210,0.6)',
-          }}>
-            {data.label.toLowerCase()}
-          </div>
+        {/* Photo */}
+        <div style={{ borderRadius: '10px', overflow: 'hidden', aspectRatio: '4/3' }}>
+          <img
+            src={data.image}
+            alt={data.label}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
         </div>
       </section>
 
