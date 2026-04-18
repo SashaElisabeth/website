@@ -103,7 +103,7 @@ Layout is driven by CSS classes in `globals.css` — inline styles handle colour
 | iPad | 641–1023px | 2-col offerings, hero stacks (photo below, min-height: 400px) |
 | Mobile | ≤ 640px | Single column everywhere, hero stacks (photo below, min-height: 280px) |
 
-**Hero photo panel:** currently a warm gradient placeholder. `min-height` is set per breakpoint so it remains visible when the split collapses. Replace the gradient background with a real `<Image>` when photos are available — the `hero-photo` class and min-heights are already in place.
+**Hero photo panel:** uses `<img src="/portfolio.jpeg">` with `objectFit: cover`. `min-height` is set per breakpoint via the `.hero-photo` class so it remains visible when the split collapses on smaller screens.
 
 ## Conventions
 
