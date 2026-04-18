@@ -3,10 +3,10 @@
 import { useState, useEffect } from 'react';
 
 const links = [
-  { href: '#home',     label: 'Home',     id: 'home' },
-  { href: '#aanbod',   label: 'Aanbod',   id: 'aanbod' },
-  { href: '#over-mij', label: 'Over mij', id: 'over-mij' },
-  { href: '#contact',  label: 'Contact',  id: 'contact' },
+  { href: '/#home',     label: 'Home',     id: 'home' },
+  { href: '/#aanbod',   label: 'Aanbod',   id: 'aanbod' },
+  { href: '/#over-mij', label: 'Over mij', id: 'over-mij' },
+  { href: '/#contact',  label: 'Contact',  id: 'contact' },
 ];
 
 export default function Nav() {
