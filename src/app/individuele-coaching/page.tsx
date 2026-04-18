@@ -50,6 +50,7 @@ const data: ServicePageData = {
   ],
   pricingNote: 'Soms past een standaardtraject niet precies bij jouw vraag. Ik maak ook trajecten op maat, afgestemd op jouw situatie of de vraag vanuit een werkgever.',
   ctaService: 'Individuele Coaching',
+  image: '/paint 2.jpeg',
 };
 
 export default function IndividueleCoachingPage() {

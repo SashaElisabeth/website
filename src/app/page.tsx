@@ -91,40 +91,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
           </div>
         </div>
 
-        {/* Right — warm gradient (hidden on mobile/iPad) */}
-        <div className="hero-photo" style={{
-          position: "relative", overflow: "hidden",
-          background: `
-            radial-gradient(ellipse at 80% 15%, rgba(232,180,100,0.6) 0%, transparent 45%),
-            radial-gradient(ellipse at 20% 75%, rgba(172,85,58,0.5) 0%, transparent 50%),
-            linear-gradient(165deg, #c4985a 0%, #8a5c38 45%, #3d2410 100%)
-          `,
-        }}>
-          {[
-            { top: "30%", left: "10%", right: "10%", h: 4, color: "rgba(246,216,204,0.4)", rotate: "-2deg" },
-            { top: "36%", left: "20%", right: "20%", h: 2, color: "rgba(172,179,198,0.5)", rotate: "1deg" },
-            { top: "42%", left: "5%",  right: "30%", h: 3, color: "rgba(121,0,19,0.45)",  rotate: "-1deg" },
-          ].map((s, i) => (
-            <div key={i} style={{
-              position: "absolute", top: s.top, left: s.left, right: s.right,
-              height: s.h, background: s.color, borderRadius: 4,
-              transform: `rotate(${s.rotate})`,
-            }} />
-          ))}
-          <div style={{ position: "absolute", bottom: "2.5rem", right: "2.5rem", opacity: 0.25 }}>
-            <BotanicalOrnament size={56} color="var(--bg)" opacity={1} />
-          </div>
-          <div style={{
-            position: "absolute", inset: 0,
-            background: "radial-gradient(ellipse at center, transparent 35%, rgba(20,10,5,0.5) 100%)",
-          }} />
-          <div style={{
-            position: "absolute", bottom: "2.5rem", left: "2.5rem",
-            fontFamily: "var(--font-script)", fontSize: "1rem",
-            color: "rgba(247,239,210,0.6)",
-          }}>
-            creatief herstel
-          </div>
+        {/* Right — portfolio photo */}
+        <div className="hero-photo" style={{ position: "relative", overflow: "hidden" }}>
+          <img
+            src="/portfolio.jpeg"
+            alt="Sasha Elisabeth"
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
         </div>
       </section>
 
@@ -182,14 +155,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                   Samen sterker door creatief werken
                 </h3>
               </div>
-              <div style={{
-                height: "180px", flexShrink: 0,
-                background: "linear-gradient(135deg, #2a1f0a 0%, #3d2f10 40%, #1a1005 100%)",
-                position: "relative", overflow: "hidden",
-              }}>
-                <div style={{ position: "absolute", top: "35%", left: "10%", right: "10%", height: 3, background: "rgba(246,216,204,0.3)", borderRadius: 4, transform: "rotate(-2deg)" }} />
-                <div style={{ position: "absolute", top: "48%", left: "20%", right: "20%", height: 2, background: "rgba(172,179,198,0.35)", borderRadius: 4, transform: "rotate(1deg)" }} />
-                <div style={{ position: "absolute", top: "62%", left: "5%", right: "30%", height: 3, background: "rgba(121,0,19,0.4)", borderRadius: 4, transform: "rotate(-1deg)" }} />
+              <div style={{ height: "180px", flexShrink: 0, overflow: "hidden" }}>
+                <img src="/paint 1.jpeg" alt="Teambuilding" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
               <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
                 <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
@@ -233,14 +200,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                 Ruimte voor echte verdieping en duurzame verandering
               </h3>
             </div>
-            <div style={{
-              height: "180px", flexShrink: 0,
-              background: "linear-gradient(135deg, #e8b89a 0%, #c98a6a 40%, #a06040 100%)",
-              position: "relative", overflow: "hidden",
-            }}>
-              <div style={{ position: "absolute", top: "35%", left: "10%", right: "15%", height: 3, background: "rgba(121,48,31,0.3)", borderRadius: 4, transform: "rotate(-1.5deg)" }} />
-              <div style={{ position: "absolute", top: "50%", left: "25%", right: "10%", height: 2, background: "rgba(82,69,27,0.25)", borderRadius: 4, transform: "rotate(1deg)" }} />
-              <div style={{ position: "absolute", top: "63%", left: "5%", right: "25%", height: 3, background: "rgba(121,0,19,0.3)", borderRadius: 4, transform: "rotate(-1deg)" }} />
+            <div style={{ height: "180px", flexShrink: 0, overflow: "hidden" }}>
+              <img src="/paint 2.jpeg" alt="Individuele Coaching" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             </div>
             <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
@@ -291,14 +252,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                   Jouw kracht zichtbaar maken
                 </h3>
               </div>
-              <div style={{
-                height: "180px", flexShrink: 0,
-                background: "linear-gradient(135deg, #8a9ab8 0%, #6a7a98 40%, #4a5a78 100%)",
-                position: "relative", overflow: "hidden",
-              }}>
-                <div style={{ position: "absolute", top: "35%", left: "10%", right: "10%", height: 3, background: "rgba(246,216,204,0.35)", borderRadius: 4, transform: "rotate(-1.5deg)" }} />
-                <div style={{ position: "absolute", top: "50%", left: "15%", right: "20%", height: 2, background: "rgba(247,239,210,0.3)", borderRadius: 4, transform: "rotate(1deg)" }} />
-                <div style={{ position: "absolute", top: "63%", left: "5%", right: "30%", height: 3, background: "rgba(121,0,19,0.35)", borderRadius: 4, transform: "rotate(-1deg)" }} />
+              <div style={{ height: "180px", flexShrink: 0, overflow: "hidden" }}>
+                <img src="/paint 3.jpeg" alt="Vrouwen op de werkvloer" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
               <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
                 <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
@@ -343,28 +298,16 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       {/* ─────────────── OVER MIJ ─────────────── */}
       <section id="over-mij" className="about-grid section-pad">
 
-        {/* Photo placeholder — hidden on mobile */}
+        {/* Photo — hidden on mobile */}
         <div className="about-photo" style={{
           borderRadius: "10px", overflow: "hidden",
-          aspectRatio: "4/5",
-          background: `
-            radial-gradient(ellipse at 60% 30%, rgba(232,180,100,0.5) 0%, transparent 50%),
-            radial-gradient(ellipse at 30% 80%, rgba(172,85,58,0.4) 0%, transparent 55%),
-            linear-gradient(160deg, #c4985a 0%, #8a5c38 50%, #3d2410 100%)
-          `,
-          position: "relative", maxHeight: "520px",
+          aspectRatio: "4/5", maxHeight: "520px",
         }}>
-          <div style={{
-            position: "absolute", inset: 0,
-            background: "radial-gradient(ellipse at center, transparent 40%, rgba(20,10,5,0.4) 100%)",
-          }} />
-          <div style={{
-            position: "absolute", bottom: "2rem", left: "2rem",
-            fontFamily: "var(--font-script)", fontSize: "1.1rem",
-            color: "rgba(247,239,210,0.65)",
-          }}>
-            Sasha Elisabeth
-          </div>
+          <img
+            src="/portfolio.jpeg"
+            alt="Sasha Elisabeth"
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
         </div>
 
         <div>

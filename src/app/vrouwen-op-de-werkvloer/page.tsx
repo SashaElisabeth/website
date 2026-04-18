@@ -48,6 +48,7 @@ const data: ServicePageData = {
   ],
   pricingNote: 'Interesse in een incompany programma voor jouw organisatie? Neem contact op voor een voorstel op maat.',
   ctaService: 'Vrouwen op de Werkvloer',
+  image: '/paint 3.jpeg',
 };
 
 export default function VrouwenOpDeWerkvloerPage() {
