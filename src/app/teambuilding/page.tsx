@@ -3,10 +3,10 @@ import ServicePageLayout, { ServicePageData } from '@/components/ServicePageLayo
 const data: ServicePageData = {
   label: 'Teambuilding',
   title: 'Samen sterker door creatief werken.',
-  heroSubtitle: 'Ontdek hoe jouw team communiceert, samenwerkt en groeit — zonder dat iemand een woord hoeft te zeggen.',
+  heroSubtitle: 'Samenwerken wordt sterker wanneer er ruimte is voor inzicht, ervaring en verbinding. Binnen de teambuilding trainingen werk ik met coaching en beeldende werkvormen om zichtbaar te maken wat er speelt binnen een team en om daar beweging in te brengen.',
   heroBg: 'var(--accent-1)',
-  intro: `Bij beeldende teambuilding staan verf, klei en andere materialen centraal — niet een presentatie of een theoretisch model. Door samen iets te maken, komen teamdynamieken op een natuurlijke manier naar boven. Je ziet hoe mensen initiatief nemen, hoe ze omgaan met onzekerheid, hoe ze naar elkaar luisteren. Dat maakt het een krachtige én laagdrempelige manier om samenwerking te versterken. Geen kunstervaring nodig.`,
-  processTitle: 'Van kennismaking tot reflectie.',
+  intro: `Deze training is gericht op het versterken van onderling vertrouwen binnen het team. We werken aan veiligheid, openheid en het durven innemen van je plek.`,
+  processTitle: 'Training - Vertrouwen',
   steps: [
     {
       number: '01',

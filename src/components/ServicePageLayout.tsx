@@ -77,12 +77,12 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         </div>
       </div>
 
-      {/* ── Wat is het ── */}
+      {/* ── Aanbod ── */}
       <section style={{
         borderBottom: '1px solid rgba(82,69,27,0.1)',
       }} className="about-grid section-pad">
         <div>
-          <p className='eyebrow' style={{ marginBottom: '1rem' }}>Wat is het</p>
+          <p className='eyebrow' style={{ marginBottom: '1rem' }}>Aanbod</p>
           <h2 style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(1.75rem, 2.5vw, 2.25rem)',
@@ -110,11 +110,11 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         </div>
       </section>
 
-      {/* ── Proces ── */}
+      {/* ── Werkwijze ── */}
       <section style={{
         borderBottom: '1px solid rgba(82,69,27,0.1)',
       }} className="section-pad">
-        <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Het proces</p>
+        <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Werkwijze</p>
         <h2 style={{
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(1.75rem, 2.5vw, 2.25rem)',
@@ -157,12 +157,12 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         </div>
       </section>
 
-      {/* ── Inbegrepen + Praktisch ── */}
+      {/* ── Praktisch ── */}
       <section style={{
         borderBottom: '1px solid rgba(82,69,27,0.1)',
       }} className="about-grid section-pad">
         <div>
-          <p className='eyebrow' style={{ marginBottom: '1rem' }}>Wat is inbegrepen</p>
+          <p className='eyebrow' style={{ marginBottom: '1rem' }}>Praktisch</p>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {data.included.map(item => (
               <li key={item} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
