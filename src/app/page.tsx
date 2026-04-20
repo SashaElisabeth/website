@@ -73,8 +73,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
               color: "rgba(247,239,210,0.7)",
               maxWidth: "360px", marginBottom: "2.5rem",
             }}>
-              Ik ben Sasha Elisabeth — vaktherapist en coach. Via beeldende therapie
-              en coaching help ik individuen en teams dichter bij zichzelf te komen.
+              Mijn naam is <strong>Sasha Elisabeth</strong> en ik begeleid teams en individuen in het zichtbaar maken van wat er van binnen speelt en welke patronen daarin meebewegen. 
+              Met coaching en beeldende werkvormen ontstaat ruimte voor inzicht, verbinding en blijvende groei.
             </p>
             <a href="#aanbod" className="fade-up delay-3 btn-ghost-light" style={{
               display: "inline-flex", alignItems: "center", gap: "0.65rem",
@@ -161,10 +161,9 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
               <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
                 <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
                   {[
-                    "Kennismakingsgesprek (1 uur)",
-                    "Begeleiding van de training",
-                    "Beeldende werkvormen en materialen",
-                    "Korte terugkoppeling indien gewenst",
+                    "Verbinding en samenwerking in je team",
+                    "Begeleiding met beeldende werkvormen",
+                    "Direct toepasbare inzichten",
                   ].map(item => (
                     <li key={item} style={{ display: "flex", gap: "0.55rem", alignItems: "flex-start" }}>
                       <span style={{ color: "var(--accent-3)", flexShrink: 0, marginTop: "2px", fontSize: "0.7rem" }}>✓</span>
@@ -177,7 +176,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                   <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "rgba(246,216,204,0.6)", margin: 0 }}>incl. btw · groepen t/m 13 personen</p>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-3)" }}>
-                  Meer info
+                  Bekijk mogelijkheden
                   <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
               </div>
@@ -197,7 +196,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                 fontFamily: "var(--font-display)", fontSize: "clamp(1.2rem, 1.5vw, 1.5rem)",
                 fontWeight: 400, color: "var(--accent-1)", margin: 0, lineHeight: 1.25,
               }}>
-                Ruimte voor echte verdieping en duurzame verandering
+                Inzicht in wat speelt, beweging in jezelf
               </h3>
             </div>
             <div style={{ height: "180px", flexShrink: 0, overflow: "hidden" }}>
@@ -206,10 +205,9 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
                 {[
-                  "Persoonlijke afstemming op jouw hulpvraag",
-                  "Beeldende werkvormen en reflectie",
-                  "Tussentijdse evaluatie en bijsturing",
-                  "Trajecten van 5, 7 of 10 sessies",
+                  "Via de werkgever of op eigen initiatief",
+                  "Trajecten gericht op persoonlijke en werkgerelateerde groei",
+                  "Coaching met beeldende werkvorm",
                 ].map(item => (
                   <li key={item} style={{ display: "flex", gap: "0.55rem", alignItems: "flex-start" }}>
                     <span style={{ color: "var(--accent-2)", flexShrink: 0, marginTop: "2px", fontSize: "0.7rem" }}>✓</span>
@@ -222,7 +220,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                 <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>incl. btw · per traject</p>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-2)" }}>
-                Meer info
+                Kijk wat bij je past
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </div>
             </div>
@@ -249,7 +247,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                   fontFamily: "var(--font-display)", fontSize: "clamp(1.2rem, 1.5vw, 1.5rem)",
                   fontWeight: 400, color: "var(--accent-1)", margin: 0, lineHeight: 1.25,
                 }}>
-                  Jouw kracht zichtbaar maken
+                  Steviger staan in werk en positie
                 </h3>
               </div>
               <div style={{ height: "180px", flexShrink: 0, overflow: "hidden" }}>
@@ -258,10 +256,9 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
               <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
                 <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
                   {[
-                    "Groepsprogramma van 6 bijeenkomsten",
-                    "2 uur per sessie, max. 8 deelneemsters",
-                    "Coaching en beeldende werkvormen",
-                    "Nieuwe groepen starten op aanvraag",
+                    "Voor organisaties die vrouwelijke werknemers willen ondersteunen",
+                    "Aandacht voor positie, communicatie en grenzen",
+                    "Coaching met beeldende werkvormen",
                   ].map(item => (
                     <li key={item} style={{ display: "flex", gap: "0.55rem", alignItems: "flex-start" }}>
                       <span style={{ color: "var(--accent-5)", flexShrink: 0, marginTop: "2px", fontSize: "0.7rem" }}>✓</span>
@@ -274,7 +271,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                   <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>incl. btw · per deelneemster</p>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-1)" }}>
-                  Meer info
+                  Ontdek wat mogelijk is
                   <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
               </div>
@@ -325,18 +322,31 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             fontSize: "0.9375rem", lineHeight: 1.85,
             color: "var(--accent-2)", marginBottom: "1.25rem",
           }}>
-            Ik ben Sasha Elisabeth, vaktherapist beeldend en coach. Ik geloof dat
-            verandering niet alleen in het hoofd gebeurt — maar ook in de handen,
-            het lichaam en het doen.
+            Mijn naam is <strong>Sasha Elisabeth</strong>. 
+            Ik begeleid teams en individuen in het creëren van inzicht, verbinding en beweging.
           </p>
           <p style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
             fontSize: "0.9375rem", lineHeight: 1.85,
             color: "var(--ink)", marginBottom: "2rem",
           }}>
-            Mijn aanpak is ervaringsgericht: via tekenen, schilderen of boetseren
-            ontstaat er inzicht dat met woorden alleen moeilijk te bereiken is.
-            Geen kunstervaring nodig — het gaat om het proces, niet het resultaat.
+            Ik ben opgeleid als <strong>vaktherapeut beeldend</strong>, waar ik heb geleerd om verder te kijken dan woorden alleen. 
+            Met coaching en beeldende werkvormen maak ik zichtbaar wat er van binnen speelt en help ik patronen te doorbreken.
+          </p>
+          <p style={{
+            fontFamily: "var(--font-sans)", fontWeight: 300,
+            fontSize: "0.9375rem", lineHeight: 1.85,
+            color: "var(--ink)", marginBottom: "2rem",
+          }}>
+            Naast mijn eigen aanbod werk ik binnen de <strong>verslavingszorg en jeugdzorg</strong>, waar ik mensen begeleid in complexe situaties. Deze ervaring neem ik mee in mijn manier van werken: betrokken, helder en zonder oordeel.
+            Wat mij drijft, is het moment waarop iemand weer in contact komt met zichzelf en er ruimte ontstaat voor echte verandering.
+          </p>
+          <p style={{
+            fontFamily: "var(--font-sans)", fontWeight: 300,
+            fontSize: "0.9375rem", lineHeight: 1.85,
+            color: "var(--ink)", marginBottom: "2rem",
+          }}>
+            Wat mij drijft, is het moment waarop iemand weer in contact komt met zichzelf en er ruimte ontstaat voor echte verandering.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
             {["HBO Vaktherapie Beeldend", "Gecertificeerd coach", "Ervaringsgericht"].map(tag => (
@@ -380,8 +390,21 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             fontSize: "0.9375rem", lineHeight: 1.85,
             color: "var(--accent-2)", marginBottom: "2rem",
           }}>
-            Heb je een vraag of wil je meer weten? Stuur een bericht —
-            ik reageer binnen twee werkdagen.
+            Wil je meer weten of een aanvraag doen? Vul het contactformulier in, dan neem ik zo snel mogelijk contact met je op.
+          </p>
+          <p style={{
+            fontFamily: "var(--font-sans)", fontWeight: 300,
+            fontSize: "0.9375rem", lineHeight: 1.85,
+            color: "var(--accent-2)", marginBottom: "2rem",
+          }}>
+            We beginnen altijd met een (online) kennismakingsgesprek van maximaal één uur. Hierin bespreken we jouw wensen en verwachtingen, de praktische details, en kijken we samen wat het beste past bij jouw situatie. 
+          </p>
+          <p style={{
+            fontFamily: "var(--font-sans)", fontWeight: 300,
+            fontSize: "0.9375rem", lineHeight: 1.85,
+            color: "var(--accent-2)", marginBottom: "2rem",
+          }}>
+            <strong>Klaar om te ontdekken wat mogelijk is?</strong>
           </p>
           <a href="mailto:hallo@sashaelisabeth.nl" style={{
             fontFamily: "var(--font-display)", fontSize: "1.125rem",
