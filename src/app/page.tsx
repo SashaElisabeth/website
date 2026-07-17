@@ -227,8 +227,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
           </div>
           </Link>
 
-          {/* ── Vrouwenprogramma ── */}
-          <Link href="/vrouwen-op-de-werkvloer" className="service-card-link">
+          {/* ── Vrouwenprogramma — tijdelijk uitgeschakeld (binnenkort) ── */}
+          <div style={{ height: "100%", cursor: "default" }}>
           <div style={{
             borderRadius: "12px", overflow: "hidden",
             background: "rgba(172,179,198,0.18)",
@@ -250,8 +250,22 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                   Steviger staan in werk en positie
                 </h3>
               </div>
-              <div style={{ height: "180px", flexShrink: 0, overflow: "hidden" }}>
+              <div style={{ height: "180px", flexShrink: 0, overflow: "hidden", position: "relative" }}>
                 <img src="/paint 3.jpeg" alt="Vrouwen op de werkvloer" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <div style={{
+                  position: "absolute", inset: 0,
+                  background: "rgba(82,69,27,0.5)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                }}>
+                  <span style={{
+                    background: "var(--accent-4)", color: "var(--bg)",
+                    fontFamily: "var(--font-sans)", fontSize: "0.7rem",
+                    letterSpacing: "0.22em", textTransform: "uppercase", fontWeight: 600,
+                    padding: "0.6rem 1.4rem", borderRadius: "999px",
+                  }}>
+                    Binnenkort beschikbaar
+                  </span>
+                </div>
               </div>
               <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
                 <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
@@ -270,14 +284,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                   <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1 }}>€ 595,-</p>
                   <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>excl. btw · per deelneemster</p>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-1)" }}>
-                  Ontdek wat mogelijk is
-                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-5)" }}>
+                  Binnenkort beschikbaar
                 </div>
               </div>
             </div>
           </div>
-          </Link>
+          </div>
 
         </div>
 

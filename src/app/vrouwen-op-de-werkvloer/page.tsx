@@ -1,4 +1,8 @@
+import Link from 'next/link';
 import ServicePageLayout, { ServicePageData } from '@/components/ServicePageLayout';
+
+// Page temporarily disabled while the content is finalized.
+const COMING_SOON: boolean = true;
 
 const data: ServicePageData = {
   label: 'Vrouwen op de Werkvloer',
@@ -59,5 +63,57 @@ const data: ServicePageData = {
 };
 
 export default function VrouwenOpDeWerkvloerPage() {
+  if (COMING_SOON) {
+    return (
+      <div style={{ background: 'var(--bg)', color: 'var(--ink)', minHeight: '100vh', paddingTop: '72px', display: 'flex', flexDirection: 'column' }}>
+        <div className="service-back">
+          <Link href="/#aanbod" style={{
+            display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+            fontFamily: 'var(--font-sans)', fontSize: '0.65rem',
+            letterSpacing: '0.15em', textTransform: 'uppercase',
+            fontWeight: 500, color: 'var(--accent-2)', textDecoration: 'none',
+          }}>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            Terug
+          </Link>
+        </div>
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '4rem 1.5rem 6rem' }}>
+          <div style={{ maxWidth: '540px' }}>
+            <p className="eyebrow" style={{ color: 'var(--accent-2)', marginBottom: '1rem' }}>{data.label}</p>
+            <h1 style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2rem, 4vw, 3rem)',
+              fontWeight: 300, lineHeight: 1.15, letterSpacing: '-0.02em',
+              color: 'var(--accent-1)', margin: '0 0 1rem',
+            }}>
+              Binnenkort beschikbaar
+            </h1>
+            <p style={{
+              fontFamily: 'var(--font-sans)', fontWeight: 300,
+              fontSize: '1rem', lineHeight: 1.8,
+              color: 'var(--accent-2)', margin: '0 0 2rem',
+            }}>
+              Wil je nu al meer weten? Neem gerust contact op.
+            </p>
+            <Link href="/#contact" style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.65rem',
+              background: 'var(--accent-4)', color: 'var(--bg)',
+              fontFamily: 'var(--font-sans)', fontSize: '0.6rem',
+              letterSpacing: '0.2em', textTransform: 'uppercase',
+              padding: '0.9rem 2rem', borderRadius: '2px', textDecoration: 'none',
+            }}>
+              Neem contact op
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return <ServicePageLayout data={data} />;
 }
