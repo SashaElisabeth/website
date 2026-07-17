@@ -33,6 +33,7 @@ export interface ServicePageData {
   included: string[];
   includedUnderPraktisch?: boolean;
   practical: { label: string; value: string }[];
+  investeringIntro?: string;
   pricing: PricingTier[];
   pricingNote?: string;
   ctaService: string;
@@ -104,17 +105,19 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
             </p>
           )}
           {data.offerings.map((offering, i) => (
-            <div key={offering.title} style={{
+            <div key={offering.title || i} style={{
               marginBottom: i < data.offerings.length - 1 ? '1.5rem' : '1.25rem',
             }}>
-              <h2 style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(1.4rem, 2vw, 1.75rem)',
-                fontWeight: 300, lineHeight: 1.25,
-                margin: '0 0 0.65rem', letterSpacing: '-0.01em',
-              }}>
-                {offering.title}
-              </h2>
+              {offering.title && (
+                <h2 style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'clamp(1.4rem, 2vw, 1.75rem)',
+                  fontWeight: 300, lineHeight: 1.25,
+                  margin: '0 0 0.65rem', letterSpacing: '-0.01em',
+                }}>
+                  {offering.title}
+                </h2>
+              )}
               {offering.quote && (
                 <div style={{
                   marginBottom: '0.85rem',
@@ -278,6 +281,15 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         }}>
           Transparante prijzen, geen verrassingen.
         </h2>
+        {data.investeringIntro && (
+          <p style={{
+            fontFamily: 'var(--font-sans)', fontWeight: 300,
+            fontSize: '0.9375rem', lineHeight: 1.85,
+            color: 'var(--accent-2)', margin: '0 0 1.5rem', maxWidth: '640px',
+          }}>
+            {data.investeringIntro}
+          </p>
+        )}
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
           {data.pricing.map(tier => (
             <div key={tier.label} style={{
