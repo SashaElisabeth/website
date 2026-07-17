@@ -41,7 +41,7 @@ export default function OverMij() {
         display: "grid", gridTemplateColumns: "1fr 1fr",
         gap: "5rem", padding: "6rem 5rem",
         alignItems: "start",
-        borderBottom: "1px solid rgba(82,69,27,0.1)",
+        borderBottom: "1px solid rgba(109,76,58,0.1)",
       }}>
         {/* Photo placeholder */}
         <div style={{
@@ -98,7 +98,7 @@ export default function OverMij() {
       {/* ── ACHTERGROND ── */}
       <section style={{
         padding: "6rem 5rem",
-        borderBottom: "1px solid rgba(82,69,27,0.1)",
+        borderBottom: "1px solid rgba(109,76,58,0.1)",
         display: "grid", gridTemplateColumns: "280px 1fr", gap: "5rem",
         alignItems: "start",
       }}>
@@ -143,7 +143,7 @@ export default function OverMij() {
               <span key={tag} style={{
                 fontFamily: "var(--font-sans)", fontSize: "0.75rem", fontWeight: 400,
                 color: "var(--accent-2)",
-                border: "1px solid rgba(121,48,31,0.25)",
+                border: "1px solid rgba(157,82,51,0.25)",
                 borderRadius: "999px", padding: "0.4rem 1rem",
                 background: "rgba(246,216,204,0.25)",
               }}>
@@ -157,7 +157,7 @@ export default function OverMij() {
       {/* ── WERKWIJZE ── */}
       <section style={{
         padding: "6rem 5rem",
-        borderBottom: "1px solid rgba(82,69,27,0.1)",
+        borderBottom: "1px solid rgba(109,76,58,0.1)",
         display: "grid", gridTemplateColumns: "280px 1fr", gap: "5rem",
         alignItems: "start",
       }}>
@@ -201,8 +201,8 @@ export default function OverMij() {
             ].map(item => (
               <div key={item.title} style={{
                 padding: "1.5rem",
-                background: "rgba(82,69,27,0.03)",
-                border: "1px solid rgba(82,69,27,0.08)",
+                background: "rgba(109,76,58,0.03)",
+                border: "1px solid rgba(109,76,58,0.08)",
                 borderRadius: "8px",
               }}>
                 <h4 style={{

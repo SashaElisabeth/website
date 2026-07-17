@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --bg:        #fbf9f4;
-  --ink:       #52451b;
+  --bg:        #faf7f0;
+  --ink:       #40382b;
 
   /* Accent palette — frequency order */
-  --accent-1:  #52451b; /* olive brown  */
-  --accent-2:  #79301f; /* burnt sienna */
-  --accent-3:  #f6d8cc; /* blush peach  */
-  --accent-4:  #790013; /* crimson      */
-  --accent-5:  #acb3c6; /* steel blue   */
+  --accent-1:  #6d4c3a; /* chestnut brown */
+  --accent-2:  #9d5233; /* terracotta     */
+  --accent-3:  #f6d8cc; /* blush peach    */
+  --accent-4:  #47624f; /* pine green     */
+  --accent-5:  #a7b1a0; /* sage — decorative only   */
+  --muted:     #6f6a5c; /* readable muted text (AA) */
 
   --font-logo:    "Bodoni Moda",    "Didot", Georgia, serif;
   --font-display: "Cormorant Garamond", Georgia, serif;
@@ -66,7 +67,7 @@ body {
 /* Inner page hero (non-home pages) */
 .page-hero {
   padding: 5rem 5rem 4rem;
-  border-bottom: 1px solid rgba(82,69,27,0.1);
+  border-bottom: 1px solid rgba(109,76,58,0.1);
 }
 
 /* Ghost button — light version (on dark bg) */

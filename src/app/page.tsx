@@ -140,6 +140,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             background: "var(--accent-1)", borderRadius: "12px",
             overflow: "hidden", display: "flex", flexDirection: "column", height: "100%",
             position: "relative",
+            boxShadow: "0 8px 26px rgba(64,56,43,0.13)",
           }}>
             <div style={{
               position: "absolute", inset: 0, opacity: 0.035, pointerEvents: "none",
@@ -189,9 +190,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
           <div style={{
             background: "var(--accent-3)", borderRadius: "12px",
             overflow: "hidden", display: "flex", flexDirection: "column", height: "100%",
+            border: "1px solid rgba(157,82,51,0.3)",
+            boxShadow: "0 8px 26px rgba(64,56,43,0.13)",
           }}>
             <div style={{ padding: "1.75rem 1.75rem 1.5rem" }}>
-              <p className="eyebrow" style={{ marginBottom: "0.5rem" }}>Individuele Coaching</p>
+              <p className="eyebrow" style={{ color: "var(--accent-1)", marginBottom: "0.5rem" }}>Individuele Coaching</p>
               <h3 style={{
                 fontFamily: "var(--font-display)", fontSize: "clamp(1.2rem, 1.5vw, 1.5rem)",
                 fontWeight: 400, color: "var(--accent-1)", margin: 0, lineHeight: 1.25,
@@ -215,11 +218,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                   </li>
                 ))}
               </ul>
-              <div style={{ borderTop: "1px solid rgba(121,48,31,0.15)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
+              <div style={{ borderTop: "1px solid rgba(157,82,51,0.15)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
                 <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1 }}>v.a. € 450,-</p>
                 <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>excl. btw · per traject</p>
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-2)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-1)" }}>
                 Kijk wat bij je past
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </div>
@@ -231,10 +234,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
           <div style={{ height: "100%", cursor: "default" }}>
           <div style={{
             borderRadius: "12px", overflow: "hidden",
-            background: "rgba(172,179,198,0.18)",
-            border: "1px solid rgba(172,179,198,0.4)",
+            background: "rgba(167,177,160,0.4)",
+            border: "1px solid rgba(95,106,87,0.45)",
             display: "flex", flexDirection: "column", height: "100%",
             position: "relative",
+            boxShadow: "0 8px 26px rgba(64,56,43,0.13)",
           }}>
             <div style={{
               position: "absolute", inset: 0, opacity: 0.15, pointerEvents: "none",
@@ -254,7 +258,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                 <img src="/paint 3.jpeg" alt="Vrouwen op de werkvloer" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                 <div style={{
                   position: "absolute", inset: 0,
-                  background: "rgba(82,69,27,0.5)",
+                  background: "rgba(109,76,58,0.5)",
                   display: "flex", alignItems: "center", justifyContent: "center",
                 }}>
                   <span style={{
@@ -275,16 +279,16 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                     "Coaching met beeldende werkvormen",
                   ].map(item => (
                     <li key={item} style={{ display: "flex", gap: "0.55rem", alignItems: "flex-start" }}>
-                      <span style={{ color: "var(--accent-5)", flexShrink: 0, marginTop: "2px", fontSize: "0.7rem" }}>✓</span>
+                      <span style={{ color: "var(--accent-4)", flexShrink: 0, marginTop: "2px", fontSize: "0.7rem" }}>✓</span>
                       <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 300, color: "var(--accent-1)", lineHeight: 1.5 }}>{item}</span>
                     </li>
                   ))}
                 </ul>
-                <div style={{ borderTop: "1px solid rgba(172,179,198,0.3)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
+                <div style={{ borderTop: "1px solid rgba(167,177,160,0.3)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
                   <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1 }}>€ 595,-</p>
                   <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>excl. btw · per deelneemster</p>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-5)" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--muted)" }}>
                   Binnenkort beschikbaar
                 </div>
               </div>
@@ -365,7 +369,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
               <span key={tag} style={{
                 fontFamily: "var(--font-sans)", fontSize: "0.75rem", fontWeight: 400,
                 color: "var(--accent-2)",
-                border: "1px solid rgba(121,48,31,0.25)",
+                border: "1px solid rgba(157,82,51,0.25)",
                 borderRadius: "999px", padding: "0.4rem 1rem",
                 background: "rgba(246,216,204,0.3)",
               }}>
@@ -422,7 +426,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             fontFamily: "var(--font-display)", fontSize: "1.125rem",
             fontWeight: 400, color: "var(--accent-2)",
             textDecoration: "none",
-            borderBottom: "1px solid rgba(121,48,31,0.3)", paddingBottom: "2px",
+            borderBottom: "1px solid rgba(157,82,51,0.3)", paddingBottom: "2px",
           }}>
             sasha_elisabeth@outlook.com
           </a>
@@ -432,7 +436,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       </section>
 
       {/* ─────────────── FOOTER ─────────────── */}
-      <footer className="footer-bar" style={{ borderTop: "1px solid rgba(82,69,27,0.12)" }}>
+      <footer className="footer-bar" style={{ borderTop: "1px solid rgba(109,76,58,0.12)" }}>
         <div>
           <div style={{
             fontFamily: "var(--font-logo)", fontSize: "0.8rem", fontWeight: 900,
@@ -440,12 +444,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
           }}>S. Elisabeth</div>
           <div style={{
             fontFamily: "var(--font-script)", fontSize: "0.65rem",
-            color: "var(--accent-5)", marginTop: "2px",
+            color: "var(--muted)", marginTop: "2px",
           }}>vaktherapie &amp; coaching</div>
         </div>
         <span style={{
           fontFamily: "var(--font-sans)", fontSize: "0.75rem",
-          fontWeight: 300, color: "var(--accent-5)", letterSpacing: "0.04em",
+          fontWeight: 300, color: "var(--muted)", letterSpacing: "0.04em",
         }}>© 2026 · Sasha Elisabeth</span>
       </footer>
 

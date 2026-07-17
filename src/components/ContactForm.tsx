@@ -14,8 +14,8 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
 
   const inputStyle: React.CSSProperties = {
     width: '100%',
-    background: 'rgba(82,69,27,0.04)',
-    border: '1px solid rgba(82,69,27,0.18)',
+    backgroundColor: 'rgba(109,76,58,0.04)',
+    border: '1px solid rgba(109,76,58,0.18)',
     borderRadius: '3px',
     padding: '0.85rem 1rem',
     fontFamily: 'var(--font-sans)',
@@ -31,7 +31,7 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
       <div style={{
         padding: '3rem 2rem', textAlign: 'center',
         background: 'rgba(246,216,204,0.3)',
-        borderRadius: '10px', border: '1px solid rgba(121,48,31,0.15)',
+        borderRadius: '10px', border: '1px solid rgba(157,82,51,0.15)',
       }}>
         <p style={{
           fontFamily: 'var(--font-display)', fontStyle: 'italic',
@@ -76,7 +76,7 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
           required
           value={form.service}
           onChange={e => setForm(prev => ({ ...prev, service: e.target.value }))}
-          style={{ ...inputStyle, appearance: 'none', backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2379301f' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', paddingRight: '2.5rem', color: form.service ? 'var(--ink)' : 'rgba(82,69,27,0.4)' }}
+          style={{ ...inputStyle, appearance: 'none', backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239d5233' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', paddingRight: '2.5rem', color: form.service ? 'var(--ink)' : 'rgba(109,76,58,0.4)' }}
         >
           <option value="" disabled hidden>Maak een keuze…</option>
           <option value="Teambuilding">Teambuilding</option>

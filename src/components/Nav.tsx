@@ -41,12 +41,12 @@ export default function Nav() {
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
         background: navBg,
-        borderBottom: opaque ? '1px solid rgba(82,69,27,0.1)' : 'none',
+        borderBottom: opaque ? '1px solid rgba(109,76,58,0.1)' : 'none',
         transition: 'background 0.3s, border-color 0.3s',
         display: 'flex', alignItems: 'stretch', justifyContent: 'space-between',
       }}>
         {/* Logo — no padding, fills full nav height */}
-        <a href="#home" className="nav-logo" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+        <a href="/" className="nav-logo" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
           <img
             src="/logo.png"
             alt="Sasha Elisabeth — Teambuilding & Coaching"
@@ -99,7 +99,7 @@ export default function Nav() {
         <div className="nav-dropdown" style={{
           position: 'fixed', top: '56px', left: 0, right: 0, zIndex: 49,
           background: 'var(--bg)',
-          borderBottom: '1px solid rgba(82,69,27,0.1)',
+          borderBottom: '1px solid rgba(109,76,58,0.1)',
           display: 'flex', flexDirection: 'column', gap: '1.25rem',
         }}>
           {links.map(l => (
