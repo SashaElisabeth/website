@@ -141,15 +141,19 @@ body {
 
 /* Service block inner grid (3-col: investering | inbegrepen | praktisch) */
 .service-inner   { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+/* 4-step variant: one row on desktop; the iPad/mobile .service-inner rules below still override to 2-col/1-col */
+.service-inner-4 { grid-template-columns: repeat(4, 1fr); }
 .price-tiers     { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
 
 @media (min-width: 641px) and (max-width: 1023px) {
-  .service-inner { grid-template-columns: 1fr 1fr; }
-  .price-tiers   { grid-template-columns: repeat(3, 1fr); }
+  .service-inner   { grid-template-columns: 1fr 1fr; }
+  .service-inner-4 { grid-template-columns: 1fr 1fr; }
+  .price-tiers     { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 640px) {
-  .service-inner { grid-template-columns: 1fr; }
-  .price-tiers   { grid-template-columns: 1fr; }
+  .service-inner   { grid-template-columns: 1fr; }
+  .service-inner-4 { grid-template-columns: 1fr; }
+  .price-tiers     { grid-template-columns: 1fr; }
 }
 
 /* ── iPad (641 – 1023px) ── */

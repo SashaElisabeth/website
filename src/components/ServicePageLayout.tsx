@@ -23,12 +23,15 @@ export interface ServicePageData {
   title: string;
   heroSubtitle: string;
   heroBg: string;
+  aanbodIntro?: string;
   offerings: Offering[];
   aanbodFooter?: string;
   processTitleWerkwijze: string;
   werkwijzeIntro?: string[];
   steps: ProcessStep[];
+  praktischIntro?: string;
   included: string[];
+  includedUnderPraktisch?: boolean;
   practical: { label: string; value: string }[];
   pricing: PricingTier[];
   pricingNote?: string;
@@ -91,6 +94,15 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
       }} className="service-about-grid service-section-pad">
         <div>
           <p className='eyebrow' style={{ marginBottom: '1.5rem' }}>Aanbod</p>
+          {data.aanbodIntro && (
+            <p style={{
+              fontFamily: 'var(--font-sans)', fontWeight: 300,
+              fontSize: '0.9375rem', lineHeight: 1.85,
+              color: 'var(--accent-2)', margin: '0 0 1.5rem',
+            }}>
+              {data.aanbodIntro}
+            </p>
+          )}
           {data.offerings.map((offering, i) => (
             <div key={offering.title} style={{
               marginBottom: i < data.offerings.length - 1 ? '1.5rem' : '1.25rem',
@@ -173,7 +185,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
             ))}
           </div>
         )}
-        <div className="service-inner">
+        <div className={`service-inner${data.steps.length === 4 ? ' service-inner-4' : ''}`}>
           {data.steps.map((step, i) => (
             <div key={step.number} style={{
               padding: '1.25rem',
@@ -212,6 +224,15 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         borderBottom: '1px solid rgba(82,69,27,0.1)',
       }} className="service-section-pad">
         <p className='eyebrow' style={{ marginBottom: '1rem' }}>Praktisch</p>
+        {data.praktischIntro && (
+          <p style={{
+            fontFamily: 'var(--font-sans)', fontWeight: 300,
+            fontSize: '0.9375rem', lineHeight: 1.85,
+            color: 'var(--accent-2)', margin: '0 0 1.5rem', maxWidth: '520px',
+          }}>
+            {data.praktischIntro}
+          </p>
+        )}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: '520px' }}>
           {data.practical.map(item => (
             <div key={item.label} style={{ display: 'flex', gap: '0.75rem' }}>
@@ -228,6 +249,22 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
             </div>
           ))}
         </div>
+        {data.includedUnderPraktisch && data.included.length > 0 && (
+          <div style={{ marginTop: '2rem' }}>
+            <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Inbegrepen</p>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem', maxWidth: '520px' }}>
+              {data.included.map(item => (
+                <li key={item} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                  <span style={{ color: 'var(--accent-4)', flexShrink: 0, marginTop: '2px', fontWeight: 500 }}>—</span>
+                  <span style={{
+                    fontFamily: 'var(--font-sans)', fontSize: '0.9rem',
+                    fontWeight: 300, color: 'var(--ink)', lineHeight: 1.6,
+                  }}>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </section>
 
       {/* ── Investering ── */}
@@ -260,7 +297,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
             </div>
           ))}
         </div>
-        {data.included.length > 0 && (
+        {!data.includedUnderPraktisch && data.included.length > 0 && (
           <div style={{ marginBottom: data.pricingNote ? '1.25rem' : 0 }}>
             <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Inbegrepen</p>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
