@@ -43,7 +43,7 @@ export default function Contact() {
                 fontFamily: "var(--font-display)", fontSize: "1.25rem",
                 fontWeight: 400, color: "var(--accent-2)",
                 textDecoration: "none",
-                borderBottom: "1px solid rgba(121,48,31,0.3)",
+                borderBottom: "1px solid rgba(157,82,51,0.3)",
                 paddingBottom: "2px",
               }}
             >
@@ -54,7 +54,7 @@ export default function Contact() {
           {/* Response time */}
           <div style={{
             background: "rgba(246,216,204,0.35)",
-            border: "1px solid rgba(121,48,31,0.12)",
+            border: "1px solid rgba(157,82,51,0.12)",
             borderRadius: "8px", padding: "1.5rem",
           }}>
             <p className="eyebrow" style={{ marginBottom: "0.75rem" }}>Reactietijd</p>

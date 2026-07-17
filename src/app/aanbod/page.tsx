@@ -4,7 +4,7 @@ function Section({ id, label, children }: { id: string; label: string; children:
   return (
     <section id={id} style={{
       padding: "5rem 5rem",
-      borderBottom: "1px solid rgba(82,69,27,0.1)",
+      borderBottom: "1px solid rgba(109,76,58,0.1)",
     }}>
       <p className="eyebrow" style={{ marginBottom: "1rem" }}>{label}</p>
       {children}
@@ -17,7 +17,7 @@ function PriceTag({ price, note }: { price: string; note?: string }) {
     <div style={{
       display: "inline-flex", flexDirection: "column",
       background: "rgba(246,216,204,0.4)",
-      border: "1px solid rgba(121,48,31,0.2)",
+      border: "1px solid rgba(157,82,51,0.2)",
       borderRadius: "6px", padding: "0.9rem 1.4rem",
     }}>
       <span style={{
@@ -132,7 +132,7 @@ export default function Aanbod() {
 
         <p style={{
           fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 300,
-          color: "var(--accent-5)", marginTop: "1.5rem", fontStyle: "italic",
+          color: "var(--muted)", marginTop: "1.5rem", fontStyle: "italic",
         }}>
           Maatwerk mogelijk. Neem contact op voor een offerte op maat.
         </p>
@@ -171,8 +171,8 @@ export default function Aanbod() {
           <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
             {/* Traject */}
             <div style={{
-              background: "rgba(82,69,27,0.04)",
-              border: "1px solid rgba(82,69,27,0.1)",
+              background: "rgba(109,76,58,0.04)",
+              border: "1px solid rgba(109,76,58,0.1)",
               borderRadius: "8px", padding: "1.75rem",
             }}>
               <p className="eyebrow" style={{ marginBottom: "1rem" }}>Het traject</p>
@@ -247,8 +247,8 @@ export default function Aanbod() {
             },
           ].map(item => (
             <div key={item.label} style={{
-              background: "rgba(172,179,198,0.15)",
-              border: "1px solid rgba(172,179,198,0.35)",
+              background: "rgba(167,177,160,0.15)",
+              border: "1px solid rgba(167,177,160,0.35)",
               borderRadius: "8px", padding: "1.5rem",
               position: "relative", overflow: "hidden",
             }}>
@@ -271,7 +271,7 @@ export default function Aanbod() {
           <PriceTag price="€ 595" note="per deelneemster, volledig programma" />
           <p style={{
             fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 300,
-            color: "var(--accent-5)", fontStyle: "italic", margin: 0,
+            color: "var(--muted)", fontStyle: "italic", margin: 0,
           }}>
             Nieuwe groepen starten op aanvraag. Schrijf je in via het contactformulier.
           </p>

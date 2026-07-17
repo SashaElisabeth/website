@@ -91,7 +91,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
 
       {/* ── Aanbod ── */}
       <section style={{
-        borderBottom: '1px solid rgba(82,69,27,0.1)',
+        borderBottom: '1px solid rgba(109,76,58,0.1)',
       }} className="service-about-grid service-section-pad">
         <div>
           <p className='eyebrow' style={{ marginBottom: '1.5rem' }}>Aanbod</p>
@@ -145,7 +145,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
             <p style={{
               fontFamily: 'var(--font-sans)', fontWeight: 300, fontStyle: 'italic',
               fontSize: '0.875rem', lineHeight: 1.8,
-              color: 'var(--accent-5)', margin: 0,
+              color: 'var(--muted)', margin: 0,
             }}>
               {data.aanbodFooter}
             </p>
@@ -164,7 +164,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
 
       {/* ── Werkwijze ── */}
       <section style={{
-        borderBottom: '1px solid rgba(82,69,27,0.1)',
+        borderBottom: '1px solid rgba(109,76,58,0.1)',
       }} className="service-section-pad">
         <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Werkwijze</p>
         <h2 style={{
@@ -192,9 +192,9 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
           {data.steps.map((step, i) => (
             <div key={step.number} style={{
               padding: '1.25rem',
-              background: i % 2 === 0 ? 'rgba(82,69,27,0.04)' : 'rgba(246,216,204,0.3)',
+              background: i % 2 === 0 ? 'rgba(109,76,58,0.04)' : 'rgba(246,216,204,0.3)',
               borderRadius: '8px',
-              border: '1px solid rgba(82,69,27,0.08)',
+              border: '1px solid rgba(109,76,58,0.08)',
             }}>
               <div style={{
                 fontFamily: 'var(--font-display)', fontSize: '2rem',
@@ -224,7 +224,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
 
       {/* ── Praktisch ── */}
       <section style={{
-        borderBottom: '1px solid rgba(82,69,27,0.1)',
+        borderBottom: '1px solid rgba(109,76,58,0.1)',
       }} className="service-section-pad">
         <p className='eyebrow' style={{ marginBottom: '1rem' }}>Praktisch</p>
         {data.praktischIntro && (
@@ -271,7 +271,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
       </section>
 
       {/* ── Investering ── */}
-      <section style={{ borderBottom: '1px solid rgba(82,69,27,0.1)' }} className="service-section-pad">
+      <section style={{ borderBottom: '1px solid rgba(109,76,58,0.1)' }} className="service-section-pad">
         <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Investering</p>
         <h2 style={{
           fontFamily: 'var(--font-display)',
@@ -328,7 +328,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         {data.pricingNote && (
           <p style={{
             fontFamily: 'var(--font-sans)', fontSize: '0.85rem',
-            fontWeight: 300, color: 'var(--accent-5)', fontStyle: 'italic', margin: 0,
+            fontWeight: 300, color: 'var(--muted)', fontStyle: 'italic', margin: 0,
           }}>{data.pricingNote}</p>
         )}
       </section>
