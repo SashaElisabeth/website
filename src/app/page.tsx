@@ -47,7 +47,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
 
           <div style={{ position: "relative" }}>
             <p className="fade-up eyebrow" style={{ color: "var(--accent-3)", marginBottom: "1.5rem" }}>
-              Vaktherapie en Coaching
+              Teambuilding & Coaching
             </p>
             <h1 className="fade-up delay-1" style={{
               fontFamily: "var(--font-display)",
@@ -56,16 +56,16 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
               color: "var(--bg)", margin: "0 0 0.5rem",
               letterSpacing: "-0.01em",
             }}>
-              Ontdekken wie je bent
+              Samen sterker, 
             </h1>
             <h1 className="fade-up delay-1" style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(2rem, 3.5vw, 3.25rem)",
               fontWeight: 300, lineHeight: 1.15,
-              color: "var(--accent-3)", margin: "0 0 1.75rem",
-              letterSpacing: "-0.01em", fontStyle: "italic",
+              color: "var(--bg)", margin: "0 0 0.5rem",
+              letterSpacing: "-0.01em",
             }}>
-              door te maken en te doen.
+              in beweging en in beeld.
             </h1>
             <p className="fade-up delay-2" style={{
               fontFamily: "var(--font-sans)", fontWeight: 300,
@@ -173,7 +173,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                 </ul>
                 <div style={{ borderTop: "1px solid rgba(246,216,204,0.15)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
                   <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--bg)", margin: "0 0 0.15rem", lineHeight: 1 }}>€ 850,-</p>
-                  <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "rgba(246,216,204,0.6)", margin: 0 }}>incl. btw · groepen t/m 13 personen</p>
+                  <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "rgba(246,216,204,0.6)", margin: 0 }}>excl. btw · groepen t/m 13 personen</p>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-3)" }}>
                   Bekijk mogelijkheden
@@ -217,7 +217,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
               </ul>
               <div style={{ borderTop: "1px solid rgba(121,48,31,0.15)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
                 <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1 }}>v.a. € 450,-</p>
-                <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>incl. btw · per traject</p>
+                <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>excl. btw · per traject</p>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-2)" }}>
                 Kijk wat bij je past
@@ -268,7 +268,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                 </ul>
                 <div style={{ borderTop: "1px solid rgba(172,179,198,0.3)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
                   <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1 }}>€ 595,-</p>
-                  <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>incl. btw · per deelneemster</p>
+                  <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>excl. btw · per deelneemster</p>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-1)" }}>
                   Ontdek wat mogelijk is
@@ -330,7 +330,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             fontSize: "0.9375rem", lineHeight: 1.85,
             color: "var(--ink)", marginBottom: "2rem",
           }}>
-            Ik ben opgeleid als <strong>vaktherapeut beeldend</strong>, waar ik heb geleerd om verder te kijken dan woorden alleen. 
+            Ik ben opgeleid als <strong>beeldend vaktherapeut</strong>, hier heb ik geleerd om verder te kijken dan woorden alleen. 
             Met coaching en beeldende werkvormen maak ik zichtbaar wat er van binnen speelt en help ik patronen te doorbreken.
           </p>
           <p style={{
@@ -338,8 +338,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             fontSize: "0.9375rem", lineHeight: 1.85,
             color: "var(--ink)", marginBottom: "2rem",
           }}>
-            Naast mijn eigen aanbod werk ik binnen de <strong>verslavingszorg en jeugdzorg</strong>, waar ik mensen begeleid in complexe situaties. Deze ervaring neem ik mee in mijn manier van werken: betrokken, helder en zonder oordeel.
-            Wat mij drijft, is het moment waarop iemand weer in contact komt met zichzelf en er ruimte ontstaat voor echte verandering.
+            Naast mijn eigen aanbod werk ik binnen de <strong>verslavingszorg en jeugdzorg</strong>, waar ik mensen begeleid in complexe situaties. Deze ervaring neem ik mee in mijn manier van werken: <i><strong>betrokken, helder en zonder oordeel</strong></i>.
           </p>
           <p style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
@@ -349,7 +348,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             Wat mij drijft, is het moment waarop iemand weer in contact komt met zichzelf en er ruimte ontstaat voor echte verandering.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
-            {["HBO Vaktherapie Beeldend", "Gecertificeerd coach", "Ervaringsgericht"].map(tag => (
+            {["Geregistreerd vaktherapeut", "Mensgericht", "Verbindend"].map(tag => (
               <span key={tag} style={{
                 fontFamily: "var(--font-sans)", fontSize: "0.75rem", fontWeight: 400,
                 color: "var(--accent-2)",
@@ -397,7 +396,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             fontSize: "0.9375rem", lineHeight: 1.85,
             color: "var(--accent-2)", marginBottom: "2rem",
           }}>
-            We beginnen altijd met een (online) kennismakingsgesprek van maximaal één uur. Hierin bespreken we jouw wensen en verwachtingen, de praktische details, en kijken we samen wat het beste past bij jouw situatie. 
+            We beginnen altijd met een online kennismakingsgesprek van maximaal één uur. Hierin bespreken we jouw wensen en verwachtingen, de praktische details, en kijken we samen wat het beste past bij jouw situatie. 
           </p>
           <p style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
@@ -406,26 +405,14 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
           }}>
             <strong>Klaar om te ontdekken wat mogelijk is?</strong>
           </p>
-          <a href="mailto:hallo@sashaelisabeth.nl" style={{
+          <a href="mailto:sasha_elisabeth@outlook.com" style={{
             fontFamily: "var(--font-display)", fontSize: "1.125rem",
             fontWeight: 400, color: "var(--accent-2)",
             textDecoration: "none",
             borderBottom: "1px solid rgba(121,48,31,0.3)", paddingBottom: "2px",
           }}>
-            hallo@sashaelisabeth.nl
+            sasha_elisabeth@outlook.com
           </a>
-          <div style={{
-            marginTop: "2.5rem",
-            borderLeft: "2px solid var(--accent-3)", paddingLeft: "1.25rem",
-          }}>
-            <p style={{
-              fontFamily: "var(--font-display)", fontStyle: "italic",
-              fontSize: "1rem", color: "var(--accent-2)",
-              lineHeight: 1.65, margin: 0,
-            }}>
-              &ldquo;Je hoeft het niet te begrijpen om ermee aan de slag te gaan.&rdquo;
-            </p>
-          </div>
         </div>
 
         <ContactForm prefilledService={service} />
