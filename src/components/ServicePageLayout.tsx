@@ -12,13 +12,21 @@ export interface ProcessStep {
   body: string;
 }
 
+export interface Offering {
+  title: string;
+  body: string;
+  quote?: string;
+}
+
 export interface ServicePageData {
   label: string;
   title: string;
   heroSubtitle: string;
   heroBg: string;
-  intro: string;
-  processTitle: string;
+  offerings: Offering[];
+  aanbodFooter?: string;
+  processTitleWerkwijze: string;
+  werkwijzeIntro?: string[];
   steps: ProcessStep[];
   included: string[];
   practical: { label: string; value: string }[];
@@ -57,12 +65,12 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
         }} />
         <div style={{ position: 'relative', maxWidth: '720px' }}>
-          <p className='eyebrow' style={{ color: 'var(--accent-3)', marginBottom: '1rem' }}>{data.label}</p>
+          <p className='eyebrow' style={{ color: 'var(--accent-3)', marginBottom: '0.75rem' }}>{data.label}</p>
           <h1 style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(2.25rem, 4vw, 3.5rem)',
             fontWeight: 300, lineHeight: 1.15,
-            color: 'var(--bg)', margin: '0 0 1.25rem',
+            color: 'var(--bg)', margin: '0 0 0.85rem',
             letterSpacing: '-0.02em',
           }}>
             {data.title}
@@ -77,27 +85,56 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         </div>
       </div>
 
-      {/* ── Wat is het ── */}
+      {/* ── Aanbod ── */}
       <section style={{
         borderBottom: '1px solid rgba(82,69,27,0.1)',
-      }} className="about-grid section-pad">
+      }} className="service-about-grid service-section-pad">
         <div>
-          <p className='eyebrow' style={{ marginBottom: '1rem' }}>Wat is het</p>
-          <h2 style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(1.75rem, 2.5vw, 2.25rem)',
-            fontWeight: 300, lineHeight: 1.25,
-            margin: '0 0 1.5rem', letterSpacing: '-0.01em',
-          }}>
-            {data.processTitle}
-          </h2>
-          <p style={{
-            fontFamily: 'var(--font-sans)', fontWeight: 300,
-            fontSize: '0.9375rem', lineHeight: 1.85,
-            color: 'var(--accent-2)',
-          }}>
-            {data.intro}
-          </p>
+          <p className='eyebrow' style={{ marginBottom: '1.5rem' }}>Aanbod</p>
+          {data.offerings.map((offering, i) => (
+            <div key={offering.title} style={{
+              marginBottom: i < data.offerings.length - 1 ? '1.5rem' : '1.25rem',
+            }}>
+              <h2 style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(1.4rem, 2vw, 1.75rem)',
+                fontWeight: 300, lineHeight: 1.25,
+                margin: '0 0 0.65rem', letterSpacing: '-0.01em',
+              }}>
+                {offering.title}
+              </h2>
+              {offering.quote && (
+                <div style={{
+                  marginBottom: '0.85rem',
+                  borderLeft: "2px solid var(--accent-3)", paddingLeft: "1.25rem",
+                }}>
+                  <p style={{
+                    fontFamily: "var(--font-display)", fontStyle: "italic",
+                    fontSize: "1rem", color: "var(--accent-2)",
+                    lineHeight: 1.65, margin: 0,
+                  }}>
+                    {offering.quote}
+                  </p>
+                </div>
+              )}
+              <p style={{
+                fontFamily: 'var(--font-sans)', fontWeight: 300,
+                fontSize: '0.9375rem', lineHeight: 1.85,
+                color: 'var(--accent-2)', margin: 0,
+              }}>
+                {offering.body}
+              </p>
+            </div>
+          ))}
+          {data.aanbodFooter && (
+            <p style={{
+              fontFamily: 'var(--font-sans)', fontWeight: 300, fontStyle: 'italic',
+              fontSize: '0.875rem', lineHeight: 1.8,
+              color: 'var(--accent-5)', margin: 0,
+            }}>
+              {data.aanbodFooter}
+            </p>
+          )}
         </div>
 
         {/* Photo */}
@@ -110,23 +147,36 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         </div>
       </section>
 
-      {/* ── Proces ── */}
+      {/* ── Werkwijze ── */}
       <section style={{
         borderBottom: '1px solid rgba(82,69,27,0.1)',
-      }} className="section-pad">
-        <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Het proces</p>
+      }} className="service-section-pad">
+        <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Werkwijze</p>
         <h2 style={{
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(1.75rem, 2.5vw, 2.25rem)',
           fontWeight: 300, lineHeight: 1.25,
-          margin: '0 0 3rem', letterSpacing: '-0.01em',
+          margin: data.werkwijzeIntro?.length ? '0 0 1rem' : '0 0 2rem', letterSpacing: '-0.01em',
         }}>
-          {data.processTitle}
+          {data.processTitleWerkwijze}
         </h2>
+        {data.werkwijzeIntro && data.werkwijzeIntro.length > 0 && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
+            {data.werkwijzeIntro.map(paragraph => (
+              <p key={paragraph} style={{
+                fontFamily: 'var(--font-sans)', fontWeight: 300,
+                fontSize: '0.9375rem', lineHeight: 1.85,
+                color: 'var(--accent-2)', margin: 0, maxWidth: '700px',
+              }}>
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        )}
         <div className="service-inner">
           {data.steps.map((step, i) => (
             <div key={step.number} style={{
-              padding: '1.75rem',
+              padding: '1.25rem',
               background: i % 2 === 0 ? 'rgba(82,69,27,0.04)' : 'rgba(246,216,204,0.3)',
               borderRadius: '8px',
               border: '1px solid rgba(82,69,27,0.08)',
@@ -157,61 +207,45 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         </div>
       </section>
 
-      {/* ── Inbegrepen + Praktisch ── */}
+      {/* ── Praktisch ── */}
       <section style={{
         borderBottom: '1px solid rgba(82,69,27,0.1)',
-      }} className="about-grid section-pad">
-        <div>
-          <p className='eyebrow' style={{ marginBottom: '1rem' }}>Wat is inbegrepen</p>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            {data.included.map(item => (
-              <li key={item} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-                <span style={{ color: 'var(--accent-4)', flexShrink: 0, marginTop: '2px', fontWeight: 500 }}>—</span>
-                <span style={{
-                  fontFamily: 'var(--font-sans)', fontSize: '0.9rem',
-                  fontWeight: 300, color: 'var(--ink)', lineHeight: 1.6,
-                }}>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <p className='eyebrow' style={{ marginBottom: '1rem' }}>Praktisch</p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            {data.practical.map(item => (
-              <div key={item.label} style={{ display: 'flex', gap: '0.75rem' }}>
-                <span style={{
-                  fontFamily: 'var(--font-sans)', fontSize: '0.8rem',
-                  fontWeight: 500, color: 'var(--accent-2)',
-                  textTransform: 'uppercase', letterSpacing: '0.1em',
-                  minWidth: '100px', paddingTop: '1px',
-                }}>{item.label}</span>
-                <span style={{
-                  fontFamily: 'var(--font-sans)', fontSize: '0.9rem',
-                  fontWeight: 300, color: 'var(--ink)', lineHeight: 1.6,
-                }}>{item.value}</span>
-              </div>
-            ))}
-          </div>
+      }} className="service-section-pad">
+        <p className='eyebrow' style={{ marginBottom: '1rem' }}>Praktisch</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', maxWidth: '520px' }}>
+          {data.practical.map(item => (
+            <div key={item.label} style={{ display: 'flex', gap: '0.75rem' }}>
+              <span style={{
+                fontFamily: 'var(--font-sans)', fontSize: '0.8rem',
+                fontWeight: 500, color: 'var(--accent-2)',
+                textTransform: 'uppercase', letterSpacing: '0.1em',
+                minWidth: '110px', paddingTop: '1px',
+              }}>{item.label}</span>
+              <span style={{
+                fontFamily: 'var(--font-sans)', fontSize: '0.9rem',
+                fontWeight: 300, color: 'var(--ink)', lineHeight: 1.6,
+              }}>{item.value}</span>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* ── Investering ── */}
-      <section style={{ borderBottom: '1px solid rgba(82,69,27,0.1)' }} className="section-pad">
+      <section style={{ borderBottom: '1px solid rgba(82,69,27,0.1)' }} className="service-section-pad">
         <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Investering</p>
         <h2 style={{
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(1.75rem, 2.5vw, 2.25rem)',
           fontWeight: 300, lineHeight: 1.25,
-          margin: '0 0 2.5rem', letterSpacing: '-0.01em',
+          margin: '0 0 1.5rem', letterSpacing: '-0.01em',
         }}>
           Transparante prijzen, geen verrassingen.
         </h2>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: data.pricingNote ? '1.5rem' : 0 }}>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
           {data.pricing.map(tier => (
             <div key={tier.label} style={{
               background: 'var(--accent-1)', borderRadius: '8px',
-              padding: '1.5rem 2rem', minWidth: '180px',
+              padding: '1.25rem 1.5rem', minWidth: '180px',
             }}>
               <p className='eyebrow' style={{ color: 'var(--accent-3)', marginBottom: '0.5rem' }}>{tier.label}</p>
               <p style={{
@@ -226,10 +260,26 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
             </div>
           ))}
         </div>
+        {data.included.length > 0 && (
+          <div style={{ marginBottom: data.pricingNote ? '1.25rem' : 0 }}>
+            <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Inbegrepen</p>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              {data.included.map(item => (
+                <li key={item} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                  <span style={{ color: 'var(--accent-4)', flexShrink: 0, marginTop: '2px', fontWeight: 500 }}>—</span>
+                  <span style={{
+                    fontFamily: 'var(--font-sans)', fontSize: '0.9rem',
+                    fontWeight: 300, color: 'var(--ink)', lineHeight: 1.6,
+                  }}>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         {data.pricingNote && (
           <p style={{
             fontFamily: 'var(--font-sans)', fontSize: '0.85rem',
-            fontWeight: 300, color: 'var(--accent-5)', fontStyle: 'italic',
+            fontWeight: 300, color: 'var(--accent-5)', fontStyle: 'italic', margin: 0,
           }}>{data.pricingNote}</p>
         )}
       </section>

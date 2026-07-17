@@ -3,10 +3,26 @@ import ServicePageLayout, { ServicePageData } from '@/components/ServicePageLayo
 const data: ServicePageData = {
   label: 'Teambuilding',
   title: 'Samen sterker door creatief werken.',
-  heroSubtitle: 'Ontdek hoe jouw team communiceert, samenwerkt en groeit — zonder dat iemand een woord hoeft te zeggen.',
+  heroSubtitle: 'Samenwerken wordt sterker wanneer er ruimte is voor inzicht, ervaring en verbinding. Binnen de teambuilding trainingen werk ik met coaching en beeldende werkvormen om zichtbaar te maken wat er speelt binnen een team en om daar beweging in te brengen.',
   heroBg: 'var(--accent-1)',
-  intro: `Bij beeldende teambuilding staan verf, klei en andere materialen centraal — niet een presentatie of een theoretisch model. Door samen iets te maken, komen teamdynamieken op een natuurlijke manier naar boven. Je ziet hoe mensen initiatief nemen, hoe ze omgaan met onzekerheid, hoe ze naar elkaar luisteren. Dat maakt het een krachtige én laagdrempelige manier om samenwerking te versterken. Geen kunstervaring nodig.`,
-  processTitle: 'Van kennismaking tot reflectie.',
+  offerings: [
+    {
+      title: 'Training – Vertrouwen',
+      quote: '"Vergroot zelfvertrouwen en onderlinge samenwerking binnen het team."',
+      body: 'Deze training is gericht op het versterken van onderling vertrouwen binnen het team. We werken aan veiligheid, openheid en het durven innemen van je plek.',
+    },
+    {
+      title: 'Training – Communicatie',
+      quote: '"Help je medewerkers hun communicatiestijl te begrijpen, zodat de samenwerking en teamdynamiek verbeteren."',
+      body: 'Deze training is gericht op het zichtbaar maken van communicatiepatronen en interacties binnen het team. We onderzoeken hoe gedragingen en patronen doorwerken, zodat medewerkers effectiever kunnen afstemmen en samenwerken.',
+    },
+  ],
+  aanbodFooter: 'Voor trajecten, grotere groepen of specifieke vragen maak ik graag een voorstel op maat dat aansluit bij jullie organisatie en doelen.',
+  processTitleWerkwijze: 'Van kennismaking tot training.',
+  werkwijzeIntro: [
+    'We starten met een online kennismakingsgesprek waarin we de wensen, doelen en context van het team bespreken.',
+    'Tijdens de training werken we met een combinatie van psycho educatie, coaching en beeldende werkvormen. Dit helpt om patronen en dynamieken binnen het team zichtbaar en bespreekbaar te maken, op een manier die verder gaat dan alleen praten.',
+  ],
   steps: [
     {
       number: '01',
@@ -25,23 +41,21 @@ const data: ServicePageData = {
     },
   ],
   included: [
-    'Kennismakingsgesprek (1 uur) voorafgaand aan de training',
-    'Volledige begeleiding tijdens de training',
-    'Alle beeldende werkvormen en materialen',
-    'Gezamenlijke reflectie na afloop',
-    'Korte schriftelijke terugkoppeling indien gewenst',
+    'Kennismakingsgesprek (1 uur)',
+    'Begeleiding van de training',
+    'Gebruik van beeldende werkvormen en materialen',
+    'Evt. evaluatie',
   ],
   practical: [
-    { label: 'Duur',      value: '1 dagdeel — uitbreiding naar een volledige dag is mogelijk' },
-    { label: 'Locatie',   value: 'Op locatie naar keuze / eigen locatie' },
-    { label: 'Groep',     value: 'Geschikt voor teams van 6 tot 13 personen' },
-    { label: 'Reiskosten', value: 'Nader te bepalen' },
+    { label: 'Duur',       value: '1 dagdeel (uitbreiding naar hele dag mogelijk)' },
+    { label: 'Locatie',    value: 'Op jullie eigen locatie' },
+    { label: 'Reiskosten', value: '€ 0,30 / km' },
   ],
   pricing: [
-    { label: 'Basis', price: '€ 850,-', note: 'incl. btw · t/m 13 personen' },
-    { label: 'Extra deelnemer', price: '€ 30,-', note: 'incl. btw · per extra persoon' },
+    { label: 'Basis', price: '€ 850,-', note: 'excl. btw · t/m 12 personen' },
+    { label: 'Extra deelnemer', price: '€ 30,-', note: 'excl. btw · per extra persoon' },
   ],
-  pricingNote: 'Voor grotere groepen, meerdere dagdelen of specifieke wensen maak ik graag een voorstel op maat.',
+  pricingNote: 'Benieuwd wat dit voor jullie team kan betekenen? Vul het contactformulier in.',
   ctaService: 'Teambuilding',
   image: '/paint 1.jpeg',
 };
