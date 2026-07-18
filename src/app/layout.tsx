@@ -47,6 +47,7 @@ export default function RootLayout({
     <html
       lang="nl"
       className={`${bodoni.variable} ${cormorant.variable} ${dancing.variable} ${jost.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
         <Nav />

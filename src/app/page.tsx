@@ -27,77 +27,53 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
     <div style={{ background: "var(--bg)", color: "var(--ink)" }}>
 
       {/* ─────────────── HERO ─────────────── */}
-      <section id="home" className="hero">
-
-        {/* Left — dark panel */}
-        <div className="hero-panel" style={{
-          background: "var(--accent-1)",
-          display: "flex", flexDirection: "column", justifyContent: "flex-end",
-          position: "relative", overflow: "hidden",
-        }}>
-          <div style={{
-            position: "absolute", inset: 0, opacity: 0.035,
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          }} />
-          <div style={{
-            position: "absolute", top: "4rem", left: "3.5rem", right: "3.5rem",
-            height: 4, background: "var(--accent-4)", borderRadius: 3,
-            opacity: 0.2, transform: "rotate(-0.4deg) scaleX(0.9)",
-          }} />
-
-          <div style={{ position: "relative" }}>
-            <p className="fade-up eyebrow" style={{ color: "var(--accent-3)", marginBottom: "1.5rem" }}>
-              Teambuilding & Coaching
-            </p>
-            <h1 className="fade-up delay-1" style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(2rem, 3.5vw, 3.25rem)",
-              fontWeight: 300, lineHeight: 1.15,
-              color: "var(--bg)", margin: "0 0 0.5rem",
-              letterSpacing: "-0.01em",
-            }}>
-              Samen sterker, 
-            </h1>
-            <h1 className="fade-up delay-1" style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(2rem, 3.5vw, 3.25rem)",
-              fontWeight: 300, lineHeight: 1.15,
-              color: "var(--bg)", margin: "0 0 0.5rem",
-              letterSpacing: "-0.01em",
-            }}>
-              in beweging en in beeld.
-            </h1>
-            <p className="fade-up delay-2" style={{
-              fontFamily: "var(--font-sans)", fontWeight: 300,
-              fontSize: "0.9rem", lineHeight: 1.8,
-              color: "rgba(247,239,210,0.7)",
-              maxWidth: "360px", marginBottom: "2.5rem",
-            }}>
-              Mijn naam is <strong>Sasha Elisabeth</strong> en ik begeleid teams en individuen in het zichtbaar maken van wat er van binnen speelt en welke patronen daarin meebewegen. 
-              Met coaching en beeldende werkvormen ontstaat ruimte voor inzicht, verbinding en blijvende groei.
-            </p>
-            <a href="#aanbod" className="fade-up delay-3 btn-ghost-light" style={{
-              display: "inline-flex", alignItems: "center", gap: "0.65rem",
-              background: "none", border: "1px solid rgba(247,239,210,0.4)",
-              color: "var(--bg)", fontFamily: "var(--font-sans)",
-              fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase",
-              padding: "0.8rem 1.75rem", textDecoration: "none",
-            }}>
-              Bekijk het aanbod
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        {/* Right — portfolio photo */}
-        <div className="hero-photo" style={{ position: "relative", overflow: "hidden" }}>
+      <section id="home" className="hero" style={{ background: "var(--accent-1)" }}>
+        <div className="hero-panel">
           <img
-            src="/portfolio.jpeg"
-            alt="Sasha Elisabeth"
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            src="/logo.png"
+            alt="Sasha Elisabeth — Vaktherapie en Coaching"
+            className="hero-logo fade-up"
+            style={{ filter: "brightness(0) invert(1)" }}
           />
+          <h1 className="fade-up delay-1" style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)",
+            fontWeight: 300, lineHeight: 1.12,
+            color: "var(--bg)", margin: "0 0 0.4rem",
+            letterSpacing: "-0.01em",
+          }}>
+            Samen sterker,
+          </h1>
+          <h1 className="fade-up delay-2" style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)",
+            fontWeight: 300, lineHeight: 1.12,
+            color: "var(--bg)", margin: "0 0 1.75rem",
+            letterSpacing: "-0.01em",
+          }}>
+            in beweging en in beeld.
+          </h1>
+          <p className="fade-up delay-3" style={{
+            fontFamily: "var(--font-sans)", fontWeight: 300,
+            fontSize: "0.95rem", lineHeight: 1.85,
+            color: "rgba(247,239,210,0.75)",
+            maxWidth: "620px", margin: "0 auto 2.5rem",
+          }}>
+            Mijn naam is <strong>Sasha Elisabeth</strong> en ik begeleid teams en individuen in het zichtbaar maken van wat er van binnen speelt en welke patronen daarin meebewegen.
+            Met coaching en beeldende werkvormen ontstaat ruimte voor inzicht, verbinding en blijvende groei.
+          </p>
+          <a href="#aanbod" className="fade-up delay-4 btn-ghost-light" style={{
+            display: "inline-flex", alignItems: "center", gap: "0.65rem",
+            background: "none", border: "1px solid rgba(247,239,210,0.4)",
+            color: "var(--bg)", fontFamily: "var(--font-sans)",
+            fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase",
+            padding: "0.85rem 1.9rem", textDecoration: "none",
+          }}>
+            Bekijk het aanbod
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
         </div>
       </section>
 

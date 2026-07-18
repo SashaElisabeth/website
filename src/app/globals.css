@@ -79,11 +79,21 @@ body {
   border-color: rgba(247, 239, 210, 0.8) !important;
 }
 
+/* Ghost button — dark version (on light bg) */
+.btn-ghost-dark {
+  transition: background 0.2s, border-color 0.2s;
+}
+.btn-ghost-dark:hover {
+  background: rgba(109, 76, 58, 0.06);
+  border-color: var(--accent-1);
+}
+
 /* ─── Responsive layout classes ───────────────────────────── */
 
-/* Hero */
-.hero         { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
-.hero-panel   { padding: 7rem 3.5rem 4.5rem; }
+/* Hero — full-width, centered, logo on top */
+.hero        { display: flex; align-items: center; justify-content: center; min-height: 100vh; min-height: 100dvh; }
+.hero-panel  { max-width: 760px; padding: 8rem 2rem 5rem; text-align: center; display: flex; flex-direction: column; align-items: center;}
+.hero-logo   { height: auto; width: auto; max-height: 200px; max-width: 100%; margin-bottom: 2.75rem; }
 
 /* Sections */
 .section-pad  { padding: 6rem 4rem; }
@@ -159,9 +169,8 @@ body {
 
 /* ── iPad (641 – 1023px) ── */
 @media (min-width: 641px) and (max-width: 1023px) {
-  .hero              { grid-template-columns: 1fr; }
-  .hero-photo        { min-height: 400px; } /* placeholder until real photo added */
-  .hero-panel        { padding: 7rem 3rem 4rem; }
+  .hero-panel        { padding: 7rem 2rem 4rem; }
+  .hero-logo         { max-height: 150px; margin-bottom: 2.25rem; }
   .offerings-grid    { grid-template-columns: 1fr 1fr; }
   .about-grid        { gap: 3rem; }
   .contact-grid      { gap: 3rem; }
@@ -187,9 +196,8 @@ body {
 @media (max-width: 640px) {
   .nav-links         { display: none; }
   .nav-hamburger     { display: flex; }
-  .hero              { grid-template-columns: 1fr; }
-  .hero-photo        { min-height: 280px; } /* placeholder until real photo added */
-  .hero-panel        { padding: 5rem 1.75rem 3.5rem; }
+  .hero-panel        { padding: 6rem 1.5rem 3.5rem; }
+  .hero-logo         { max-height: 110px; margin-bottom: 1.75rem; }
   .offerings-grid    { grid-template-columns: 1fr; }
   .about-grid        { grid-template-columns: 1fr; gap: 2rem; }
   .about-photo       { display: none; }
