@@ -91,7 +91,7 @@ body {
 /* ─── Responsive layout classes ───────────────────────────── */
 
 /* Hero — full-width, centered, logo on top */
-.hero        { display: flex; align-items: center; justify-content: center; min-height: 100vh; min-height: 100dvh; }
+.hero        { display: flex; align-items: center; justify-content: center; min-height: 88vh; }
 .hero-panel  { max-width: 760px; padding: 8rem 2rem 5rem; text-align: center; display: flex; flex-direction: column; align-items: center;}
 .hero-logo   { height: auto; width: auto; max-height: 200px; max-width: 100%; margin-bottom: 2.75rem; }
 
@@ -169,6 +169,7 @@ body {
 
 /* ── iPad (641 – 1023px) ── */
 @media (min-width: 641px) and (max-width: 1023px) {
+  .hero              { min-height: 82vh; }
   .hero-panel        { padding: 7rem 2rem 4rem; }
   .hero-logo         { max-height: 150px; margin-bottom: 2.25rem; }
   .offerings-grid    { grid-template-columns: 1fr 1fr; }
@@ -196,6 +197,7 @@ body {
 @media (max-width: 640px) {
   .nav-links         { display: none; }
   .nav-hamburger     { display: flex; }
+  .hero              { min-height: auto; }
   .hero-panel        { padding: 6rem 1.5rem 3.5rem; }
   .hero-logo         { max-height: 110px; margin-bottom: 1.75rem; }
   .offerings-grid    { grid-template-columns: 1fr; }
