@@ -26,16 +26,18 @@ Website for a Dutch art therapy and coaching practice.
 | `public/paint 1.jpeg` | Teambuilding photo — card + individual page |
 | `public/paint 2.jpeg` | Individuele Coaching photo — card + individual page |
 | `public/paint 3.jpeg` | Vrouwen op de werkvloer photo — card + individual page |
-| `src/components/ContactForm.tsx` | Client component — contact form with success state |
+| `src/components/ContactForm.tsx` | Client component — contact form, POSTs to `/api/contact` |
+| `src/app/api/contact/route.ts` | Route Handler — sends contact form submissions via Resend |
+| `.env.example` | Documents required env vars (`RESEND_API_KEY`, etc.) — copy to `.env.local` |
 | `design.md` | Full design system reference |
 
 ## Sections (in scroll order)
 
-1. `#home` — Hero split (dark olive panel + `portfolio.jpeg` photo)
+1. `#home` — Full-width, centered hero: `logo.png` (inverted white via `filter: brightness(0) invert(1)`) on a dark chestnut (`--accent-1`) background, `min-height: 100dvh`. No hero photo.
 2. `#aanbod` — Three full-width service blocks, each with a 3-col inner grid (Investering | Inbegrepen | Praktisch) + Op maat footer:
-   - **Teambuilding** — €850,- base / €30 per extra person (>13), olive dark background
+   - **Teambuilding** — €850,- base / €30 per extra person (>13), chestnut dark background
    - **Individuele Coaching** — 3 trajectory tiers (5/7/10 sessies), blush peach background
-   - **Vrouwenprogramma** — €595 per deelneemster, steel blue striped background
+   - **Vrouwenprogramma** — €595 per deelneemster, sage striped background (currently disabled/"binnenkort" — see `COMING_SOON` flag in `vrouwen-op-de-werkvloer/page.tsx`)
 3. `#over-mij` — Photo placeholder + personal intro + qualification tags
 4. `#contact` — Contact info + form
 
@@ -75,16 +77,28 @@ Each service page passes an `image` prop (e.g. `'/paint 1.jpeg'`) to `ServicePag
 
 **Dutch strings with apostrophes** (e.g. `thema's`, `jouw's`) must use double-quoted strings to avoid parse errors.
 
+## Contact Form (Resend)
+
+`ContactForm.tsx` POSTs `{ name, email, service, message }` as JSON to `src/app/api/contact/route.ts`, which validates the payload server-side and sends it via [Resend](https://resend.com) (`resend` npm package) to the practice's inbox, with `replyTo` set to the submitter's address so replies go straight to them.
+
+Required env vars (see `.env.example`, copy to `.env.local` — gitignored):
+- `RESEND_API_KEY` — from the Resend dashboard. Without it the route returns a controlled 500 and the form shows a Dutch error message (form data is preserved, nothing crashes).
+- `RESEND_TO_EMAIL` — inbox that receives submissions (defaults to `sasha_elisabeth@outlook.com`).
+- `RESEND_FROM_EMAIL` — sender address; **must be on a domain verified in Resend**. Defaults to the Resend sandbox address (`onboarding@resend.dev`), which only works for testing — set a real verified sender before relying on this in production.
+
+The form shows a loading state (`Versturen…`, disabled button) while the request is in flight, and a Dutch error message on failure instead of the success screen.
+
 ## Design Tokens (quick reference)
 
 ```css
---bg:       #fbf9f4  /* parchment background */
---ink:      #52451b  /* olive brown — primary text */
---accent-1: #52451b  /* olive brown */
---accent-2: #79301f  /* burnt sienna */
---accent-3: #f6d8cc  /* blush peach */
---accent-4: #790013  /* crimson */
---accent-5: #acb3c6  /* steel blue */
+--bg:        #faf7f0  /* warm ivory background */
+--ink:       #40382b  /* espresso — primary text */
+--accent-1:  #6d4c3a  /* chestnut brown */
+--accent-2:  #9d5233  /* terracotta */
+--accent-3:  #f6d8cc  /* blush peach */
+--accent-4:  #47624f  /* pine green — CTAs/emphasis */
+--accent-5:  #a7b1a0  /* sage — decorative only, not text (fails WCAG as text) */
+--muted:     #6f6a5c  /* readable muted text (AA-compliant) — use instead of --accent-5 for text */
 ```
 
 ## Responsive Rule
@@ -99,11 +113,11 @@ Layout is driven by CSS classes in `globals.css` — inline styles handle colour
 
 | Breakpoint | Width | Key behaviour |
 |------------|-------|---------------|
-| Desktop | ≥ 1024px | 3-col offerings, 2-col about/contact, full hero split |
-| iPad | 641–1023px | 2-col offerings, hero stacks (photo below, min-height: 400px) |
-| Mobile | ≤ 640px | Single column everywhere, hero stacks (photo below, min-height: 280px) |
+| Desktop | ≥ 1024px | 3-col offerings, 2-col about/contact, hero logo max-height 200px |
+| iPad | 641–1023px | 2-col offerings, hero logo max-height 150px |
+| Mobile | ≤ 640px | Single column everywhere, hero logo max-height 110px |
 
-**Hero photo panel:** uses `<img src="/portfolio.jpeg">` with `objectFit: cover`. `min-height` is set per breakpoint via the `.hero-photo` class so it remains visible when the split collapses on smaller screens.
+**Hero:** `.hero` is a full-width `100dvh` flex container centering `.hero-panel` (max-width 760px, centered text). `.hero-logo` (the inverted-white `logo.png`) scales down per breakpoint via the table above — no hero photo.
 
 ## Conventions
 
