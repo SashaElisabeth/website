@@ -10,6 +10,7 @@ Website for a Dutch art therapy and coaching practice.
 
 - **Framework:** Next.js (App Router) with Tailwind CSS v4
 - **Structure:** Single-page application — all content lives on `/` (page.tsx), scrolling through sections with anchor links (`#home`, `#aanbod`, `#over-mij`, `#contact`)
+- **i18n:** Bilingual via `next-intl` — Dutch (default, no prefix) at `/`, English at `/en`. Routes live under `src/app/[locale]/`; strings in `messages/nl.json` / `messages/en.json`; config in `src/i18n/`; `src/middleware.ts` handles locale detection + a `NEXT_LOCALE` cookie. Language switcher is in `Nav.tsx`.
 - **Fonts:** Bodoni Moda (logo), Cormorant Garamond (display/headings), Dancing Script (script accent), Jost (body/UI) — all loaded via `next/font/google` in `layout.tsx`
 - **Styling:** CSS variables in `globals.css`, inline styles in components. No Tailwind utility classes in JSX — use CSS variables and inline styles for consistency with the design system.
 
@@ -17,8 +18,11 @@ Website for a Dutch art therapy and coaching practice.
 
 | File | Purpose |
 |------|---------|
-| `src/app/page.tsx` | Single-page layout (all sections) |
-| `src/app/layout.tsx` | Root layout — fonts + Nav |
+| `src/app/[locale]/page.tsx` | Single-page layout (all sections) |
+| `src/app/[locale]/layout.tsx` | Root layout — fonts, Nav, `NextIntlClientProvider` |
+| `src/middleware.ts` | next-intl locale routing/detection |
+| `src/i18n/routing.ts`, `navigation.ts`, `request.ts` | next-intl config (locales, `Link`/`usePathname`, message loading) |
+| `messages/nl.json`, `messages/en.json` | All UI/page strings, per locale |
 | `src/app/globals.css` | Design tokens, CSS variables, utility classes |
 | `src/components/Nav.tsx` | Fixed nav with scrollspy, anchor links, mobile hamburger, image logo |
 | `public/logo.png` | Brand logo image — used in nav and as favicon |
@@ -56,9 +60,11 @@ The three service blocks on the homepage are laid out as a 3-column grid using `
 
 | Route | File |
 |-------|------|
-| `/teambuilding` | `src/app/teambuilding/page.tsx` |
-| `/individuele-coaching` | `src/app/individuele-coaching/page.tsx` |
-| `/vrouwen-op-de-werkvloer` | `src/app/vrouwen-op-de-werkvloer/page.tsx` |
+| `/teambuilding` (`/en/teambuilding`) | `src/app/[locale]/teambuilding/page.tsx` |
+| `/individuele-coaching` (`/en/individuele-coaching`) | `src/app/[locale]/individuele-coaching/page.tsx` |
+| `/vrouwen-op-de-werkvloer` (`/en/vrouwen-op-de-werkvloer`) | `src/app/[locale]/vrouwen-op-de-werkvloer/page.tsx` |
+
+Each page defines a `dataNl` and `dataEn` (`ServicePageData`) object and picks one by `params.locale`. `ServicePageLayout.tsx`'s own chrome strings ("Terug"/"Back", "Werkwijze"/"How it works", etc.) come from the `ServicePage` namespace in the messages files, not from page data.
 
 All three use the shared `src/components/ServicePageLayout.tsx` template:
 - Back button → `/`
@@ -79,7 +85,12 @@ Each service page passes an `image` prop (e.g. `'/paint 1.jpeg'`) to `ServicePag
 
 ## Contact Form (Resend)
 
-`ContactForm.tsx` POSTs `{ name, email, service, message }` as JSON to `src/app/api/contact/route.ts`, which validates the payload server-side and sends it via [Resend](https://resend.com) (`resend` npm package) to the practice's inbox, with `replyTo` set to the submitter's address so replies go straight to them.
+`ContactForm.tsx` POSTs `{ name, email, service, reason, message, honeypot, renderedAt, locale }` as JSON to `src/app/api/contact/route.ts`, which validates the payload server-side and sends it via [Resend](https://resend.com) (`resend` npm package) to the practice's inbox, with `replyTo` set to the submitter's address so replies go straight to them.
+
+- `service` is one of `Teambuilding` / `Individuele Coaching` / `Vrouwen op de Werkvloer` / `Overig` (a fixed whitelist, checked server-side) — these are stable internal values, not translated; the visible `<option>` labels are translated, but submissions and the internal notification email always use these Dutch identifiers regardless of site language.
+- Selecting `Overig` reveals a required `reason` field (short free text) — both client and server enforce this.
+- Spam protection (all in `route.ts`, no external service): honeypot field, minimum-time-since-render check, per-IP in-memory rate limiting (best-effort, resets on cold start), max body size, control-character rejection on single-line fields. Honeypot/too-fast submissions get a fake `{ok:true}` response — no signal is given to bots about what tripped the check.
+- Error messages returned to the client are localized (`nl`/`en`) based on the submitted `locale`; the internal notification email itself always stays in Dutch.
 
 Required env vars (see `.env.example`, copy to `.env.local` — gitignored):
 - `RESEND_API_KEY` — from the Resend dashboard. Without it the route returns a controlled 500 and the form shows a Dutch error message (form data is preserved, nothing crashes).
@@ -123,10 +134,10 @@ Layout is driven by CSS classes in `globals.css` — inline styles handle colour
 
 - **Server components by default** — extract interactive elements (hover handlers, form state, scroll events) into `"use client"` components
 - **Responsive layout via CSS classes** — add/modify breakpoints in `globals.css`, not in inline styles
-- **Anchor links** for nav, not `next/link` — the site is single-page
+- **Anchor links** for section nav (plain `<a>`, manually locale-prefixed) — the site is single-page; use `next-intl`'s `Link` (from `@/i18n/navigation`), not `next/link`, for any real cross-page/locale-aware navigation (see `Nav.tsx`'s language switcher)
 - **Nav is always opaque** — parchment background at all times, no transparent/scroll transition
 - **Nav logo** — uses `<img src="/logo.png">` with `mix-blend-mode: multiply`. The `<nav>` has no padding; `.nav-logo` class handles responsive left padding (2rem desktop/iPad, 0 + centered on mobile); `.nav-right` class carries padding for the links/hamburger side. No color picker.
-- **Dutch language** throughout — content is for a Dutch-speaking audience
+- **Bilingual** — Dutch is the default/primary audience, English is the secondary option (see i18n above); don't hardcode new UI copy in JSX, add it to both `messages/*.json` files
 - **Placeholder content** — all copy, prices, and the photo placeholder are ready to be replaced with real content
 - **Responsive by default** — see the Responsive Rule section above
 
