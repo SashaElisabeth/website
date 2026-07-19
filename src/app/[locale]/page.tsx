@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactForm from "@/components/ContactForm";
 
 function BotanicalOrnament({ size = 48, color = "var(--accent-1)", opacity = 0.35 }: {
@@ -20,9 +21,22 @@ function BotanicalOrnament({ size = 48, color = "var(--accent-1)", opacity = 0.3
   );
 }
 
+type PageProps = {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ service?: string }>;
+};
 
-export default async function Home({ searchParams }: { searchParams: Promise<{ service?: string }> }) {
+export default async function Home({ params, searchParams }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const { service } = await searchParams;
+  const t = await getTranslations("Home");
+
+  const teambuildingBullets = t.raw("aanbod.teambuilding.bullets") as string[];
+  const coachingBullets = t.raw("aanbod.coaching.bullets") as string[];
+  const vrouwenBullets = t.raw("aanbod.vrouwen.bullets") as string[];
+  const tags = t.raw("overMij.tags") as string[];
+
   return (
     <div style={{ background: "var(--bg)", color: "var(--ink)" }}>
 
@@ -31,7 +45,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
         <div className="hero-panel">
           <img
             src="/logo.png"
-            alt="Sasha Elisabeth — Vaktherapie en Coaching"
+            alt={t("hero.logoAlt")}
             className="hero-logo fade-up"
             style={{ filter: "brightness(0) invert(1)" }}
           />
@@ -42,7 +56,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             color: "var(--bg)", margin: "0 0 0.4rem",
             letterSpacing: "-0.01em",
           }}>
-            Samen sterker,
+            {t("hero.titleLine1")}
           </h1>
           <h1 className="fade-up delay-2" style={{
             fontFamily: "var(--font-display)",
@@ -51,7 +65,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             color: "var(--bg)", margin: "0 0 1.75rem",
             letterSpacing: "-0.01em",
           }}>
-            in beweging en in beeld.
+            {t("hero.titleLine2")}
           </h1>
           <p className="fade-up delay-3" style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
@@ -59,8 +73,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             color: "rgba(247,239,210,0.75)",
             maxWidth: "620px", margin: "0 auto 2.5rem",
           }}>
-            Mijn naam is <strong>Sasha Elisabeth</strong> en ik begeleid teams en individuen in het zichtbaar maken van wat er van binnen speelt en welke patronen daarin meebewegen.
-            Met coaching en beeldende werkvormen ontstaat ruimte voor inzicht, verbinding en blijvende groei.
+            {t.rich("hero.intro", { strong: (chunks) => <strong>{chunks}</strong> })}
           </p>
           <a href="#aanbod" className="fade-up delay-4 btn-ghost-light" style={{
             display: "inline-flex", alignItems: "center", gap: "0.65rem",
@@ -69,7 +82,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase",
             padding: "0.85rem 1.9rem", textDecoration: "none",
           }}>
-            Bekijk het aanbod
+            {t("hero.cta")}
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -83,14 +96,14 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
         {/* Section header */}
         <div className="aanbod-header">
           <div>
-            <p className="eyebrow" style={{ marginBottom: "0.75rem" }}>Wat ik aanbied</p>
+            <p className="eyebrow" style={{ marginBottom: "0.75rem" }}>{t("aanbod.eyebrow")}</p>
             <h2 style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
               fontWeight: 300, lineHeight: 1.2, margin: 0,
               letterSpacing: "-0.01em",
             }}>
-              Werken op jouw manier.
+              {t("aanbod.title")}
             </h2>
           </div>
           <a href="#contact" style={{
@@ -100,7 +113,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             letterSpacing: "0.2em", textTransform: "uppercase",
             padding: "0.8rem 1.75rem", borderRadius: "2px", textDecoration: "none",
           }}>
-            Maak een afspraak
+            {t("aanbod.cta")}
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -124,24 +137,20 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             }} />
             <div style={{ position: "relative", display: "flex", flexDirection: "column", height: "100%" }}>
               <div style={{ padding: "1.75rem 1.75rem 1.5rem" }}>
-                <p className="eyebrow" style={{ color: "var(--accent-3)", marginBottom: "0.5rem" }}>Teambuilding</p>
+                <p className="eyebrow" style={{ color: "var(--accent-3)", marginBottom: "0.5rem" }}>{t("aanbod.teambuilding.label")}</p>
                 <h3 style={{
                   fontFamily: "var(--font-display)", fontSize: "clamp(1.2rem, 1.5vw, 1.5rem)",
                   fontWeight: 400, color: "var(--bg)", margin: 0, lineHeight: 1.25,
                 }}>
-                  Samen sterker door creatief werken
+                  {t("aanbod.teambuilding.title")}
                 </h3>
               </div>
               <div style={{ height: "180px", flexShrink: 0, overflow: "hidden" }}>
-                <img src="/paint 1.jpeg" alt="Teambuilding" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src="/paint 1.jpeg" alt={t("aanbod.teambuilding.label")} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
               <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
                 <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
-                  {[
-                    "Verbinding en samenwerking in je team",
-                    "Begeleiding met beeldende werkvormen",
-                    "Direct toepasbare inzichten",
-                  ].map(item => (
+                  {teambuildingBullets.map(item => (
                     <li key={item} style={{ display: "flex", gap: "0.55rem", alignItems: "flex-start" }}>
                       <span style={{ color: "var(--accent-3)", flexShrink: 0, marginTop: "2px", fontSize: "0.7rem" }}>✓</span>
                       <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 300, color: "rgba(246,216,204,0.85)", lineHeight: 1.5 }}>{item}</span>
@@ -149,11 +158,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                   ))}
                 </ul>
                 <div style={{ borderTop: "1px solid rgba(246,216,204,0.15)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
-                  <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--bg)", margin: "0 0 0.15rem", lineHeight: 1 }}>€ 850,-</p>
-                  <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "rgba(246,216,204,0.6)", margin: 0 }}>excl. btw · groepen t/m 13 personen</p>
+                  <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--bg)", margin: "0 0 0.15rem", lineHeight: 1 }}>{t("aanbod.teambuilding.price")}</p>
+                  <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "rgba(246,216,204,0.6)", margin: 0 }}>{t("aanbod.teambuilding.priceNote")}</p>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-3)" }}>
-                  Bekijk mogelijkheden
+                  {t("aanbod.teambuilding.cardCta")}
                   <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
               </div>
@@ -170,24 +179,20 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             boxShadow: "0 8px 26px rgba(64,56,43,0.13)",
           }}>
             <div style={{ padding: "1.75rem 1.75rem 1.5rem" }}>
-              <p className="eyebrow" style={{ color: "var(--accent-1)", marginBottom: "0.5rem" }}>Individuele Coaching</p>
+              <p className="eyebrow" style={{ color: "var(--accent-1)", marginBottom: "0.5rem" }}>{t("aanbod.coaching.label")}</p>
               <h3 style={{
                 fontFamily: "var(--font-display)", fontSize: "clamp(1.2rem, 1.5vw, 1.5rem)",
                 fontWeight: 400, color: "var(--accent-1)", margin: 0, lineHeight: 1.25,
               }}>
-                Inzicht in wat speelt, beweging in jezelf
+                {t("aanbod.coaching.title")}
               </h3>
             </div>
             <div style={{ height: "180px", flexShrink: 0, overflow: "hidden" }}>
-              <img src="/paint 2.jpeg" alt="Individuele Coaching" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              <img src="/paint 2.jpeg" alt={t("aanbod.coaching.label")} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             </div>
             <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
-                {[
-                  "Via de werkgever of op eigen initiatief",
-                  "Trajecten gericht op persoonlijke en werkgerelateerde groei",
-                  "Coaching met beeldende werkvorm",
-                ].map(item => (
+                {coachingBullets.map(item => (
                   <li key={item} style={{ display: "flex", gap: "0.55rem", alignItems: "flex-start" }}>
                     <span style={{ color: "var(--accent-2)", flexShrink: 0, marginTop: "2px", fontSize: "0.7rem" }}>✓</span>
                     <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 300, color: "var(--accent-1)", lineHeight: 1.5 }}>{item}</span>
@@ -195,11 +200,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                 ))}
               </ul>
               <div style={{ borderTop: "1px solid rgba(157,82,51,0.15)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
-                <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1 }}>v.a. € 450,-</p>
-                <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>excl. btw · per traject</p>
+                <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1 }}>{t("aanbod.coaching.price")}</p>
+                <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>{t("aanbod.coaching.priceNote")}</p>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-1)" }}>
-                Kijk wat bij je past
+                {t("aanbod.coaching.cardCta")}
                 <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </div>
             </div>
@@ -222,16 +227,16 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
             }} />
             <div style={{ position: "relative", display: "flex", flexDirection: "column", height: "100%" }}>
               <div style={{ padding: "1.75rem 1.75rem 1.5rem" }}>
-                <p className="eyebrow" style={{ marginBottom: "0.5rem" }}>Vrouwen op de werkvloer</p>
+                <p className="eyebrow" style={{ marginBottom: "0.5rem" }}>{t("aanbod.vrouwen.label")}</p>
                 <h3 style={{
                   fontFamily: "var(--font-display)", fontSize: "clamp(1.2rem, 1.5vw, 1.5rem)",
                   fontWeight: 400, color: "var(--accent-1)", margin: 0, lineHeight: 1.25,
                 }}>
-                  Steviger staan in werk en positie
+                  {t("aanbod.vrouwen.title")}
                 </h3>
               </div>
               <div style={{ height: "180px", flexShrink: 0, overflow: "hidden", position: "relative" }}>
-                <img src="/paint 3.jpeg" alt="Vrouwen op de werkvloer" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <img src="/paint 3.jpeg" alt={t("aanbod.vrouwen.label")} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                 <div style={{
                   position: "absolute", inset: 0,
                   background: "rgba(109,76,58,0.5)",
@@ -243,17 +248,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                     letterSpacing: "0.22em", textTransform: "uppercase", fontWeight: 600,
                     padding: "0.6rem 1.4rem", borderRadius: "999px",
                   }}>
-                    Binnenkort beschikbaar
+                    {t("aanbod.vrouwen.comingSoon")}
                   </span>
                 </div>
               </div>
               <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
                 <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
-                  {[
-                    "Voor organisaties die vrouwelijke werknemers willen ondersteunen",
-                    "Aandacht voor positie, communicatie en grenzen",
-                    "Coaching met beeldende werkvormen",
-                  ].map(item => (
+                  {vrouwenBullets.map(item => (
                     <li key={item} style={{ display: "flex", gap: "0.55rem", alignItems: "flex-start" }}>
                       <span style={{ color: "var(--accent-4)", flexShrink: 0, marginTop: "2px", fontSize: "0.7rem" }}>✓</span>
                       <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 300, color: "var(--accent-1)", lineHeight: 1.5 }}>{item}</span>
@@ -261,11 +262,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
                   ))}
                 </ul>
                 <div style={{ borderTop: "1px solid rgba(167,177,160,0.3)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
-                  <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1 }}>€ 595,-</p>
-                  <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>excl. btw · per deelneemster</p>
+                  <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1 }}>{t("aanbod.vrouwen.price")}</p>
+                  <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>{t("aanbod.vrouwen.priceNote")}</p>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--muted)" }}>
-                  Binnenkort beschikbaar
+                  {t("aanbod.vrouwen.comingSoon")}
                 </div>
               </div>
             </div>
@@ -295,53 +296,54 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
         }}>
           <img
             src="/portfolio.jpeg"
-            alt="Sasha Elisabeth"
+            alt={t("overMij.photoAlt")}
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
         </div>
 
         <div>
-          <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>Over mij</p>
+          <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>{t("overMij.eyebrow")}</p>
           <h2 style={{
             fontFamily: "var(--font-display)",
             fontSize: "clamp(1.75rem, 2.5vw, 2.5rem)",
             fontWeight: 300, lineHeight: 1.2,
             margin: "0 0 1.5rem", letterSpacing: "-0.01em",
           }}>
-            Werken vanuit het doen, niet alleen het denken.
+            {t("overMij.title")}
           </h2>
           <p style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
             fontSize: "0.9375rem", lineHeight: 1.85,
             color: "var(--accent-2)", marginBottom: "1.25rem",
           }}>
-            Mijn naam is <strong>Sasha Elisabeth</strong>. 
-            Ik begeleid teams en individuen in het creëren van inzicht, verbinding en beweging.
+            {t.rich("overMij.intro", { strong: (chunks) => <strong>{chunks}</strong> })}
           </p>
           <p style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
             fontSize: "0.9375rem", lineHeight: 1.85,
             color: "var(--ink)", marginBottom: "2rem",
           }}>
-            Ik ben opgeleid als <strong>beeldend vaktherapeut</strong>, hier heb ik geleerd om verder te kijken dan woorden alleen. 
-            Met coaching en beeldende werkvormen maak ik zichtbaar wat er van binnen speelt en help ik patronen te doorbreken.
+            {t.rich("overMij.training", { strong: (chunks) => <strong>{chunks}</strong> })}
           </p>
           <p style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
             fontSize: "0.9375rem", lineHeight: 1.85,
             color: "var(--ink)", marginBottom: "2rem",
           }}>
-            Naast mijn eigen aanbod werk ik binnen de <strong>verslavingszorg en jeugdzorg</strong>, waar ik mensen begeleid in complexe situaties. Deze ervaring neem ik mee in mijn manier van werken: <i><strong>betrokken, helder en zonder oordeel</strong></i>.
+            {t.rich("overMij.experience", {
+              strong: (chunks) => <strong>{chunks}</strong>,
+              em: (chunks) => <i><strong>{chunks}</strong></i>,
+            })}
           </p>
           <p style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
             fontSize: "0.9375rem", lineHeight: 1.85,
             color: "var(--ink)", marginBottom: "2rem",
           }}>
-            Wat mij drijft, is het moment waarop iemand weer in contact komt met zichzelf en er ruimte ontstaat voor echte verandering.
+            {t("overMij.drive")}
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
-            {["Geregistreerd vaktherapeut", "Mensgericht", "Verbindend"].map(tag => (
+            {tags.map(tag => (
               <span key={tag} style={{
                 fontFamily: "var(--font-sans)", fontSize: "0.75rem", fontWeight: 400,
                 color: "var(--accent-2)",
@@ -368,43 +370,43 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
       {/* ─────────────── CONTACT ─────────────── */}
       <section id="contact" className="contact-grid section-pb">
         <div>
-          <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>Laten we kennismaken</p>
+          <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>{t("contact.eyebrow")}</p>
           <h2 style={{
             fontFamily: "var(--font-display)",
             fontSize: "clamp(1.75rem, 2.5vw, 2.5rem)",
             fontWeight: 300, lineHeight: 1.2,
             margin: "0 0 1.5rem", letterSpacing: "-0.01em",
           }}>
-            Het eerste gesprek is altijd vrijblijvend.
+            {t("contact.title")}
           </h2>
           <p style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
             fontSize: "0.9375rem", lineHeight: 1.85,
             color: "var(--accent-2)", marginBottom: "2rem",
           }}>
-            Wil je meer weten of een aanvraag doen? Vul het contactformulier in, dan neem ik zo snel mogelijk contact met je op.
+            {t("contact.intro")}
           </p>
           <p style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
             fontSize: "0.9375rem", lineHeight: 1.85,
             color: "var(--accent-2)", marginBottom: "2rem",
           }}>
-            We beginnen altijd met een online kennismakingsgesprek van maximaal één uur. Hierin bespreken we jouw wensen en verwachtingen, de praktische details, en kijken we samen wat het beste past bij jouw situatie. 
+            {t("contact.process")}
           </p>
           <p style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
             fontSize: "0.9375rem", lineHeight: 1.85,
             color: "var(--accent-2)", marginBottom: "2rem",
           }}>
-            <strong>Klaar om te ontdekken wat mogelijk is?</strong>
+            <strong>{t("contact.ready")}</strong>
           </p>
-          <a href="mailto:sasha_elisabeth@outlook.com" style={{
+          <a href={`mailto:${t("contact.email")}`} style={{
             fontFamily: "var(--font-display)", fontSize: "1.125rem",
             fontWeight: 400, color: "var(--accent-2)",
             textDecoration: "none",
             borderBottom: "1px solid rgba(157,82,51,0.3)", paddingBottom: "2px",
           }}>
-            sasha_elisabeth@outlook.com
+            {t("contact.email")}
           </a>
         </div>
 
@@ -417,16 +419,16 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ s
           <div style={{
             fontFamily: "var(--font-logo)", fontSize: "0.8rem", fontWeight: 900,
             letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--accent-2)",
-          }}>S. Elisabeth</div>
+          }}>{t("footer.logoName")}</div>
           <div style={{
             fontFamily: "var(--font-script)", fontSize: "0.65rem",
             color: "var(--muted)", marginTop: "2px",
-          }}>vaktherapie &amp; coaching</div>
+          }}>{t("footer.tagline")}</div>
         </div>
         <span style={{
           fontFamily: "var(--font-sans)", fontSize: "0.75rem",
           fontWeight: 300, color: "var(--muted)", letterSpacing: "0.04em",
-        }}>© 2026 · Sasha Elisabeth</span>
+        }}>{t("footer.copyright")}</span>
       </footer>
 
     </div>

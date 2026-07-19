@@ -1,0 +1,124 @@
+{
+  "Metadata": {
+    "title": "Sasha Elisabeth — Teambuilding & Coaching",
+    "description": "Creative arts therapy and coaching for people who want to discover themselves and grow."
+  },
+  "Nav": {
+    "home": "Home",
+    "aanbod": "Services",
+    "overMij": "About me",
+    "contact": "Contact",
+    "menu": "Menu",
+    "logoAlt": "Sasha Elisabeth — Teambuilding & Coaching",
+    "languageSwitch": "NL"
+  },
+  "Home": {
+    "hero": {
+      "logoAlt": "Sasha Elisabeth — Vaktherapie en Coaching",
+      "titleLine1": "Stronger together,",
+      "titleLine2": "in motion and in image.",
+      "intro": "My name is <strong>Sasha Elisabeth</strong> and I guide teams and individuals in making visible what's happening beneath the surface, and the patterns that move with it. Coaching and creative methods open up space for insight, connection and lasting growth.",
+      "cta": "See what I offer"
+    },
+    "aanbod": {
+      "eyebrow": "What I offer",
+      "title": "Working in a way that suits you.",
+      "cta": "Book an appointment",
+      "teambuilding": {
+        "label": "Teambuilding",
+        "title": "Stronger together through creative work",
+        "bullets": [
+          "Connection and collaboration within your team",
+          "Guided by creative, image-based methods",
+          "Insights you can apply right away"
+        ],
+        "price": "€ 850,-",
+        "priceNote": "excl. VAT · groups up to 13 people",
+        "cardCta": "See what's possible"
+      },
+      "coaching": {
+        "label": "Individual Coaching",
+        "title": "Insight into what's going on, movement within yourself",
+        "bullets": [
+          "Through your employer or on your own initiative",
+          "Trajectories focused on personal and work-related growth",
+          "Coaching through creative, image-based work"
+        ],
+        "price": "from € 450,-",
+        "priceNote": "excl. VAT · per trajectory",
+        "cardCta": "Find what fits you"
+      },
+      "vrouwen": {
+        "label": "Women in the workplace",
+        "title": "Standing stronger in your work and position",
+        "bullets": [
+          "For organisations who want to support their female employees",
+          "Focus on position, communication and boundaries",
+          "Coaching through creative, image-based methods"
+        ],
+        "price": "€ 595,-",
+        "priceNote": "excl. VAT · per participant",
+        "comingSoon": "Coming soon"
+      }
+    },
+    "overMij": {
+      "eyebrow": "About me",
+      "photoAlt": "Sasha Elisabeth",
+      "title": "Working from doing, not just from thinking.",
+      "intro": "My name is <strong>Sasha Elisabeth</strong>. I guide teams and individuals in creating insight, connection and momentum.",
+      "training": "I trained as a <strong>creative arts therapist</strong>, where I learned to look beyond words alone. Through coaching and creative methods, I make visible what's happening beneath the surface and help people break through patterns.",
+      "experience": "Alongside my own practice, I work within <strong>addiction care and youth care</strong>, guiding people through complex situations. I bring that experience into how I work: <em>engaged, clear and without judgement</em>.",
+      "drive": "What drives me is the moment someone reconnects with themselves and space opens up for real change.",
+      "tags": ["Registered creative arts therapist", "People-centred", "Connecting"]
+    },
+    "contact": {
+      "eyebrow": "Let's get acquainted",
+      "title": "The first conversation is always without obligation.",
+      "intro": "Want to know more, or ready to make a request? Fill in the contact form and I'll get back to you as soon as possible.",
+      "process": "We always start with an online introductory conversation of up to one hour. In it, we discuss your wishes and expectations, the practical details, and figure out together what fits your situation best.",
+      "ready": "Ready to discover what's possible?",
+      "email": "sasha_elisabeth@outlook.com"
+    },
+    "footer": {
+      "logoName": "S. Elisabeth",
+      "tagline": "vaktherapie & coaching",
+      "copyright": "© 2026 · Sasha Elisabeth"
+    }
+  },
+  "ContactForm": {
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "serviceLabel": "What would you like to get in touch about?",
+    "servicePlaceholder": "Make a choice…",
+    "serviceTeambuilding": "Teambuilding",
+    "serviceCoaching": "Individual Coaching",
+    "serviceVrouwen": "Women in the workplace",
+    "serviceOther": "Other",
+    "reasonLabel": "What's it about?",
+    "reasonPlaceholder": "For example: a collaboration or a general question",
+    "messageLabel": "Message",
+    "messagePlaceholder": "How can I help you?",
+    "submit": "Send message",
+    "submitting": "Sending…",
+    "errorGeneric": "Sending failed. Please try again later",
+    "sentTitle": "Thank you for your message.",
+    "sentSubtitle": "I'll get back to you as soon as possible.",
+    "honeypotLabel": "Website"
+  },
+  "ServicePage": {
+    "back": "Back",
+    "aanbod": "What I offer",
+    "werkwijze": "How it works",
+    "praktisch": "Practical details",
+    "inbegrepen": "Included",
+    "investering": "Investment",
+    "investeringTitle": "Transparent pricing, no surprises.",
+    "interesse": "Interested?",
+    "ctaTitle": "The first conversation is always without obligation.",
+    "ctaButton": "Get in touch",
+    "comingSoonTitle": "Coming soon",
+    "comingSoonBody": "Want to know more already? Feel free to get in touch."
+  }
+}

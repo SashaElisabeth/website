@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 
 const MAX_LENGTHS = {
   name: 100,
@@ -10,6 +11,8 @@ const MAX_LENGTHS = {
 };
 
 export default function ContactForm({ prefilledService = '' }: { prefilledService?: string }) {
+  const t = useTranslations('ContactForm');
+  const locale = useLocale();
   const [form, setForm] = useState({ name: '', email: '', service: prefilledService, reason: '', message: '', honeypot: '' });
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -24,15 +27,15 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, renderedAt: formLoadedAt.current }),
+        body: JSON.stringify({ ...form, renderedAt: formLoadedAt.current, locale }),
       });
       const data = await res.json();
       if (!res.ok || !data.ok) {
-        throw new Error(data.error || 'Verzenden is mislukt.');
+        throw new Error(data.error || t('errorGeneric'));
       }
       setSent(true);
     } catch {
-      setError('Verzenden is mislukt. Probeer het later opnieuw');
+      setError(t('errorGeneric'));
     } finally {
       setSubmitting(false);
     }
@@ -74,13 +77,13 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
           fontFamily: 'var(--font-display)',
           fontSize: '1.5rem', fontWeight: 400, color: 'var(--accent-1)', margin: '0 0 0.5rem',
         }}>
-          Bedankt voor je bericht.
+          {t('sentTitle')}
         </p>
         <p style={{
           fontFamily: 'var(--font-sans)', fontWeight: 300,
           fontSize: '0.875rem', color: 'var(--muted)',
         }}>
-          Ik neem zo snel mogelijk contact met je op.
+          {t('sentSubtitle')}
         </p>
       </div>
     );
@@ -93,7 +96,7 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
     >
       {/* Honeypot — hidden from real users, bots tend to fill every field */}
       <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
-        <label htmlFor="website">Website</label>
+        <label htmlFor="website">{t('honeypotLabel')}</label>
         <input
           id="website"
           type="text"
@@ -106,20 +109,20 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
       <div className="form-row">
         <div>
           <label className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
-            Naam
+            {t('nameLabel')}
           </label>
           <input
-            type="text" required placeholder="Jouw naam" style={inputStyle}
+            type="text" required placeholder={t('namePlaceholder')} style={inputStyle}
             maxLength={MAX_LENGTHS.name}
             {...field('name')}
           />
         </div>
         <div>
           <label className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
-            E-mailadres
+            {t('emailLabel')}
           </label>
           <input
-            type="email" required placeholder="jij@voorbeeld.nl" style={inputStyle}
+            type="email" required placeholder={t('emailPlaceholder')} style={inputStyle}
             maxLength={MAX_LENGTHS.email}
             {...field('email')}
           />
@@ -127,7 +130,7 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
       </div>
       <div>
         <label className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
-          Waarvoor wil je contact opnemen?
+          {t('serviceLabel')}
         </label>
         <select
           required
@@ -135,21 +138,21 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
           onChange={e => setForm(prev => ({ ...prev, service: e.target.value }))}
           style={{ ...inputStyle, appearance: 'none', backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239d5233' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', paddingRight: '2.5rem', color: form.service ? 'var(--ink)' : 'rgba(109,76,58,0.4)' }}
         >
-          <option value="" disabled hidden>Maak een keuze…</option>
-          <option value="Teambuilding">Teambuilding</option>
-          <option value="Individuele Coaching">Individuele Coaching</option>
-          <option value="Vrouwen op de Werkvloer">Vrouwen op de Werkvloer</option>
-          <option value="Overig">Overig</option>
+          <option value="" disabled hidden>{t('servicePlaceholder')}</option>
+          <option value="Teambuilding">{t('serviceTeambuilding')}</option>
+          <option value="Individuele Coaching">{t('serviceCoaching')}</option>
+          <option value="Vrouwen op de Werkvloer">{t('serviceVrouwen')}</option>
+          <option value="Overig">{t('serviceOther')}</option>
         </select>
       </div>
 
       {form.service === 'Overig' && (
         <div>
           <label className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
-            Waar gaat het over?
+            {t('reasonLabel')}
           </label>
           <input
-            type="text" required placeholder="Bijvoorbeeld: een samenwerking of een algemene vraag"
+            type="text" required placeholder={t('reasonPlaceholder')}
             style={inputStyle}
             maxLength={MAX_LENGTHS.reason}
             {...field('reason')}
@@ -159,12 +162,12 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
 
       <div>
         <label className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
-          Bericht
+          {t('messageLabel')}
         </label>
         <textarea
           required
           rows={6}
-          placeholder="Waar kan ik je mee helpen?"
+          placeholder={t('messagePlaceholder')}
           style={{ ...inputStyle, resize: 'vertical' }}
           maxLength={MAX_LENGTHS.message}
           {...field('message')}
@@ -199,7 +202,7 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
         opacity: submitting ? 0.6 : 1,
         borderRadius: '2px',
       }}>
-        {submitting ? 'Versturen…' : 'Verstuur bericht'}
+        {submitting ? t('submitting') : t('submit')}
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
           <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>

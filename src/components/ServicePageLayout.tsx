@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 
 export interface PricingTier {
   label: string;
@@ -41,6 +42,7 @@ export interface ServicePageData {
 }
 
 export default function ServicePageLayout({ data }: { data: ServicePageData }) {
+  const t = useTranslations('ServicePage');
   return (
     <div style={{ background: 'var(--bg)', color: 'var(--ink)', minHeight: '100vh', paddingTop: '72px' }}>
 
@@ -55,7 +57,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          Terug
+          {t('back')}
         </Link>
       </div>
 
@@ -94,7 +96,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         borderBottom: '1px solid rgba(109,76,58,0.1)',
       }} className="service-about-grid service-section-pad">
         <div>
-          <p className='eyebrow' style={{ marginBottom: '1.5rem' }}>Aanbod</p>
+          <p className='eyebrow' style={{ marginBottom: '1.5rem' }}>{t('aanbod')}</p>
           {data.aanbodIntro && (
             <p style={{
               fontFamily: 'var(--font-sans)', fontWeight: 300,
@@ -166,7 +168,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
       <section style={{
         borderBottom: '1px solid rgba(109,76,58,0.1)',
       }} className="service-section-pad">
-        <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Werkwijze</p>
+        <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>{t('werkwijze')}</p>
         <h2 style={{
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(1.75rem, 2.5vw, 2.25rem)',
@@ -226,7 +228,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
       <section style={{
         borderBottom: '1px solid rgba(109,76,58,0.1)',
       }} className="service-section-pad">
-        <p className='eyebrow' style={{ marginBottom: '1rem' }}>Praktisch</p>
+        <p className='eyebrow' style={{ marginBottom: '1rem' }}>{t('praktisch')}</p>
         {data.praktischIntro && (
           <p style={{
             fontFamily: 'var(--font-sans)', fontWeight: 300,
@@ -254,7 +256,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         </div>
         {data.includedUnderPraktisch && data.included.length > 0 && (
           <div style={{ marginTop: '2rem' }}>
-            <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Inbegrepen</p>
+            <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>{t('inbegrepen')}</p>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem', maxWidth: '520px' }}>
               {data.included.map(item => (
                 <li key={item} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
@@ -272,14 +274,14 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
 
       {/* ── Investering ── */}
       <section style={{ borderBottom: '1px solid rgba(109,76,58,0.1)' }} className="service-section-pad">
-        <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Investering</p>
+        <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>{t('investering')}</p>
         <h2 style={{
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(1.75rem, 2.5vw, 2.25rem)',
           fontWeight: 300, lineHeight: 1.25,
           margin: '0 0 1.5rem', letterSpacing: '-0.01em',
         }}>
-          Transparante prijzen, geen verrassingen.
+          {t('investeringTitle')}
         </h2>
         {data.investeringIntro && (
           <p style={{
@@ -311,7 +313,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         </div>
         {!data.includedUnderPraktisch && data.included.length > 0 && (
           <div style={{ marginBottom: data.pricingNote ? '1.25rem' : 0 }}>
-            <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>Inbegrepen</p>
+            <p className='eyebrow' style={{ marginBottom: '0.75rem' }}>{t('inbegrepen')}</p>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {data.included.map(item => (
                 <li key={item} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
@@ -340,7 +342,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
       }} className="cta-band">
         <div style={{ position: 'relative' }}>
           <p className='eyebrow' style={{ color: 'var(--accent-3)', marginBottom: '0.75rem' }}>
-            Interesse?
+            {t('interesse')}
           </p>
           <h2 style={{
             fontFamily: 'var(--font-display)',
@@ -348,7 +350,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
             fontWeight: 300, color: 'var(--bg)',
             margin: 0, lineHeight: 1.2, letterSpacing: '-0.01em',
           }}>
-            Het eerste gesprek is altijd vrijblijvend.
+            {t('ctaTitle')}
           </h2>
         </div>
         <Link
@@ -363,7 +365,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
             padding: '0.9rem 2rem', whiteSpace: 'nowrap', textDecoration: 'none',
           }}
         >
-          Neem contact op
+          {t('ctaButton')}
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
             <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
