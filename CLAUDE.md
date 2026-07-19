@@ -33,7 +33,7 @@ Website for a Dutch art therapy and coaching practice.
 
 ## Sections (in scroll order)
 
-1. `#home` — Full-width, centered hero: `logo.png` (inverted white via `filter: brightness(0) invert(1)`) on a dark chestnut (`--accent-1`) background, `min-height: 100dvh`. No hero photo.
+1. `#home` — Full-width, centered hero: `logo.png` (inverted white via `filter: brightness(0) invert(1)`) on a dark chestnut (`--accent-1`) background, `min-height: 88vh` (desktop). No hero photo.
 2. `#aanbod` — Three full-width service blocks, each with a 3-col inner grid (Investering | Inbegrepen | Praktisch) + Op maat footer:
    - **Teambuilding** — €850,- base / €30 per extra person (>13), chestnut dark background
    - **Individuele Coaching** — 3 trajectory tiers (5/7/10 sessies), blush peach background
@@ -117,7 +117,7 @@ Layout is driven by CSS classes in `globals.css` — inline styles handle colour
 | iPad | 641–1023px | 2-col offerings, hero logo max-height 150px |
 | Mobile | ≤ 640px | Single column everywhere, hero logo max-height 110px |
 
-**Hero:** `.hero` is a full-width `100dvh` flex container centering `.hero-panel` (max-width 760px, centered text). `.hero-logo` (the inverted-white `logo.png`) scales down per breakpoint via the table above — no hero photo.
+**Hero:** `.hero` is a full-width flex container (`88vh` desktop, `82vh` iPad, content-height mobile — not full viewport, so the next section peeks into view as a scroll cue) centering `.hero-panel` (max-width 760px, centered text). `.hero-logo` (the inverted-white `logo.png`) scales down per breakpoint via the table above — no hero photo.
 
 ## Conventions
 
