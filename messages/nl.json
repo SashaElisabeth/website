@@ -1,0 +1,124 @@
+{
+  "Metadata": {
+    "title": "Sasha Elisabeth — Teambuilding & Coaching",
+    "description": "Vaktherapie en coaching voor mensen die zichzelf willen ontdekken en groeien."
+  },
+  "Nav": {
+    "home": "Home",
+    "aanbod": "Aanbod",
+    "overMij": "Over mij",
+    "contact": "Contact",
+    "menu": "Menu",
+    "logoAlt": "Sasha Elisabeth — Teambuilding & Coaching",
+    "languageSwitch": "EN"
+  },
+  "Home": {
+    "hero": {
+      "logoAlt": "Sasha Elisabeth — Vaktherapie en Coaching",
+      "titleLine1": "Samen sterker,",
+      "titleLine2": "in beweging en in beeld.",
+      "intro": "Mijn naam is <strong>Sasha Elisabeth</strong> en ik begeleid teams en individuen in het zichtbaar maken van wat er van binnen speelt en welke patronen daarin meebewegen. Met coaching en beeldende werkvormen ontstaat ruimte voor inzicht, verbinding en blijvende groei.",
+      "cta": "Bekijk het aanbod"
+    },
+    "aanbod": {
+      "eyebrow": "Wat ik aanbied",
+      "title": "Werken op jouw manier.",
+      "cta": "Maak een afspraak",
+      "teambuilding": {
+        "label": "Teambuilding",
+        "title": "Samen sterker door creatief werken",
+        "bullets": [
+          "Verbinding en samenwerking in je team",
+          "Begeleiding met beeldende werkvormen",
+          "Direct toepasbare inzichten"
+        ],
+        "price": "€ 850,-",
+        "priceNote": "excl. btw · groepen t/m 13 personen",
+        "cardCta": "Bekijk mogelijkheden"
+      },
+      "coaching": {
+        "label": "Individuele Coaching",
+        "title": "Inzicht in wat speelt, beweging in jezelf",
+        "bullets": [
+          "Via de werkgever of op eigen initiatief",
+          "Trajecten gericht op persoonlijke en werkgerelateerde groei",
+          "Coaching met beeldende werkvorm"
+        ],
+        "price": "v.a. € 450,-",
+        "priceNote": "excl. btw · per traject",
+        "cardCta": "Kijk wat bij je past"
+      },
+      "vrouwen": {
+        "label": "Vrouwen op de werkvloer",
+        "title": "Steviger staan in werk en positie",
+        "bullets": [
+          "Voor organisaties die vrouwelijke werknemers willen ondersteunen",
+          "Aandacht voor positie, communicatie en grenzen",
+          "Coaching met beeldende werkvormen"
+        ],
+        "price": "€ 595,-",
+        "priceNote": "excl. btw · per deelneemster",
+        "comingSoon": "Binnenkort beschikbaar"
+      }
+    },
+    "overMij": {
+      "eyebrow": "Over mij",
+      "photoAlt": "Sasha Elisabeth",
+      "title": "Werken vanuit het doen, niet alleen het denken.",
+      "intro": "Mijn naam is <strong>Sasha Elisabeth</strong>. Ik begeleid teams en individuen in het creëren van inzicht, verbinding en beweging.",
+      "training": "Ik ben opgeleid als <strong>beeldend vaktherapeut</strong>, hier heb ik geleerd om verder te kijken dan woorden alleen. Met coaching en beeldende werkvormen maak ik zichtbaar wat er van binnen speelt en help ik patronen te doorbreken.",
+      "experience": "Naast mijn eigen aanbod werk ik binnen de <strong>verslavingszorg en jeugdzorg</strong>, waar ik mensen begeleid in complexe situaties. Deze ervaring neem ik mee in mijn manier van werken: <em>betrokken, helder en zonder oordeel</em>.",
+      "drive": "Wat mij drijft, is het moment waarop iemand weer in contact komt met zichzelf en er ruimte ontstaat voor echte verandering.",
+      "tags": ["Geregistreerd vaktherapeut", "Mensgericht", "Verbindend"]
+    },
+    "contact": {
+      "eyebrow": "Laten we kennismaken",
+      "title": "Het eerste gesprek is altijd vrijblijvend.",
+      "intro": "Wil je meer weten of een aanvraag doen? Vul het contactformulier in, dan neem ik zo snel mogelijk contact met je op.",
+      "process": "We beginnen altijd met een online kennismakingsgesprek van maximaal één uur. Hierin bespreken we jouw wensen en verwachtingen, de praktische details, en kijken we samen wat het beste past bij jouw situatie.",
+      "ready": "Klaar om te ontdekken wat mogelijk is?",
+      "email": "sasha_elisabeth@outlook.com"
+    },
+    "footer": {
+      "logoName": "S. Elisabeth",
+      "tagline": "vaktherapie & coaching",
+      "copyright": "© 2026 · Sasha Elisabeth"
+    }
+  },
+  "ContactForm": {
+    "nameLabel": "Naam",
+    "namePlaceholder": "Jouw naam",
+    "emailLabel": "E-mailadres",
+    "emailPlaceholder": "jij@voorbeeld.nl",
+    "serviceLabel": "Waarvoor wil je contact opnemen?",
+    "servicePlaceholder": "Maak een keuze…",
+    "serviceTeambuilding": "Teambuilding",
+    "serviceCoaching": "Individuele Coaching",
+    "serviceVrouwen": "Vrouwen op de Werkvloer",
+    "serviceOther": "Overig",
+    "reasonLabel": "Waar gaat het over?",
+    "reasonPlaceholder": "Bijvoorbeeld: een samenwerking of een algemene vraag",
+    "messageLabel": "Bericht",
+    "messagePlaceholder": "Waar kan ik je mee helpen?",
+    "submit": "Verstuur bericht",
+    "submitting": "Versturen…",
+    "errorGeneric": "Verzenden is mislukt. Probeer het later opnieuw",
+    "sentTitle": "Bedankt voor je bericht.",
+    "sentSubtitle": "Ik neem zo snel mogelijk contact met je op.",
+    "honeypotLabel": "Website"
+  },
+  "ServicePage": {
+    "back": "Terug",
+    "aanbod": "Aanbod",
+    "werkwijze": "Werkwijze",
+    "praktisch": "Praktisch",
+    "inbegrepen": "Inbegrepen",
+    "investering": "Investering",
+    "investeringTitle": "Transparante prijzen, geen verrassingen.",
+    "interesse": "Interesse?",
+    "ctaTitle": "Het eerste gesprek is altijd vrijblijvend.",
+    "ctaButton": "Neem contact op",
+    "comingSoonTitle": "Binnenkort beschikbaar",
+    "comingSoonBody": "Wil je nu al meer weten? Neem gerust contact op."
+  }
+}

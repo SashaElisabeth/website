@@ -19,6 +19,29 @@ const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
 const MIN_SUBMIT_TIME_MS = 2000;
 
+const ERRORS = {
+  nl: {
+    tooLarge: 'Bericht is te groot.',
+    rateLimited: 'Te veel aanvragen. Probeer het later opnieuw.',
+    invalidJson: 'Ongeldige aanvraag.',
+    invalidFields: 'Vul alle velden correct in.',
+    notConfigured: 'E-mail is momenteel niet beschikbaar.',
+    sendFailed: 'Verzenden is mislukt. Probeer het later opnieuw.',
+  },
+  en: {
+    tooLarge: 'Message is too large.',
+    rateLimited: 'Too many requests. Please try again later.',
+    invalidJson: 'Invalid request.',
+    invalidFields: 'Please fill in all fields correctly.',
+    notConfigured: 'Email is currently unavailable.',
+    sendFailed: 'Sending failed. Please try again later.',
+  },
+};
+
+function errorsFor(locale: unknown) {
+  return locale === 'en' ? ERRORS.en : ERRORS.nl;
+}
+
 // Best-effort in-memory rate limiter. Resets on cold start and isn't shared across
 // concurrent serverless instances, but still filters basic abuse cheaply with no external service.
 const requestLog = new Map<string, { count: number; resetAt: number }>();
@@ -41,24 +64,25 @@ function isValidSingleLine(value: unknown, maxLength: number): value is string {
 export async function POST(request: Request) {
   const contentLength = Number(request.headers.get('content-length') ?? 0);
   if (contentLength > MAX_BODY_BYTES) {
-    return NextResponse.json({ ok: false, error: 'Bericht is te groot.' }, { status: 413 });
+    return NextResponse.json({ ok: false, error: ERRORS.nl.tooLarge }, { status: 413 });
   }
 
   const ip = request.headers.get('x-forwarded-for')?.split(',')[0].trim()
     || request.headers.get('x-nf-client-connection-ip')
     || 'unknown';
   if (isRateLimited(ip)) {
-    return NextResponse.json({ ok: false, error: 'Te veel aanvragen. Probeer het later opnieuw.' }, { status: 429 });
+    return NextResponse.json({ ok: false, error: ERRORS.nl.rateLimited }, { status: 429 });
   }
 
   let body: unknown;
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ ok: false, error: 'Ongeldige aanvraag.' }, { status: 400 });
+    return NextResponse.json({ ok: false, error: ERRORS.nl.invalidJson }, { status: 400 });
   }
 
-  const { name, email, service, reason, message, honeypot, renderedAt } = body as Record<string, unknown>;
+  const { name, email, service, reason, message, honeypot, renderedAt, locale } = body as Record<string, unknown>;
+  const errors = errorsFor(locale);
 
   if (
     !isValidSingleLine(name, MAX_LENGTHS.name) ||
@@ -68,7 +92,7 @@ export async function POST(request: Request) {
     (service === 'Overig' && !isValidSingleLine(reason, MAX_LENGTHS.reason)) ||
     (reason !== undefined && reason !== '' && !isValidSingleLine(reason, MAX_LENGTHS.reason))
   ) {
-    return NextResponse.json({ ok: false, error: 'Vul alle velden correct in.' }, { status: 400 });
+    return NextResponse.json({ ok: false, error: errors.invalidFields }, { status: 400 });
   }
 
   // Spam heuristics: honeypot filled in, or submitted implausibly fast after the form loaded.
@@ -81,7 +105,7 @@ export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     console.error('RESEND_API_KEY is not set');
-    return NextResponse.json({ ok: false, error: 'E-mail is momenteel niet beschikbaar.' }, { status: 500 });
+    return NextResponse.json({ ok: false, error: errors.notConfigured }, { status: 500 });
   }
 
   const resend = new Resend(apiKey);
@@ -90,6 +114,8 @@ export async function POST(request: Request) {
   const reasonText = typeof reason === 'string' ? reason.trim() : '';
   const subjectService = service === 'Overig' && reasonText ? `Overig — ${reasonText}` : service;
 
+  // Internal notification email always stays in Dutch, regardless of the visitor's chosen
+  // site language — this lands in the practice owner's own inbox.
   const { error } = await resend.emails.send({
     from,
     to,
@@ -101,7 +127,7 @@ export async function POST(request: Request) {
 
   if (error) {
     console.error('Resend send failed:', error);
-    return NextResponse.json({ ok: false, error: 'Verzenden is mislukt. Probeer het later opnieuw.' }, { status: 502 });
+    return NextResponse.json({ ok: false, error: errors.sendFailed }, { status: 502 });
   }
 
   return NextResponse.json({ ok: true });
