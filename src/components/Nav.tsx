@@ -117,12 +117,14 @@ export default function Nav() {
             className="nav-hamburger"
             onClick={() => setMenuOpen(v => !v)}
             aria-label={t('menu')}
+            aria-expanded={menuOpen}
+            aria-controls="nav-mobile-dropdown"
             style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px 0', flexDirection: 'column', gap: 5 }}
           >
             {[0, 1, 2].map(i => (
               <span key={i} style={{
                 display: 'block', width: 22, height: 1.5,
-                background: i === 2 ? 'var(--accent-3)' : opaque ? 'var(--accent-1)' : 'var(--bg)',
+                background: i === 2 ? 'var(--accent-2)' : opaque ? 'var(--accent-1)' : 'var(--bg)',
                 borderRadius: 2, transition: 'background 0.3s',
               }} />
             ))}
@@ -132,7 +134,7 @@ export default function Nav() {
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="nav-dropdown" style={{
+        <div id="nav-mobile-dropdown" className="nav-dropdown" style={{
           position: 'fixed', top: '56px', left: 0, right: 0, zIndex: 49,
           background: 'var(--bg)',
           borderBottom: '1px solid rgba(109,76,58,0.1)',

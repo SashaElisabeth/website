@@ -49,28 +49,24 @@ export default async function Home({ params, searchParams }: PageProps) {
             className="hero-logo fade-up"
             style={{ filter: "brightness(0) invert(1)" }}
           />
-          <h1 className="fade-up delay-1" style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)",
-            fontWeight: 300, lineHeight: 1.12,
-            color: "var(--bg)", margin: "0 0 0.4rem",
-            letterSpacing: "-0.01em",
-          }}>
-            {t("hero.titleLine1")}
-          </h1>
-          <h1 className="fade-up delay-2" style={{
+          <h1 style={{
             fontFamily: "var(--font-display)",
             fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)",
             fontWeight: 300, lineHeight: 1.12,
             color: "var(--bg)", margin: "0 0 1.75rem",
             letterSpacing: "-0.01em",
           }}>
-            {t("hero.titleLine2")}
+            <span className="fade-up delay-1" style={{ display: "block", marginBottom: "0.4rem" }}>
+              {t("hero.titleLine1")}
+            </span>
+            <span className="fade-up delay-2" style={{ display: "block" }}>
+              {t("hero.titleLine2")}
+            </span>
           </h1>
           <p className="fade-up delay-3" style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
             fontSize: "0.95rem", lineHeight: 1.85,
-            color: "rgba(247,239,210,0.75)",
+            color: "rgba(247,239,210,0.85)",
             maxWidth: "620px", margin: "0 auto 2.5rem",
           }}>
             {t.rich("hero.intro", { strong: (chunks) => <strong>{chunks}</strong> })}
@@ -153,13 +149,13 @@ export default async function Home({ params, searchParams }: PageProps) {
                   {teambuildingBullets.map(item => (
                     <li key={item} style={{ display: "flex", gap: "0.55rem", alignItems: "flex-start" }}>
                       <span style={{ color: "var(--accent-3)", flexShrink: 0, marginTop: "2px", fontSize: "0.7rem" }}>✓</span>
-                      <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 300, color: "rgba(246,216,204,0.85)", lineHeight: 1.5 }}>{item}</span>
+                      <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.8rem", fontWeight: 300, color: "rgba(246,216,204,0.92)", lineHeight: 1.5 }}>{item}</span>
                     </li>
                   ))}
                 </ul>
                 <div style={{ borderTop: "1px solid rgba(246,216,204,0.15)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
                   <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--bg)", margin: "0 0 0.15rem", lineHeight: 1 }}>{t("aanbod.teambuilding.price")}</p>
-                  <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "rgba(246,216,204,0.6)", margin: 0 }}>{t("aanbod.teambuilding.priceNote")}</p>
+                  <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "rgba(246,216,204,0.9)", margin: 0 }}>{t("aanbod.teambuilding.priceNote")}</p>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-3)" }}>
                   {t("aanbod.teambuilding.cardCta")}
@@ -201,7 +197,7 @@ export default async function Home({ params, searchParams }: PageProps) {
               </ul>
               <div style={{ borderTop: "1px solid rgba(157,82,51,0.15)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
                 <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1 }}>{t("aanbod.coaching.price")}</p>
-                <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>{t("aanbod.coaching.priceNote")}</p>
+                <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-1)", margin: 0 }}>{t("aanbod.coaching.priceNote")}</p>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-1)" }}>
                 {t("aanbod.coaching.cardCta")}
@@ -263,9 +259,9 @@ export default async function Home({ params, searchParams }: PageProps) {
                 </ul>
                 <div style={{ borderTop: "1px solid rgba(167,177,160,0.3)", paddingTop: "1.25rem", marginBottom: "1.25rem" }}>
                   <p style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 500, color: "var(--accent-1)", margin: "0 0 0.15rem", lineHeight: 1 }}>{t("aanbod.vrouwen.price")}</p>
-                  <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-2)", margin: 0 }}>{t("aanbod.vrouwen.priceNote")}</p>
+                  <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.7rem", fontWeight: 300, color: "var(--accent-1)", margin: 0 }}>{t("aanbod.vrouwen.priceNote")}</p>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--muted)" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: "var(--font-sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 500, color: "var(--accent-1)" }}>
                   {t("aanbod.vrouwen.comingSoon")}
                 </div>
               </div>

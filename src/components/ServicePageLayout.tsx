@@ -306,7 +306,7 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
               }}>{tier.price}</p>
               <p style={{
                 fontFamily: 'var(--font-sans)', fontSize: '0.7rem',
-                fontWeight: 300, color: 'rgba(246,216,204,0.65)', margin: 0,
+                fontWeight: 300, color: 'rgba(246,216,204,0.9)', margin: 0,
               }}>{tier.note}</p>
             </div>
           ))}
