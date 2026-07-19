@@ -314,7 +314,7 @@ export default async function Home({ params, searchParams }: PageProps) {
           <p style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
             fontSize: "0.9375rem", lineHeight: 1.85,
-            color: "var(--accent-2)", marginBottom: "1.25rem",
+            color: "var(--ink)", marginBottom: "1.25rem",
           }}>
             {t.rich("overMij.intro", { strong: (chunks) => <strong>{chunks}</strong> })}
           </p>
@@ -382,21 +382,21 @@ export default async function Home({ params, searchParams }: PageProps) {
           <p style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
             fontSize: "0.9375rem", lineHeight: 1.85,
-            color: "var(--accent-2)", marginBottom: "2rem",
+            color: "var(--ink)", marginBottom: "2rem",
           }}>
             {t("contact.intro")}
           </p>
           <p style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
             fontSize: "0.9375rem", lineHeight: 1.85,
-            color: "var(--accent-2)", marginBottom: "2rem",
+            color: "var(--ink)", marginBottom: "2rem",
           }}>
             {t("contact.process")}
           </p>
           <p style={{
             fontFamily: "var(--font-sans)", fontWeight: 300,
             fontSize: "0.9375rem", lineHeight: 1.85,
-            color: "var(--accent-2)", marginBottom: "2rem",
+            color: "var(--ink)", marginBottom: "2rem",
           }}>
             <strong>{t("contact.ready")}</strong>
           </p>
