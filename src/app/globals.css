@@ -134,6 +134,11 @@ body {
 
 /* Form */
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.form-field:focus {
+  outline: 2px solid var(--accent-4);
+  outline-offset: 1px;
+  border-color: var(--accent-4);
+}
 
 /* Clickable service card */
 .service-card-link       { display: block; text-decoration: none; transition: opacity 0.2s, transform 0.2s; height: 100%; }

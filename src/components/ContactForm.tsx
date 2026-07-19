@@ -57,13 +57,12 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
     fontSize: '0.9rem',
     fontWeight: 300,
     color: 'var(--ink)',
-    outline: 'none',
     transition: 'border-color 0.2s',
   };
 
   if (sent) {
     return (
-      <div style={{ padding: '3rem 2rem', textAlign: 'center' }}>
+      <div role="status" aria-live="polite" style={{ padding: '3rem 2rem', textAlign: 'center' }}>
         <div style={{
           width: '40px', height: '40px', margin: '0 auto 1.25rem',
           borderRadius: '50%', border: '1.5px solid var(--accent-4)',
@@ -108,20 +107,22 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
 
       <div className="form-row">
         <div>
-          <label className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
+          <label htmlFor="contact-name" className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
             {t('nameLabel')}
           </label>
           <input
+            id="contact-name" className="form-field"
             type="text" required placeholder={t('namePlaceholder')} style={inputStyle}
             maxLength={MAX_LENGTHS.name}
             {...field('name')}
           />
         </div>
         <div>
-          <label className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
+          <label htmlFor="contact-email" className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
             {t('emailLabel')}
           </label>
           <input
+            id="contact-email" className="form-field"
             type="email" required placeholder={t('emailPlaceholder')} style={inputStyle}
             maxLength={MAX_LENGTHS.email}
             {...field('email')}
@@ -129,10 +130,11 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
         </div>
       </div>
       <div>
-        <label className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label htmlFor="contact-service" className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
           {t('serviceLabel')}
         </label>
         <select
+          id="contact-service" className="form-field"
           required
           value={form.service}
           onChange={e => setForm(prev => ({ ...prev, service: e.target.value }))}
@@ -148,10 +150,11 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
 
       {form.service === 'Overig' && (
         <div>
-          <label className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
+          <label htmlFor="contact-reason" className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
             {t('reasonLabel')}
           </label>
           <input
+            id="contact-reason" className="form-field"
             type="text" required placeholder={t('reasonPlaceholder')}
             style={inputStyle}
             maxLength={MAX_LENGTHS.reason}
@@ -161,10 +164,11 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
       )}
 
       <div>
-        <label className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label htmlFor="contact-message" className="eyebrow" style={{ display: 'block', marginBottom: '0.5rem' }}>
           {t('messageLabel')}
         </label>
         <textarea
+          id="contact-message" className="form-field"
           required
           rows={6}
           placeholder={t('messagePlaceholder')}
@@ -180,7 +184,7 @@ export default function ContactForm({ prefilledService = '' }: { prefilledServic
         </p>
       </div>
       {error && (
-        <p style={{
+        <p role="alert" style={{
           fontFamily: 'var(--font-sans)', fontSize: '0.8rem', fontWeight: 300,
           color: 'var(--accent-2)', margin: 0,
         }}>
