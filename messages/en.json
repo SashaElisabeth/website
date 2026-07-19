@@ -69,7 +69,11 @@
       "training": "I trained as a <strong>creative arts therapist</strong>, where I learned to look beyond words alone. Through coaching and creative methods, I make visible what's happening beneath the surface and help people break through patterns.",
       "experience": "Alongside my own practice, I work within <strong>addiction care and youth care</strong>, guiding people through complex situations. I bring that experience into how I work: <em>engaged, clear and without judgement</em>.",
       "drive": "What drives me is the moment someone reconnects with themselves and space opens up for real change.",
-      "tags": ["Registered creative arts therapist", "People-centred", "Connecting"]
+      "tags": [
+        "Registered creative arts therapist",
+        "People-centred",
+        "Connecting"
+      ]
     },
     "contact": {
       "eyebrow": "Let's get acquainted",
@@ -81,7 +85,7 @@
     },
     "footer": {
       "logoName": "S. Elisabeth",
-      "tagline": "vaktherapie & coaching",
+      "tagline": "teambuilding & coaching",
       "copyright": "© 2026 · Sasha Elisabeth"
     }
   },

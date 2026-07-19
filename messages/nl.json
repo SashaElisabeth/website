@@ -69,7 +69,11 @@
       "training": "Ik ben opgeleid als <strong>beeldend vaktherapeut</strong>, hier heb ik geleerd om verder te kijken dan woorden alleen. Met coaching en beeldende werkvormen maak ik zichtbaar wat er van binnen speelt en help ik patronen te doorbreken.",
       "experience": "Naast mijn eigen aanbod werk ik binnen de <strong>verslavingszorg en jeugdzorg</strong>, waar ik mensen begeleid in complexe situaties. Deze ervaring neem ik mee in mijn manier van werken: <em>betrokken, helder en zonder oordeel</em>.",
       "drive": "Wat mij drijft, is het moment waarop iemand weer in contact komt met zichzelf en er ruimte ontstaat voor echte verandering.",
-      "tags": ["Geregistreerd vaktherapeut", "Mensgericht", "Verbindend"]
+      "tags": [
+        "Geregistreerd vaktherapeut",
+        "Mensgericht",
+        "Verbindend"
+      ]
     },
     "contact": {
       "eyebrow": "Laten we kennismaken",
@@ -81,7 +85,7 @@
     },
     "footer": {
       "logoName": "S. Elisabeth",
-      "tagline": "vaktherapie & coaching",
+      "tagline": "teambuilding & coaching",
       "copyright": "© 2026 · Sasha Elisabeth"
     }
   },
