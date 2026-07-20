@@ -205,6 +205,7 @@ body {
   .hero              { min-height: auto; }
   .hero-panel        { padding: 6rem 1.5rem 3.5rem; }
   .hero-logo         { max-height: 110px; margin-bottom: 1.75rem; }
+  .hero-title-line2  { font-size: 1.2rem; }
   .offerings-grid    { grid-template-columns: 1fr; }
   .about-grid        { grid-template-columns: 1fr; gap: 2rem; }
   .about-photo       { display: none; }

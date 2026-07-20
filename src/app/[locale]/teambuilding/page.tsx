@@ -53,8 +53,8 @@ const dataNl: ServicePageData = {
     { label: 'Reiskosten', value: '€ 0,30 / km' },
   ],
   pricing: [
-    { label: 'Basis', price: '€ 850,-', note: 'excl. btw · t/m 12 personen' },
-    { label: 'Extra deelnemer', price: '€ 30,-', note: 'excl. btw · per extra persoon' },
+    { label: 'Basis', price: '€ 850,-', note: 'Exclusief btw · t/m 12 personen' },
+    { label: 'Extra deelnemer', price: '€ 30,-', note: 'Exclusief btw · per extra persoon' },
   ],
   pricingNote: 'Benieuwd wat dit voor jullie team kan betekenen? Vul het contactformulier in.',
   ctaService: 'Teambuilding',

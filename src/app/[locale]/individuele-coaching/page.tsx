@@ -64,9 +64,9 @@ const dataNl: ServicePageData = {
   ],
   includedUnderPraktisch: true,
   pricing: [
-    { label: '5 sessies',  price: '€ 450,-',   note: 'excl. btw · € 90 per sessie' },
-    { label: '7 sessies',  price: '€ 612,50',  note: 'excl. btw · € 87,50 per sessie' },
-    { label: '10 sessies', price: '€ 850,-',   note: 'excl. btw · € 85 per sessie' },
+    { label: '5 sessies',  price: '€ 450,-',   note: 'Exclusief btw · € 90 per sessie' },
+    { label: '7 sessies',  price: '€ 612,50',  note: 'Exclusief btw · € 87,50 per sessie' },
+    { label: '10 sessies', price: '€ 850,-',   note: 'Exclusief btw · € 85 per sessie' },
   ],
   ctaService: 'Individuele Coaching',
   image: '/paint 2.jpeg',
