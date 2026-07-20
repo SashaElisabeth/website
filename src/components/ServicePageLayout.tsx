@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 
@@ -155,11 +156,13 @@ export default function ServicePageLayout({ data }: { data: ServicePageData }) {
         </div>
 
         {/* Photo */}
-        <div style={{ borderRadius: '10px', overflow: 'hidden', aspectRatio: '4/3' }}>
-          <img
+        <div style={{ borderRadius: '10px', overflow: 'hidden', aspectRatio: '4/3', position: 'relative' }}>
+          <Image
             src={data.image}
             alt={data.label}
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            fill
+            sizes="(max-width: 640px) 100vw, 50vw"
+            style={{ objectFit: 'cover' }}
           />
         </div>
       </section>

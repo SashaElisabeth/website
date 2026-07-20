@@ -1,6 +1,8 @@
+import type { Metadata } from 'next';
 import { Link } from '@/i18n/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import ServicePageLayout, { ServicePageData } from '@/components/ServicePageLayout';
+import { buildAlternates, SITE_URL } from '@/lib/seo';
 
 // Page temporarily disabled while the content is finalized.
 const COMING_SOON: boolean = true;
@@ -49,7 +51,7 @@ const dataNl: ServicePageData = {
   ],
   investeringIntro: 'Omdat elk aanbod op maat wordt samengesteld, wordt de investering afgestemd op de vraag, duur en groepsgrootte.',
   pricing: [
-    { label: 'Per dagdeel', price: 'Vanaf € 950,-', note: 'excl. btw' },
+    { label: 'Per dagdeel', price: 'Vanaf € 950,-', note: 'Exclusief btw' },
   ],
   included: [
     'Kennismakingsgesprek (1 uur)',
@@ -120,6 +122,34 @@ const dataEn: ServicePageData = {
   ctaService: 'Vrouwen op de Werkvloer',
   image: '/paint 3.jpeg',
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Metadata.vrouwen' });
+  const alternates = buildAlternates('vrouwen', locale);
+  const ogImage = `${SITE_URL}${encodeURI('/paint 3.jpeg')}`;
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    alternates,
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: alternates.canonical,
+      siteName: 'Sasha Elisabeth',
+      images: [ogImage],
+      locale: locale === 'en' ? 'en_US' : 'nl_NL',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
+      images: [ogImage],
+    },
+  };
+}
 
 export default async function VrouwenOpDeWerkvloerPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

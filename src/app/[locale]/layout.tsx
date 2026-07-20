@@ -4,6 +4,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { SITE_URL } from "@/lib/seo";
 import Nav from "@/components/Nav";
 import "../globals.css";
 
@@ -45,7 +46,11 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
   return {
-    title: t("title"),
+    metadataBase: new URL(SITE_URL),
+    title: {
+      template: `%s | ${t("title")}`,
+      default: t("title"),
+    },
     description: t("description"),
     icons: {
       icon: "/logo.png",
@@ -67,6 +72,21 @@ export default async function LocaleLayout({
   }
   setRequestLocale(locale);
 
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const tContact = await getTranslations({ locale, namespace: "Home.contact" });
+  const homeUrl = locale === "en" ? `${SITE_URL}/en` : SITE_URL;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "Sasha Elisabeth",
+    description: t("description"),
+    url: homeUrl,
+    image: `${SITE_URL}/portfolio.jpeg`,
+    email: tContact("email"),
+    areaServed: "NL",
+  };
+
   return (
     <html
       lang={locale}
@@ -74,6 +94,10 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <NextIntlClientProvider>
           <Nav />
           {children}

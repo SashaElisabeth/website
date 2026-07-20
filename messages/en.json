@@ -1,7 +1,19 @@
 {
   "Metadata": {
-    "title": "Sasha Elisabeth — Teambuilding & Coaching",
-    "description": "Creative arts therapy and coaching for people who want to discover themselves and grow."
+    "title": "Sasha Elisabeth — Vaktherapie & Coaching",
+    "description": "Creative arts therapy and coaching for people who want to discover themselves and grow. Team building, individual coaching and coaching for women in the workplace.",
+    "teambuilding": {
+      "title": "Team Building Training",
+      "description": "Team-building training for teams that want to collaborate better. Coaching through creative methods, from € 850 for groups of up to 12."
+    },
+    "coaching": {
+      "title": "Individual Coaching Programmes",
+      "description": "Individual coaching programmes of 5, 7 or 10 sessions. Gain insight, connection and lasting change through coaching and creative methods."
+    },
+    "vrouwen": {
+      "title": "Coaching for Women in the Workplace",
+      "description": "A coaching programme for women in the workplace: build confidence, position and communication skills at work."
+    }
   },
   "Nav": {
     "home": "Home",

@@ -1,5 +1,7 @@
-import { setRequestLocale } from 'next-intl/server';
+import type { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import ServicePageLayout, { ServicePageData } from '@/components/ServicePageLayout';
+import { buildAlternates, SITE_URL } from '@/lib/seo';
 
 const dataNl: ServicePageData = {
   label: 'Individuele Coaching',
@@ -142,6 +144,34 @@ const dataEn: ServicePageData = {
   ctaService: 'Individuele Coaching',
   image: '/paint 2.jpeg',
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Metadata.coaching' });
+  const alternates = buildAlternates('coaching', locale);
+  const ogImage = `${SITE_URL}${encodeURI('/paint 2.jpeg')}`;
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    alternates,
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: alternates.canonical,
+      siteName: 'Sasha Elisabeth',
+      images: [ogImage],
+      locale: locale === 'en' ? 'en_US' : 'nl_NL',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
+      images: [ogImage],
+    },
+  };
+}
 
 export default async function IndividueleCoachingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

@@ -1,5 +1,7 @@
-import { setRequestLocale } from 'next-intl/server';
+import type { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import ServicePageLayout, { ServicePageData } from '@/components/ServicePageLayout';
+import { buildAlternates, SITE_URL } from '@/lib/seo';
 
 const dataNl: ServicePageData = {
   label: 'Teambuilding',
@@ -120,6 +122,34 @@ const dataEn: ServicePageData = {
   ctaService: 'Teambuilding',
   image: '/paint 1.jpeg',
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Metadata.teambuilding' });
+  const alternates = buildAlternates('teambuilding', locale);
+  const ogImage = `${SITE_URL}${encodeURI('/paint 1.jpeg')}`;
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    alternates,
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: alternates.canonical,
+      siteName: 'Sasha Elisabeth',
+      images: [ogImage],
+      locale: locale === 'en' ? 'en_US' : 'nl_NL',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
+      images: [ogImage],
+    },
+  };
+}
 
 export default async function TeambuildingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

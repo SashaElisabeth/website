@@ -1,6 +1,9 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactForm from "@/components/ContactForm";
+import { buildAlternates, SITE_URL } from "@/lib/seo";
 
 function BotanicalOrnament({ size = 48, color = "var(--accent-1)", opacity = 0.35 }: {
   size?: number; color?: string; opacity?: number;
@@ -26,6 +29,32 @@ type PageProps = {
   searchParams: Promise<{ service?: string }>;
 };
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const alternates = buildAlternates("home", locale);
+  const ogImage = `${SITE_URL}/portfolio.jpeg`;
+
+  return {
+    alternates,
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: alternates.canonical,
+      siteName: "Sasha Elisabeth",
+      images: [ogImage],
+      locale: locale === "en" ? "en_US" : "nl_NL",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: [ogImage],
+    },
+  };
+}
+
 export default async function Home({ params, searchParams }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -43,9 +72,12 @@ export default async function Home({ params, searchParams }: PageProps) {
       {/* ─────────────── HERO ─────────────── */}
       <section id="home" className="hero" style={{ background: "var(--accent-1)" }}>
         <div className="hero-panel">
-          <img
+          <Image
             src="/logo.png"
             alt={t("hero.logoAlt")}
+            width={1652}
+            height={455}
+            priority
             className="hero-logo fade-up"
             style={{ filter: "brightness(0) invert(1)" }}
           />
@@ -141,8 +173,8 @@ export default async function Home({ params, searchParams }: PageProps) {
                   {t("aanbod.teambuilding.title")}
                 </h3>
               </div>
-              <div style={{ height: "180px", flexShrink: 0, overflow: "hidden" }}>
-                <img src="/paint 1.jpeg" alt={t("aanbod.teambuilding.label")} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              <div style={{ height: "180px", flexShrink: 0, overflow: "hidden", position: "relative" }}>
+                <Image src="/paint 1.jpeg" alt={t("aanbod.teambuilding.label")} fill sizes="(max-width: 640px) 100vw, (max-width: 1023px) 50vw, 33vw" style={{ objectFit: "cover" }} />
               </div>
               <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
                 <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
@@ -183,8 +215,8 @@ export default async function Home({ params, searchParams }: PageProps) {
                 {t("aanbod.coaching.title")}
               </h3>
             </div>
-            <div style={{ height: "180px", flexShrink: 0, overflow: "hidden" }}>
-              <img src="/paint 2.jpeg" alt={t("aanbod.coaching.label")} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <div style={{ height: "180px", flexShrink: 0, overflow: "hidden", position: "relative" }}>
+              <Image src="/paint 2.jpeg" alt={t("aanbod.coaching.label")} fill sizes="(max-width: 640px) 100vw, (max-width: 1023px) 50vw, 33vw" style={{ objectFit: "cover" }} />
             </div>
             <div style={{ padding: "1.5rem 1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
@@ -232,7 +264,7 @@ export default async function Home({ params, searchParams }: PageProps) {
                 </h3>
               </div>
               <div style={{ height: "180px", flexShrink: 0, overflow: "hidden", position: "relative" }}>
-                <img src="/paint 3.jpeg" alt={t("aanbod.vrouwen.label")} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <Image src="/paint 3.jpeg" alt={t("aanbod.vrouwen.label")} fill sizes="(max-width: 640px) 100vw, (max-width: 1023px) 50vw, 33vw" style={{ objectFit: "cover" }} />
                 <div style={{
                   position: "absolute", inset: 0,
                   background: "rgba(109,76,58,0.5)",
@@ -288,12 +320,14 @@ export default async function Home({ params, searchParams }: PageProps) {
         {/* Photo — hidden on mobile */}
         <div className="about-photo" style={{
           borderRadius: "10px", overflow: "hidden",
-          aspectRatio: "4/5", maxHeight: "520px",
+          aspectRatio: "4/5", maxHeight: "520px", position: "relative",
         }}>
-          <img
+          <Image
             src="/portfolio.jpeg"
             alt={t("overMij.photoAlt")}
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            fill
+            sizes="(max-width: 640px) 100vw, 50vw"
+            style={{ objectFit: "cover" }}
           />
         </div>
 
