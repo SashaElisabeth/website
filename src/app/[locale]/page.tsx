@@ -59,7 +59,7 @@ export default async function Home({ params, searchParams }: PageProps) {
             <span className="fade-up delay-1" style={{ display: "block", marginBottom: "0.4rem" }}>
               {t("hero.titleLine1")}
             </span>
-            <span className="fade-up delay-2" style={{ display: "block" }}>
+            <span className={`fade-up delay-2${locale === "en" ? " hero-title-line2" : ""}`} style={{ display: "block", whiteSpace: locale === "en" ? "nowrap" : undefined }}>
               {t("hero.titleLine2")}
             </span>
           </h1>
