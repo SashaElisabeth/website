@@ -10,7 +10,7 @@ Website for a Dutch art therapy and coaching practice.
 
 - **Framework:** Next.js (App Router) with Tailwind CSS v4
 - **Structure:** Single-page application — all content lives on `/` (page.tsx), scrolling through sections with anchor links (`#home`, `#aanbod`, `#over-mij`, `#contact`)
-- **i18n:** Bilingual via `next-intl` — Dutch (default, no prefix) at `/`, English at `/en`. Routes live under `src/app/[locale]/`; strings in `messages/nl.json` / `messages/en.json`; config in `src/i18n/`; `src/middleware.ts` handles locale detection + a `NEXT_LOCALE` cookie. Language switcher is in `Nav.tsx`.
+- **i18n:** Bilingual via `next-intl` — Dutch (default, no prefix) at `/`, English at `/en`. Routes live under `src/app/[locale]/`; strings in `messages/nl.json` / `messages/en.json`; config in `src/i18n/`; `src/proxy.ts` (Next.js 16's renamed `middleware.ts` convention) handles locale detection + a `NEXT_LOCALE` cookie. Language switcher is in `Nav.tsx`.
 - **Fonts:** Bodoni Moda (logo), Cormorant Garamond (display/headings), Dancing Script (script accent), Jost (body/UI) — all loaded via `next/font/google` in `layout.tsx`
 - **Styling:** CSS variables in `globals.css`, inline styles in components. No Tailwind utility classes in JSX — use CSS variables and inline styles for consistency with the design system.
 
@@ -20,7 +20,7 @@ Website for a Dutch art therapy and coaching practice.
 |------|---------|
 | `src/app/[locale]/page.tsx` | Single-page layout (all sections) |
 | `src/app/[locale]/layout.tsx` | Root layout — fonts, Nav, `NextIntlClientProvider` |
-| `src/middleware.ts` | next-intl locale routing/detection |
+| `src/proxy.ts` | next-intl locale routing/detection |
 | `src/i18n/routing.ts`, `navigation.ts`, `request.ts` | next-intl config (locales, `Link`/`usePathname`, message loading) |
 | `messages/nl.json`, `messages/en.json` | All UI/page strings, per locale |
 | `src/app/globals.css` | Design tokens, CSS variables, utility classes |
@@ -39,7 +39,7 @@ Website for a Dutch art therapy and coaching practice.
 
 1. `#home` — Full-width, centered hero: `logo.png` (inverted white via `filter: brightness(0) invert(1)`) on a dark chestnut (`--accent-1`) background, `min-height: 88vh` (desktop). No hero photo.
 2. `#aanbod` — Three full-width service blocks, each with a 3-col inner grid (Investering | Inbegrepen | Praktisch) + Op maat footer:
-   - **Teambuilding** — €850,- base / €30 per extra person (>13), chestnut dark background
+   - **Teambuilding** — €850,- base / €30 per extra person (>12), chestnut dark background
    - **Individuele Coaching** — 3 trajectory tiers (5/7/10 sessies), blush peach background
    - **Vrouwenprogramma** — €595 per deelneemster, sage striped background (currently disabled/"binnenkort" — see `COMING_SOON` flag in `vrouwen-op-de-werkvloer/page.tsx`)
 3. `#over-mij` — Photo placeholder + personal intro + qualification tags
@@ -95,7 +95,7 @@ Each service page passes an `image` prop (e.g. `'/paint 1.jpeg'`) to `ServicePag
 Required env vars (see `.env.example`, copy to `.env.local` — gitignored):
 - `RESEND_API_KEY` — from the Resend dashboard. Without it the route returns a controlled 500 and the form shows a Dutch error message (form data is preserved, nothing crashes).
 - `RESEND_TO_EMAIL` — inbox that receives submissions (defaults to `sasha_elisabeth@outlook.com`).
-- `RESEND_FROM_EMAIL` — sender address; **must be on a domain verified in Resend**. Defaults to the Resend sandbox address (`onboarding@resend.dev`), which only works for testing — set a real verified sender before relying on this in production.
+- `RESEND_FROM_EMAIL` — sender address; **must be on a domain verified in Resend**. Falls back to `noreply@sashaelisabeth.nl` (the verified production domain) if unset — don't let this fallback silently drift out of sync if the sending domain ever changes.
 
 The form shows a loading state (`Versturen…`, disabled button) while the request is in flight, and a Dutch error message on failure instead of the success screen.
 
@@ -129,6 +129,8 @@ Layout is driven by CSS classes in `globals.css` — inline styles handle colour
 | Mobile | ≤ 640px | Single column everywhere, hero logo max-height 110px |
 
 **Hero:** `.hero` is a full-width flex container (`88vh` desktop, `82vh` iPad, content-height mobile — not full viewport, so the next section peeks into view as a scroll cue) centering `.hero-panel` (max-width 760px, centered text). `.hero-logo` (the inverted-white `logo.png`) scales down per breakpoint via the table above — no hero photo.
+
+The hero title (`hero.titleLine1`/`hero.titleLine2`) is one `<h1>` with two `display: block` spans, not two separate `<h1>`s. The English `titleLine2` ("Creating Connections Through Art.") is long enough to wrap on narrow phones, so it alone gets `white-space: nowrap` plus a mobile-only `.hero-title-line2` class (`globals.css`, ≤640px breakpoint) that shrinks it to `1.2rem` — applied conditionally on `locale === "en"` in `page.tsx`, since the Dutch line2 is short and doesn't need it. If either language's copy changes and gets noticeably longer/shorter, recheck this at 320–430px viewport widths for horizontal overflow before assuming it still fits.
 
 ## Conventions
 

@@ -1,7 +1,19 @@
 {
   "Metadata": {
-    "title": "Sasha Elisabeth — Teambuilding & Coaching",
-    "description": "Vaktherapie en coaching voor mensen die zichzelf willen ontdekken en groeien."
+    "title": "Sasha Elisabeth — Vaktherapie & Coaching",
+    "description": "Vaktherapie en coaching voor mensen die zichzelf willen ontdekken en groeien. Teambuilding, individuele coaching en coaching voor vrouwen op de werkvloer.",
+    "teambuilding": {
+      "title": "Teambuilding Training",
+      "description": "Teambuilding training voor teams die sterker willen samenwerken. Coaching met beeldende werkvormen, vanaf € 850,- voor groepen tot 12 personen."
+    },
+    "coaching": {
+      "title": "Individuele Coaching Trajecten",
+      "description": "Individuele coachingtrajecten van 5, 7 of 10 sessies. Inzicht, verbinding en blijvende verandering met coaching en beeldende werkvormen."
+    },
+    "vrouwen": {
+      "title": "Coaching voor Vrouwen op de Werkvloer",
+      "description": "Coachingprogramma voor vrouwen op de werkvloer: meer zelfvertrouwen, positie en communicatie op het werk."
+    }
   },
   "Nav": {
     "home": "Home",

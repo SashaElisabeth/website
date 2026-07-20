@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { usePathname, Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
@@ -73,9 +74,12 @@ export default function Nav() {
       }}>
         {/* Logo — no padding, fills full nav height */}
         <a href={homeHref} className="nav-logo" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-          <img
+          <Image
             src="/logo.png"
             alt={t('logoAlt')}
+            width={1652}
+            height={455}
+            priority
             style={{ height: 'auto', maxHeight: '44px', width: 'auto', mixBlendMode: 'multiply', display: 'block' }}
           />
         </a>

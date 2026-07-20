@@ -110,7 +110,7 @@ export async function POST(request: Request) {
 
   const resend = new Resend(apiKey);
   const to = process.env.RESEND_TO_EMAIL || 'sasha_elisabeth@outlook.com';
-  const from = process.env.RESEND_FROM_EMAIL || 'Sasha Elisabeth <noreply@sashaelisabeth.com>';
+  const from = process.env.RESEND_FROM_EMAIL || 'Sasha Elisabeth <noreply@sashaelisabeth.nl>';
   const reasonText = typeof reason === 'string' ? reason.trim() : '';
   const subjectService = service === 'Overig' && reasonText ? `Overig — ${reasonText}` : service;
 
