@@ -15,71 +15,70 @@
   "Home": {
     "hero": {
       "logoAlt": "Sasha Elisabeth — Vaktherapie en Coaching",
-      "titleLine1": "Stronger together,",
-      "titleLine2": "in motion and in image.",
+      "titleLine1": "Stronger Together.",
+      "titleLine2": "Creating Connections Through Art.",
       "intro": "My name is <strong>Sasha Elisabeth</strong> and I guide teams and individuals in making visible what's happening beneath the surface, and the patterns that move with it. Coaching and creative methods open up space for insight, connection and lasting growth.",
       "cta": "See what I offer"
     },
     "aanbod": {
-      "eyebrow": "What I offer",
-      "title": "Working in a way that suits you.",
-      "cta": "Book an appointment",
+      "eyebrow": "What I Offer",
+      "title": "Support tailored to your needs.",
+      "cta": "Book an introductory call",
       "teambuilding": {
-        "label": "Teambuilding",
-        "title": "Stronger together through creative work",
+        "label": "Team Building",
+        "title": "Building stronger teams through creative practice",
         "bullets": [
-          "Connection and collaboration within your team",
-          "Guided by creative, image-based methods",
-          "Insights you can apply right away"
+          "Strengthen connection and collaboration within your team",
+          "Guided creative activities that encourage insight and teamwork",
+          "Practical tools and takeaways you can apply immediately"
         ],
-        "price": "€ 850,-",
-        "priceNote": "excl. VAT · groups up to 13 people",
+        "price": "From € 850,-",
+        "priceNote": "Excluding VAT · Groups of up to 12 participants",
         "cardCta": "See what's possible"
       },
       "coaching": {
         "label": "Individual Coaching",
-        "title": "Insight into what's going on, movement within yourself",
+        "title": "Gain insight. Create lasting change.",
         "bullets": [
-          "Through your employer or on your own initiative",
-          "Trajectories focused on personal and work-related growth",
-          "Coaching through creative, image-based work"
+          "Available through your employer or on your own initiative",
+          "Tailored coaching for personal and professional development",
+          "Coaching supported by creative methods"
         ],
-        "price": "from € 450,-",
-        "priceNote": "excl. VAT · per trajectory",
-        "cardCta": "Find what fits you"
+        "price": "From € 450,-",
+        "priceNote": "Excluding VAT · Per programme",
+        "cardCta": "Find the approach that suits you"
       },
       "vrouwen": {
-        "label": "Women in the workplace",
-        "title": "Standing stronger in your work and position",
+        "label": "Women in the Workplace",
+        "title": "Building confidence in your role and career",
         "bullets": [
-          "For organisations who want to support their female employees",
-          "Focus on position, communication and boundaries",
-          "Coaching through creative, image-based methods"
+          "Designed for organisations that want to support female employees",
+          "Focus on communication, boundaries, and professional presence",
+          "Coaching through creative methods"
         ],
         "price": "€ 595,-",
-        "priceNote": "excl. VAT · per participant",
+        "priceNote": "Excluding VAT · Per participant",
         "comingSoon": "Coming soon"
       }
     },
     "overMij": {
       "eyebrow": "About me",
       "photoAlt": "Sasha Elisabeth",
-      "title": "Working from doing, not just from thinking.",
-      "intro": "My name is <strong>Sasha Elisabeth</strong>. I guide teams and individuals in creating insight, connection and momentum.",
-      "training": "I trained as a <strong>creative arts therapist</strong>, where I learned to look beyond words alone. Through coaching and creative methods, I make visible what's happening beneath the surface and help people break through patterns.",
-      "experience": "Alongside my own practice, I work within <strong>addiction care and youth care</strong>, guiding people through complex situations. I bring that experience into how I work: <em>engaged, clear and without judgement</em>.",
-      "drive": "What drives me is the moment someone reconnects with themselves and space opens up for real change.",
+      "title": "Working through experience, not just reflection.",
+      "intro": "My name is <strong>Sasha Elisabeth</strong>. I support individuals and teams in creating insight, connection, and meaningful change.",
+      "training": "As a qualified <strong>Art Therapist</strong>, I learned to look beyond words. Through coaching and creative methods, I help make visible what is happening beneath the surface, enabling people to recognise patterns, gain new perspectives, and move forward.",
+      "experience": "Alongside my own practice, I work in <strong>addiction care and youth care</strong>, supporting people in complex and challenging situations. This experience shapes the way I work: <em>with empathy, clarity, and without judgement</em>.",
+      "drive": "What drives me is witnessing the moment someone reconnects with themselves, when new possibilities emerge and lasting change begins.",
       "tags": [
-        "Registered creative arts therapist",
-        "People-centred",
-        "Connecting"
+        "Registered Art Therapist",
+        "Person-centred"
       ]
     },
     "contact": {
-      "eyebrow": "Let's get acquainted",
-      "title": "The first conversation is always without obligation.",
-      "intro": "Want to know more, or ready to make a request? Fill in the contact form and I'll get back to you as soon as possible.",
-      "process": "We always start with an online introductory conversation of up to one hour. In it, we discuss your wishes and expectations, the practical details, and figure out together what fits your situation best.",
+      "eyebrow": "Let's connect",
+      "title": "Our first conversation is always free of charge and without obligation.",
+      "intro": "Would you like to learn more or enquire about working together? Simply fill out the contact form, and I'll get back to you as soon as possible.",
+      "process": "We always begin with an online introductory call of up to one hour. During this conversation, we'll discuss your needs, expectations, and the practical details, while exploring together what best suits your situation.",
       "ready": "Ready to discover what's possible?",
       "email": "sasha_elisabeth@outlook.com"
     },
@@ -115,7 +114,7 @@
     "back": "Back",
     "aanbod": "What I offer",
     "werkwijze": "How it works",
-    "praktisch": "Practical details",
+    "praktisch": "Practical Information",
     "inbegrepen": "Included",
     "investering": "Investment",
     "investeringTitle": "Transparent pricing, no surprises.",

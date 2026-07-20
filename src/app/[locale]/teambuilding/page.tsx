@@ -63,42 +63,42 @@ const dataNl: ServicePageData = {
 
 const dataEn: ServicePageData = {
   label: 'Teambuilding',
-  title: 'Stronger together through creative work.',
-  heroSubtitle: "Collaboration grows stronger when there's room for insight, experience and connection. In these teambuilding trainings I use coaching and creative, image-based methods to make visible what's going on within a team, and to bring movement to it.",
+  title: 'Building stronger teams through creative practice.',
+  heroSubtitle: 'Collaboration thrives when there is space for insight, shared experiences, and genuine connection. Through my team-building programmes, I combine coaching with creative methods to uncover what is happening within a team, creating awareness and helping teams move forward together.',
   heroBg: 'var(--accent-1)',
   offerings: [
     {
       title: 'Training – Trust',
-      quote: '"Build self-confidence and stronger collaboration within the team."',
-      body: 'This training focuses on strengthening mutual trust within the team. We work on safety, openness and daring to take up your place.',
+      quote: '"Build trust, strengthen collaboration, and create a more connected team."',
+      body: 'This training focuses on strengthening trust within the team. Together, we create a safe environment where openness is encouraged and team members feel confident to contribute, take ownership, and support one another.',
     },
     {
       title: 'Training – Communication',
-      quote: '"Help your team understand their communication style, so collaboration and team dynamics improve."',
-      body: 'This training focuses on making communication patterns and interactions within the team visible. We explore how behaviours and patterns play out, so team members can align and collaborate more effectively.',
+      quote: '"Help your team understand communication styles to improve collaboration and team dynamics."',
+      body: 'This training focuses on making communication patterns and interactions within the team visible. Together, we explore how behaviours influence one another, enabling team members to communicate more effectively, align their efforts, and work together with greater confidence.',
     },
   ],
   aanbodFooter: "For trajectories, larger groups or specific questions, I'm happy to put together a tailored proposal that fits your organisation and goals.",
   processTitleWerkwijze: 'From introduction to training.',
   werkwijzeIntro: [
-    "We start with an online introductory conversation where we discuss the team's wishes, goals and context.",
-    'During the training we work with a combination of psycho-education, coaching and creative methods. This helps make patterns and dynamics within the team visible and open for discussion, in a way that goes beyond just talking.',
+    "We start with an online introductory conversation where we discuss the team's needs, goals and context.",
+    'During the training I work with a combination of psychoeducation, coaching and creative methods to help uncover patterns and team dynamics. This creates space for meaningful conversations and insights that go beyond words alone.',
   ],
   steps: [
     {
       number: '01',
       title: 'Introductory conversation',
-      body: "We discuss the team's question, context and goals. What's going on? What do you want to achieve? Based on that, I tailor the training to your situation.",
+      body: "Together, we discuss your team's needs, the context, and your objectives. What's happening within the team? What would you like to achieve? Based on this conversation, I tailor the training to your specific situation.",
     },
     {
       number: '02',
       title: 'The training',
-      body: 'A half-day session in which the team works with creative materials. Through targeted exercises, themes such as communication, trust and collaboration are explored in an experiential way.',
+      body: 'During this half-day training, your team works with creative materials through carefully guided exercises. Themes such as communication, trust, and collaboration are explored in an experiential way, going beyond discussion alone.',
     },
     {
       number: '03',
       title: 'Reflection & feedback',
-      body: 'After the creative work, we reflect together on what happened. What did you notice? What surprised you? What parallels are there with everyday collaboration? Optional: a written summary.',
+      body: 'After the creative work, we reflect together on the experience. What did you notice? What surprised you? What parallels can you draw with your day-to-day collaboration? A written evaluation can be provided on request.',
     },
   ],
   included: [
@@ -108,15 +108,15 @@ const dataEn: ServicePageData = {
     'Optional evaluation',
   ],
   practical: [
-    { label: 'Duration',     value: 'Half a day (extending to a full day is possible)' },
-    { label: 'Location',     value: 'At your own location' },
-    { label: 'Travel costs', value: '€ 0.30 / km' },
+    { label: 'Duration',     value: 'Half-day training (full-day option available)' },
+    { label: 'Location',     value: "At your organisation's location" },
+    { label: 'Travel costs', value: '€0.30 per kilometre' },
   ],
   pricing: [
-    { label: 'Basic', price: '€ 850,-', note: 'excl. VAT · up to 12 people' },
-    { label: 'Extra participant', price: '€ 30,-', note: 'excl. VAT · per extra person' },
+    { label: 'Standard training', price: '€ 850,-', note: 'Excluding VAT · up to 12 participants' },
+    { label: 'Additional participant', price: '€ 30,-', note: 'Excluding VAT · per extra person' },
   ],
-  pricingNote: 'Curious what this could mean for your team? Fill in the contact form.',
+  pricingNote: "Curious about what this training could mean for your team? Fill out the contact form, and I'll be happy to discuss the possibilities with you.",
   ctaService: 'Teambuilding',
   image: '/paint 1.jpeg',
 };

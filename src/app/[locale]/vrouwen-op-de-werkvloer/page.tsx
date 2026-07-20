@@ -107,7 +107,7 @@ const dataEn: ServicePageData = {
   ],
   investeringIntro: "Because every offer is put together on a tailored basis, the investment is matched to the question, duration and group size.",
   pricing: [
-    { label: 'Per half-day', price: 'From € 950,-', note: 'excl. VAT' },
+    { label: 'Per half-day', price: 'From € 950,-', note: 'Excluding VAT' },
   ],
   included: [
     'Introductory conversation (1 hour)',
